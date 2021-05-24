@@ -131,7 +131,7 @@ function render_form_select_board($arr_tableros, $boardId = null, $arr_cards = n
         /* $html .= '<input style="margin: 15px;" class="btn btn-info" type="submit" name="submit" value="Descargar CSV">';*/
         $html .= '<input style="margin: 15px;" class="btn-lg btn btn-secondary" type="submit" name="submit" value="Descargar JSON">';
         $html .= '<input style="margin: 15px;" class="btn-lg btn btn-danger" type="submit" name="submit" formtarget="_blank" value="Descargar PDF">';
-          $html .= '<input style="margin: 15px;" class="btn-lg btn btn-info" type="submit" name="submit" formtarget="_blank" value="Test PDF">';
+         /* $html .= '<input style="margin: 15px;" class="btn-lg btn btn-info" type="submit" name="submit" formtarget="_blank" value="Test PDF">';*/
         $html .= "</div>";
     }
     /*FILTROS*/
