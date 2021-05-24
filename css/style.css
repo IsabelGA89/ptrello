@@ -1,0 +1,11 @@
+#login_buttons button{
+    margin: 10px;
+    padding: 10px;
+}
+
+#cards-box{
+   /* overflow: auto;*/
+}
+#select-board-section{
+   margin: 15px;
+}
