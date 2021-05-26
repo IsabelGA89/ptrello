@@ -2,7 +2,6 @@
 /*require "functions.php";*/
 require "classes/trello_api.php";
 require "classes/PDF.php";
-
 // require "print_pdf.php";
 
 session_start();
@@ -10,8 +9,8 @@ session_start();
 
 // Test user acreditations :
 $defaultUserName = "isabelgatfg";
-$defaultKey = 'SECRET';
-$defaultToken = "SECRET";
+$defaultKey = '46115a7dcf49746db66a0395e4bd1bee';
+$defaultToken = "b2ce7110f3616705713bd97f12fc948dd51fbbbd32d49572fe618b1c463be4f7";
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 
@@ -181,6 +180,8 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <!--Tailwindcss-->
+    <link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet">
     <!--Personal css-->
     <link rel="stylesheet" href="css/style.css">
     <title>Consultas a tableros de Trello</title>
@@ -258,17 +259,14 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
             if (isset($arr_cards) && $arr_cards != "") {
                 echo "<h2>Previsualización</h2>";
                 echo "<br/>";
-                echo '<div class="container" style="overflow:auto; /*width:auto;*/ height: 500px;">';
-                echo "<div class='jumbotron' style='background-color: floralwhite'>";
+                echo '<div class="bg-blue w-full p-8 flex justify-center font-sans" >';
                 echo "<div  id='cards-box'>";
-                echo '<pre>';
-                print_r($arr_cards);
-                echo '</pre>';
-                echo "</div>";
+                foreach ($arr_cards as $card){
+                    render_card($card);
+                }
                 echo "</div>";
                 echo "</div>";
             }
-
             ?>
             <?php
             echo "<hr/>";
@@ -283,12 +281,6 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
         <!---->
     </div>
 
-    <!--<div class="jumbotron" id="arr_cards">
-        <?php
-/*
-        */?>
-
-    </div>-->
 </div>
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
