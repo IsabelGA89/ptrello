@@ -9,8 +9,8 @@ session_start();
 
 // Test user acreditations :
 $defaultUserName = "isabelgatfg";
-$defaultKey = '46115a7dcf49746db66a0395e4bd1bee';
-$defaultToken = "b2ce7110f3616705713bd97f12fc948dd51fbbbd32d49572fe618b1c463be4f7";
+$defaultKey = 'SECRET';
+$defaultToken = "SECRET";
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 
