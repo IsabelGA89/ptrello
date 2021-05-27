@@ -1,8 +1,6 @@
 <?php
 require "functions.php";
 
-
-
 session_start();
 $arr_data =  unserialize($_SESSION['data']);
 
@@ -123,8 +121,6 @@ $html .="</fieldset>";
       ?>
 
     </div>
-
-
 
   </body>
 

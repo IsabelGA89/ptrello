@@ -2,15 +2,15 @@
 /*require "functions.php";*/
 require "classes/trello_api.php";
 require "classes/PDF.php";
-// require "print_pdf.php";
+//require "print_pdf.php";
 
 session_start();
 
 
 // Test user acreditations :
 $defaultUserName = "isabelgatfg";
-$defaultKey = 'SECRET';
-$defaultToken = "SECRET";
+$defaultKey = '46115a7dcf49746db66a0395e4bd1bee';
+$defaultToken = "b2ce7110f3616705713bd97f12fc948dd51fbbbd32d49572fe618b1c463be4f7";
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 
@@ -218,8 +218,8 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
                 <li>Rellene, o no, la sección de Login en función del tablero al que quiera acceder.</li>
                 <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
                 <li>Se visualizará en fondo blanco un listado con las cards de dicho tablero</li>
-                <li>Puede descargar la versión en csv de lo que le está mostrando la sección "Respuesta - Cards"</li>
-                <li>Puede descargar la versión en pdf de lo que le está mostrando la sección "Respuesta - Cards"</li>
+                <li>Puede descargar la versión en json de lo que le está mostrando la sección "Previsualización"</li>
+                <li>Puede descargar la versión en pdf de lo que le está mostrando la sección "Previsualización"</li>
             </ol>
         </div>
     </div>
@@ -259,7 +259,7 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
             if (isset($arr_cards) && $arr_cards != "") {
                 echo "<h2>Previsualización</h2>";
                 echo "<br/>";
-                echo '<div class="bg-blue w-full p-8 flex justify-center font-sans" >';
+                echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
                 echo "<div  id='cards-box'>";
                 foreach ($arr_cards as $card){
                     render_card($card);

@@ -103,11 +103,11 @@ function check_in_range($fecha_inicio, $fecha_fin, $fecha)
     $fecha = strtotime($fecha);
 
     if (($fecha >= $fecha_inicio) && ($fecha <= $fecha_fin)) {
-        // echo "$fecha Entra en rango <br/>";
+       //echo "$fecha Entra en rango <br/>";
         return true;
 
     } else {
-        // echo "$fecha NO entra en rango<br/>";
+        //echo "$fecha NO entra en rango<br/>";
         return false;
 
     }
