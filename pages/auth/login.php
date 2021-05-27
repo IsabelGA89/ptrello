@@ -28,7 +28,7 @@ if(isset($_POST['login'])) {
         } else {
             if (password_verify($password, $result['PASSWORD'])) {
                 $_SESSION['user_id'] = $result['ID'];
-                header('Location:../index.php');
+                header('Location:../../index.php');
                 exit;
             } else {
                 $msj ='<p class="bg-danger">El usuario o la contraseña están equivocados.</p>';
@@ -106,7 +106,7 @@ if(isset($_POST['login'])) {
             <p class="text-gray-100">
                 Identificate
             </p>
-            <form method="post" action="./index.php" name="signin-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+            <form method="post" action="../../index.php" name="signin-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class="pb-2 pt-4">
                     <input type="text" name="username" pattern="[a-zA-Z0-9]+" required placeholder="Username"
                            class="block w-full p-4 text-lg rounded-sm bg-black">
