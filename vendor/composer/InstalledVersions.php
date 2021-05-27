@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '0ef8e24e667e189213d9de2c1cf677608bbf73b6',
+    'reference' => '6556ec2fbfcbf4c14abe68d3ac2f91ecec8e2ee0',
     'name' => '__root__',
   ),
   'versions' => 
@@ -42,7 +42,16 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '0ef8e24e667e189213d9de2c1cf677608bbf73b6',
+      'reference' => '6556ec2fbfcbf4c14abe68d3ac2f91ecec8e2ee0',
+    ),
+    'alrik11es/cowsayphp' => 
+    array (
+      'pretty_version' => '1.2.0',
+      'version' => '1.2.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '080dc10c8f5420fef35163569293601f17124eeb',
     ),
     'heroku/heroku-buildpack-php' => 
     array (
