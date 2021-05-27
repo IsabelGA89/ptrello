@@ -1,10 +1,13 @@
 <?php
-/*require "functions.php";*/
-require "classes/trello_api.php";
-require "classes/PDF.php";
-//require "print_pdf.php";
+require "./classes/trello_api.php";
+require "./classes/PDF.php";
 
 session_start();
+
+/*if((!$_SESSION['user_id'])){
+    header('Location: pages/login.php');
+    exit;
+}*/
 
 
 // Test user acreditations :
@@ -28,9 +31,9 @@ if (isset($_POST['login'])) {
 }
 
 if (isset($_POST['submit']) == "Seleccionar") {
-    if($_SESSION['boardId'] != $_POST['board'] ){
+    if ($_SESSION['boardId'] != $_POST['board']) {
 
-        $_SESSION['boardId'] =  $_POST['board'];
+        $_SESSION['boardId'] = $_POST['board'];
     }
     $boardId = $_SESSION['boardId'];
 }
@@ -39,7 +42,6 @@ $key = $_SESSION['access_data']['key'] ?? $defaultKey;
 $token = $_SESSION['access_data']['token'] ?? $defaultToken;
 $user = $_SESSION['access_data']['user'] ?? $defaultUserName;
 $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
-
 
 
 //Consulta a los tableros:
@@ -52,7 +54,7 @@ if ($boardId != null) {
     //Comprobación de los filtros:
     $are_filters = check_filters();
 
-    if($are_filters == false){
+    if ($are_filters == false) {
         $_SESSION['boardId'] = $boardId;
         $arr_cards[] = array();
         /*$columns = $trello->request('GET', ("boards/$boardId/lists"));*/
@@ -89,7 +91,7 @@ if ($boardId != null) {
         }
         //Eliminamos el primer elemento del array, que siempre viene vacío:
         $arr_cards = parse_array_cards($arr_cards);
-    }else{
+    } else {
         //Obtenemos los filtros:
         $start_date_filter = $_SESSION['fstart'];
         $end_date_filter = $_SESSION['fend'];
@@ -100,12 +102,12 @@ if ($boardId != null) {
         $cards = $trello->request('GET', ("boards/{$boardId}/cards"));
         foreach ($cards as $index => $card) {
             $card_creation = get_create_card_date($card->id);
-            $card_finalization =  parse_date_format($card->due);
+            $card_finalization = parse_date_format($card->due);
 
-            $rango = check_in_range($start_date_filter,$end_date_filter,$card_creation);
+            $rango = check_in_range($start_date_filter, $end_date_filter, $card_creation);
 
             $arr_labels = [];
-            if($rango == true){
+            if ($rango == true) {
                 if ($card->labels != "") {
                     foreach ($card->labels as $label) {
                         $arr_labels[] = array(
@@ -142,10 +144,10 @@ if ($boardId != null) {
 
 
     //FILTER SECTION:
- if (isset($_POST['submit']) && $_POST['submit'] == "Aplicar Filtros") {
+    if (isset($_POST['submit']) && $_POST['submit'] == "Aplicar Filtros") {
         save_filters();
     }
-if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
+    if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
         delete_filters();
     }
 
@@ -159,19 +161,25 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
     }
 
 
-/*    if (isset($_POST['submit']) && $_POST['submit'] == "Test PDF") {
-        //Guardamos la info en sesion
-        $arr_serialized = serialize($arr_cards);
-        $_SESSION['data'] = $arr_serialized;
-        header("Location: print_view.php");
-        exit;
-    }*/
+    /*    if (isset($_POST['submit']) && $_POST['submit'] == "Test PDF") {
+            //Guardamos la info en sesion
+            $arr_serialized = serialize($arr_cards);
+            $_SESSION['data'] = $arr_serialized;
+            header("Location: print_view.php");
+            exit;
+        }*/
+}
+
+
+// Si se ha seleccionado desloguear
+if (isset($_POST['logout'])) {
+    unset ($_SESSION['user_id']);
+    header('Location: pages/login.php');
+    exit;
 }
 
 
 ?>
-
-
 <!doctype html>
 <html lang="es">
 <head>
@@ -189,99 +197,129 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
     <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
     <!--ICONOS FONT AWESOME-->
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
-</head>
-<header>
-    <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i> Consultas a tableros de Trello</h1>
-</header>
-<body>
-<div class="container">
-    <div class="jumbotron" id="information">
-        <h1>Listado de urls y datos necesarios</h1>
-        <div>
-            <h3><a href="https://trello.com/app-key">Generar la api key </a></h3>
-            <h4><a href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/"> Documentación API
-                    trello</a></h4>
-            <hr/>
-            <h5>Datos necesarios para utilizar la aplicación:</h5>
-            <ul>
-                <li>Nombre de usuario de Trello</li>
-                <li>Key (si no dispone de ella puede utilizar el enlace de arriba)</li>
-                <li>Token (si no dispone de él puede utilizar el enlace de arriba)</li>
-            </ul>
-        </div>
-        <div>
-            <hr/>
-            <h5>Pasos para utilizar la aplicación:</h5>
-            <p>Puede dejar los valores por defecto y no hacer Login, en ese caso se utilizará el usuario por defecto
-                <span style="color: darkblue"><?= $defaultUserName ?></span></p>
-            <ol>
-                <li>Rellene, o no, la sección de Login en función del tablero al que quiera acceder.</li>
-                <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
-                <li>Se visualizará en fondo blanco un listado con las cards de dicho tablero</li>
-                <li>Puede descargar la versión en json de lo que le está mostrando la sección "Previsualización"</li>
-                <li>Puede descargar la versión en pdf de lo que le está mostrando la sección "Previsualización"</li>
-            </ol>
-        </div>
-    </div>
-    <div class="jumbotron" id="login-form">
-        <h1>Login access data</h1>
-        <br>
-        <div class="container">
-            <form class="form-inline" action="index.php" method="post">
-                <div class="form-group mx-sm-3 mb-2 ">
-                    <label for="nombre">Usuario </label>
-                    <input class="form-control" name="user" type="text" placeholder=" <?= $user ?>" <!--required-->
-                </div>
-                <div class="form-group mx-sm-3 mb-2 ">
-                    <label for="key">Key </label>
-                    <input class="form-control" type="password" name="key" placeholder="<?= $key ?>" <!--required-->
-                </div>
-                <div class="form-group mx-sm-3 mb-2 ">
-                    <label for="token">Token </label>
-                    <input class="form-control" type="password" name="token" placeholder="<?= $token ?>"
-                    <!--required-->
-                </div>
-                <br/>
-                <div class="form-group" id="login_buttons">
-                    <input class="btn btn-primary btn-lg" type="submit" name="login" value="Login">
-                    <input class="btn btn-danger btn-lg" type="submit" name="reset"
-                           value="Reiniciar Conexion" <?php if (!$_SESSION['access_data']) {
-                        echo "disabled";
-                    } ?> >
-                </div>
-            </form>
-        </div>
-
-    </div>
-    <div class="jumbotron" id="application">
-        <?php
-        if ($data != null || $data != "") {
-            if (isset($arr_cards) && $arr_cards != "") {
-                echo "<h2>Previsualización</h2>";
-                echo "<br/>";
-                echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
-                echo "<div  id='cards-box'>";
-                foreach ($arr_cards as $card){
-                    render_card($card);
-                }
-                echo "</div>";
-                echo "</div>";
-            }
-            ?>
-            <?php
-            echo "<hr/>";
-            echo "<div class='container' id='select-board-section'>";
-            echo "<h2>Seleccione su tablero</h2>";
-            echo "<br/>";
-            echo render_form_select_board($arr_tableros, $boardId,$arr_cards);
-            echo "</div>";
+    <style>
+        .group:focus .group-focus\:flex {
+            display: flex;
         }
-        ?>
+    </style>
+</head>
 
-        <!---->
+<body>
+
+<div class="flex w-screen h-screen text-gray-400 bg-gray-900">
+    <!--Navbar-->
+    <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
+        <!--Contactos-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
+           target="_blank" href="./pages/quiensoy.php">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+            </svg>
+        </a>
+        <!--Información-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800" href="#">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+        </a>
+        <!--Informacion de cuenta-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
+           href="#">
+            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                 stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+        </a>
     </div>
+
+    <div class="flex flex-col flex-grow">
+        <!--Header-->
+        <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
+            <h1 class="text-lg font-medium"><h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
+                    Consultas a tableros de Trello</h1>
+                <form action="pages/auth/login.php" method="post"
+                      class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
+                    <i class="fas fa-sign-out-alt"></i><input type="submit" name="logout" value="Log out"
+                                                              class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800"/>
+                </form>
+        </div>
+        <!--Body-->
+        <div class="flex-grow p-6 overflow-auto bg-gray-800">
+            <div class="grid grid-cols-3 gap-6">
+                <div class="h-24 col-span-1 bg-gray-700">
+                    <div class="jumbotron" id="login-form">
+                        <h1>Login access data</h1>
+                        <br>
+                        <div class="container">
+                            <form class="form-inline" action="index.php" method="post">
+                                <div class="form-group mx-sm-3 mb-2 ">
+                                    <label for="nombre">Usuario </label>
+                                    <input class="form-control" name="user" type="text" placeholder=" <?= $user ?>"
+                                    <!--required-->
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2 ">
+                                    <label for="key">Key </label>
+                                    <input class="form-control" type="password" name="key" placeholder="<?= $key ?>"
+                                    <!--required-->
+                                </div>
+                                <div class="form-group mx-sm-3 mb-2 ">
+                                    <label for="token">Token </label>
+                                    <input class="form-control" type="password" name="token" placeholder="<?= $token ?>"
+                                    <!--required-->
+                                </div>
+                                <br/>
+                                <div class="form-group" id="login_buttons">
+                                    <input class="btn btn-primary btn-lg" type="submit" name="login" value="Login">
+                                    <input class="btn btn-danger btn-lg" type="submit" name="reset"
+                                           value="Reiniciar Conexion"
+                                        <?php if (!$_SESSION['access_data']) {
+                                            echo "disabled";
+                                        } ?> />
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                    <div class="jumbotron" id="application">
+                        <?php
+                        if ($data != null || $data != "") {
+                            if (isset($arr_cards) && $arr_cards != "") {
+                                echo "<h2>Previsualización</h2>";
+                                echo "<br/>";
+                                echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
+                                echo "<div  id='cards-box'>";
+                                foreach ($arr_cards as $card) {
+                                    render_card($card);
+                                }
+                                echo "</div>";
+                                echo "</div>";
+                            }
+                            ?>
+                            <?php
+                            echo "<hr/>";
+                            echo "<div class='container' id='select-board-section'>";
+                            echo "<h2>Seleccione su tablero</h2>";
+                            echo "<br/>";
+                            echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
+                            echo "</div>";
+                        }
+                        ?>
+
+                        <!---->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div>
+
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -292,9 +330,9 @@ if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
 
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small">
+<!--<footer class="page-footer font-small">
     <div class="footer-copyright text-center py-3">© 2021 Copyright
         Isabel González Anzano
     </div>
-</footer>
+</footer>-->
 <!-- Footer -->

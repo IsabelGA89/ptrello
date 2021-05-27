@@ -1,29 +1,45 @@
 <?php
 
-include('config.php');
 session_start();
+$msj = "";
 
-if (isset($_POST['login'])) {
+if(isset($_POST['login'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $query = $connection->prepare("SELECT * FROM users WHERE USERNAME=:username");
-    $query->bindParam("username", $username, PDO::PARAM_STR);
-    $query->execute();
+    $datos['host'] = "localhost";
+    $datos['user'] = "isa";
+    $datos['password'] = "isa";
+    $datos['bd'] = "proyecto";
 
-    $result = $query->fetch(PDO::FETCH_ASSOC);
+    try {
+        $connection = new BD_PDO($datos);
+        $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
+        $query->bindParam("username", $username, PDO::PARAM_STR);
+        $query->execute();
 
-    if (!$result) {
-        echo '<p class="error">Username password combination is wrong!</p>';
-    } else {
-        if (password_verify($password, $result['PASSWORD'])) {
-            $_SESSION['user_id'] = $result['ID'];
-            echo '<p class="success">Congratulations, you are logged in!</p>';
+        $result = $query->fetch(PDO::FETCH_ASSOC);
+
+
+        if (!$result) {
+
+            $msj = '<p class="bg-danger">El usuario o la contraseña están equivocados.</p>';
         } else {
-            echo '<p class="error">Username password combination is wrong!</p>';
+            if (password_verify($password, $result['PASSWORD'])) {
+                $_SESSION['user_id'] = $result['ID'];
+                header('Location:../index.php');
+                exit;
+            } else {
+                $msj ='<p class="bg-danger">El usuario o la contraseña están equivocados.</p>';
+            }
         }
+        $connection->cerrar();
+    } catch (PDOException $e) {
+        $msj ='<p class="bg-danger">' . $e->getMessage() . '</p>';
+        $connection->cerrar();
     }
+
 }
 
 ?>
@@ -40,9 +56,9 @@ if (isset($_POST['login'])) {
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
 </head>
 
-
 <body>
-<section class="min-h-screen flex items-stretch text-white ">
+<div class="flex w-screen h-screen text-gray-400 bg-gray-900">
+    <section class="min-h-screen flex items-stretch text-white ">
     <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
          style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
         <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
@@ -75,6 +91,13 @@ if (isset($_POST['login'])) {
             <h1 class="my-6">
                 <span class="text-5xl font-bold text-left tracking-wide">Trello Report</span>
             </h1>
+            <div class="py-6 space-x-2 ">
+                <?php
+                if($msj != ""){
+                    echo $msj;
+                }
+                ?>
+            </div>
             <div class="py-6 space-x-2">
                 <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
                 <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>
@@ -83,9 +106,9 @@ if (isset($_POST['login'])) {
             <p class="text-gray-100">
                 Identificate
             </p>
-            <form method="post" action="" name="signin-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+            <form method="post" action="../index.php" name="signin-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class="pb-2 pt-4">
-                    <input type="text" name="username" pattern="[a-zA-Z0-9]+" required  placeholder="Username"
+                    <input type="text" name="username" pattern="[a-zA-Z0-9]+" required placeholder="Username"
                            class="block w-full p-4 text-lg rounded-sm bg-black">
                 </div>
                 <div class="pb-2 pt-4">
@@ -96,9 +119,8 @@ if (isset($_POST['login'])) {
                     <a href="#">Forgot your password?</a>
                 </div>
                 <div class="px-4 pb-2 pt-4">
-                    <button  type="submit" name="login" value="login" class="uppercase w-1/2 p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none">
-                        Iniciar Sesión
-                    </button>
+                    <input type="submit" name="login" value="login"
+                            class="uppercase w-1/2 p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"/>
                 </div>
                 <div class="px-4 pb-2 pt-4">
                     <button class="uppercase w-1/2 p-2 text-lg rounded-full bg-green-500 hover:bg-green-600 focus:outline-none">
@@ -127,6 +149,7 @@ if (isset($_POST['login'])) {
         </div>
     </div>
 </section>
+</div>
 </body>
 
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

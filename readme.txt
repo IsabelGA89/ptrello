@@ -30,3 +30,6 @@ CREATE TABLE `users` (
 CREATE USER 'isa'@'localhost' IDENTIFIED BY 'isa';
 GRANT ALL PRIVILEGES ON * . * TO 'isa'@'localhost';
 FLUSH PRIVILEGES;
+
+//
+insert into users(username,password,email)values ('isa','$2y$10$iP8rFCVKGezuJxra7b.kpecYU10cLYldOn9o/Qsa2VunA3XV5/mgi','isabel@gmail.com');
