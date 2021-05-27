@@ -5,7 +5,7 @@ require "./classes/PDF.php";
 session_start();
 
 if((!$_SESSION['user_id'])){
-    header('Location: pages/login.php');
+    header('Location: pages/auth/login.php');
     exit;
 }
 
