@@ -1,4 +1,5 @@
 <?php
+require " ptrello/classes/Heroku.php";
 
 session_start();
 $msj = "";
@@ -8,13 +9,14 @@ if(isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $datos['host'] = "localhost";
+   /* $datos['host'] = "localhost";
     $datos['user'] = "isa";
     $datos['password'] = "isa";
-    $datos['bd'] = "proyecto";
+    $datos['bd'] = "proyecto";*/
 
     try {
-        $connection = new BD_PDO($datos);
+      /*  $connection = new BD_PDO($datos);*/
+        $connection = new Heroku();
         $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
         $query->bindParam("username", $username, PDO::PARAM_STR);
         $query->execute();
