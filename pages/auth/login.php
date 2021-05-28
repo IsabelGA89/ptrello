@@ -17,7 +17,8 @@ if(isset($_POST['login'])) {
     try {
       /*  $connection = new BD_PDO($datos);*/
         $connection = new Heroku();
-        $query = $connection->prepare("SELECT * FROM users WHERE username=:username");
+        $conn = $connection->conectar();
+        $query = $conn->prepare("SELECT * FROM heroku_4edea3226fe2494.users WHERE username=:username");
         $query->bindParam("username", $username, PDO::PARAM_STR);
         $query->execute();
 
