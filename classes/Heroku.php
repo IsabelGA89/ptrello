@@ -13,10 +13,10 @@ class Heroku
     {
         //Get Heroku ClearDB connection information
         $cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
-        $cleardb_server   = $cleardb_url["host"];
-        $cleardb_username = $cleardb_url["user"];
-        $cleardb_password = $cleardb_url["pass"];
-        $cleardb_db       = substr($cleardb_url["path"],1);
+        $cleardb_server   = "us-cdbr-east-03.cleardb.com";
+        $cleardb_username = "b0a56ad1436acf";
+        $cleardb_password = "64c5235e";
+        $cleardb_db       = "heroku_4edea3226fe2494";
 
         try {
             $pdo = new PDO("mysql:host=".$cleardb_server."; dbname=".$cleardb_db, $cleardb_username, $cleardb_password);
