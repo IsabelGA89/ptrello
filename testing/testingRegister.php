@@ -24,7 +24,7 @@ if ($resultado = $conn->query($consulta_email)) {
     $obj = $resultado->fetch_array();
     if($obj === null){
         //el email no existe insertamos:
-        $pass = password_hash('123', PASSWORD_DEFAULT);
+        $pass = password_hash('123', PASSWORD_BCRYPT);
         $query = "INSERT INTO users(username,password,email) VALUES ('juan','$pass','j@gmail.com')";
         if ($conn->query($query) === TRUE) {
             echo "Nuevo registro creado";

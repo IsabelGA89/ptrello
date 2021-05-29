@@ -29,7 +29,7 @@ if (isset($_POST['register'])) {
         $msj = "Conexión exitosa con la bd";
     }
 
-    $consulta_email = "SELECT * FROM users WHERE EMAIL='j@gmail.com'";
+    $consulta_email = "SELECT * FROM users WHERE EMAIL='$email'";
 
     if ($resultado = $conn->query($consulta_email)) {
         /* obtener el array de objetos */
