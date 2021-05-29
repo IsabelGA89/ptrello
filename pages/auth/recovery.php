@@ -45,8 +45,8 @@ if($_POST['actualizar']){
                 $query = "UPDATE users SET password='$secure_pass' WHERE email='$email'";
                 if ($conn->query($query) === true) {
                     $info = "Se ha actualizado la contraseña, ya puede usar sus nuevas credenciales para acceder a la aplicación.";
-                   /* header('Location:login.php');
-                    exit();*/
+                    header("Location:login.php?info=$info");
+                    exit();
                 } else {
                     $error = "Error: $conn->error";
                 }
