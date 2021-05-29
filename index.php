@@ -89,9 +89,9 @@ if ((!$_SESSION['user_id'])) {
 
                             <!-- card body -->
                             <div class="p-6 bg-gray-800 border-b border-gray-600">
-                                <h3 class="text-2xl"><a target="_blank" href="https://trello.com/app-key">Generar la api
+                                <h3 class="text-2xl"><a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://trello.com/app-key">Generar la api
                                         key </a></h3>
-                                <h4 class="text-xl"><a target="_blank"
+                                <h4 class="text-xl"><a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank"
                                                        href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
                                         Documentación API
                                         trello</a></h4>
@@ -128,7 +128,7 @@ if ((!$_SESSION['user_id'])) {
                         </div>
                     </div>
                     <!--Card trello-->
-                    <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+                    <div class="max-w-2xl mt-5 mx-auto sm:px-6 lg:px-8">
                         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
                             <div class="overflow-hidden shadow-md text-gray-100">
                                 <!-- card header -->
