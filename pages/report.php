@@ -4,7 +4,7 @@ ini_set('display_errors', '1');
 /*spl_autoload_register('myAutoLoaderPerson');
 
 function myAutoLoaderPerson($className) {
-    require_once __DIR__ . "./Class/$className.php";
+    require_once $_SERVER['DOCUMENT_ROOT']. "./Class/$className.php";
 }*/
 require_once $_SERVER['DOCUMENT_ROOT']."/Class/trello_api.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/Class/PDF.php";
@@ -49,8 +49,8 @@ $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 
 //Consulta a los tableros:
 $trello = new trello_api($key, $token);
-/*$data = $trello->request('GET', ("member/me/boards"));
-$arr_tableros = board_request($trello, $data);*/
+$data = $trello->request('GET', ("member/me/boards"));
+$arr_tableros = board_request($trello, $data);
 
 ?>
 <!doctype html>
