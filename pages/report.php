@@ -6,8 +6,8 @@ ini_set('display_errors', '1');*/
 function myAutoLoaderPerson($className) {
     require_once $_SERVER['DOCUMENT_ROOT']. "./Class/$className.php";
 }*/
-require_once $_SERVER['DOCUMENT_ROOT']."/Class/trello_api.php";
-require_once $_SERVER['DOCUMENT_ROOT']."/Class/PDF.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/trello_api.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 
 session_start();
 
@@ -179,7 +179,6 @@ if (isset($_POST['logout'])) {
 }
 
 
-
 ?>
 <!doctype html>
 <html lang="es">
@@ -279,7 +278,7 @@ if (isset($_POST['logout'])) {
                                         <input class="btn btn-primary btn-lg" type="submit" name="login" value="Login">
                                         <input class="btn btn-danger btn-lg" type="submit" name="reset"
                                                value="Reiniciar Conexion"
-                                            <?php if(!$_SESSION['access_data']) {
+                                            <?php if (!$_SESSION['access_data']) {
                                                 echo "disabled";
                                             } ?> />
                                     </div>
@@ -288,38 +287,40 @@ if (isset($_POST['logout'])) {
 
                         </div>
                         <div class="jumbotron" id="application">
-                            <?php
-                            if ($data != null || $data != "") {
-                                if (isset($arr_cards) && $arr_cards != "") {
-                                    echo "<h2>Previsualización</h2>";
-                                    echo "<br/>";
-                                    echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
-                                    echo "<div  id='cards-box'>";
-                                    foreach ($arr_cards as $card) {
-                                        render_card($card);
+                            <div class="bg-blue w-full h-screen font-sans">
+                                <div class="flex p-2 bg-blue-dark items-center">
+                                    <?php
+                                    if ($data != null || $data != "") {
+                                        if (isset($arr_cards) && $arr_cards != "") {
+                                            echo "<h2>Previsualización</h2>";
+                                            echo "<br/>";
+                                            echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
+                                            echo "<div  id='cards-box'>";
+                                            foreach ($arr_cards as $card) {
+                                                render_card($card);
+                                            }
+                                            echo "</div>";
+                                            echo "</div>";
+                                        }
+                                        ?>
+                                        <?php
+                                        echo "<hr/>";
+                                        echo "<div class='container' id='select-board-section'>";
+                                        echo "<h2>Seleccione su tablero</h2>";
+                                        echo "<br/>";
+                                        echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
+                                        echo "</div>";
+                                    } else {
+                                        echo "data está vacío";
                                     }
-                                    echo "</div>";
-                                    echo "</div>";
-                                }
-                                ?>
-                                <?php
-                                echo "<hr/>";
-                                echo "<div class='container' id='select-board-section'>";
-                                echo "<h2>Seleccione su tablero</h2>";
-                                echo "<br/>";
-                                 echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
-                                echo "</div>";
-                            }else{
-                                echo "data está vacío";
-                            }
-                            ?>
+                                    ?>
 
-                            <!---->
+                                    <!---->
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
 
@@ -335,9 +336,9 @@ if (isset($_POST['logout'])) {
 
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small">
+<!--<footer class="page-footer font-small">
     <div class="footer-copyright text-center py-3">© 2021 Copyright
         Isabel González Anzano
     </div>
-</footer>
+</footer>-->
 <!-- Footer -->
