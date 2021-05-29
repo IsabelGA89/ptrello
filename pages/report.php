@@ -240,7 +240,7 @@ if (isset($_POST['logout'])) {
                 <form action="auth/login.php" method="post"
                       class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-sign-out-alt fa-lg"></i><input type="submit" name="logout" value="Log out"
-                                                                    class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                                                                    class="flex btn items-center text-gray-400  justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
         </div>
         <!--Body-->
