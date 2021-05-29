@@ -1,7 +1,7 @@
 <?php
-spl_autoload_register(function ($clase) {
+/*spl_autoload_register(function ($clase) {
     include 'Class/' . $clase . '.clase.php';
-});
+});*/
 
 session_start();
 $msj = "";
