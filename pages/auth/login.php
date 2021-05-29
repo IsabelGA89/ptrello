@@ -27,6 +27,8 @@ if(isset($_POST['login'])) {
     if (mysqli_connect_errno()) {
         $msj =("Falló la conexión con la base de datos: %s\n". mysqli_connect_error());
         exit();
+    }else{
+        $msj = "Conexión exitosa con la bd";
     }
     $consulta ="select * from users where username='$username'";
 
@@ -99,7 +101,7 @@ if(isset($_POST['login'])) {
             <h1 class="my-6">
                 <span class="text-5xl font-bold text-left tracking-wide">Trello Report</span>
             </h1>
-            <div class="py-6 space-x-2 "> HOLI mensajeee: 
+            <div class="py-6 space-x-2 "> HOLI mensajeee:
                 <?php
                 if($msj != ""){
                     echo $msj;
