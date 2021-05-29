@@ -7,8 +7,9 @@ class PDF extends FPDF
 // Cabecera de página
     function Header()
     {
+        $route_to_image = $_SERVER['DOCUMENT_ROOT']."/img/bcnlogo.png";
         // Logo
-        $this->Image('./img/bcnlogo.png', 10, 8, 33);
+        $this->Image("$route_to_image", 10, 8, 33);
         // Arial bold 15
         $this->SetFont('Arial', 'B', 15);
         // Movernos a la derecha
