@@ -1,6 +1,5 @@
 <?php
-require " ptrello/classes/Heroku.php";
-
+require "./classes/Heroku.php";
 session_start();
 $msj = "";
 
