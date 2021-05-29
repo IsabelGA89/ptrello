@@ -17,7 +17,7 @@ if (mysqli_connect_errno()) {
     printf("Falló la conexión con la base de datos: %s\n", mysqli_connect_error());
     exit();
 }
-$consulta ="select * from users where username=isa";
+$consulta ="select * from users where username='isa'";
 
 if ($resultado = $conn->query($consulta)) {
 
