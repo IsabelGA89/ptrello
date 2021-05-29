@@ -11,36 +11,45 @@ class Heroku
      */
     public function __construct()
     {
-        //Get Heroku ClearDB connection information
-        $cleardb_url      = parse_url(getenv("CLEARDB_DATABASE_URL"));
-        $cleardb_server   = "us-cdbr-east-03.cleardb.com";
-        $cleardb_username = "b0a56ad1436acf";
-        $cleardb_password = "64c5235e";
-        $cleardb_db       = "heroku_4edea3226fe2494";
-
-        try {
-            $pdo = new PDO("mysql:host=".$cleardb_server."; dbname=".$cleardb_db, $cleardb_username, $cleardb_password);
-            $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $pdo = null;
-        } catch (PDOException $e) {
-            print "Error!: " . $e->getMessage() . "<br/>";
-            die();
-        }
+        return $this->conectar();
     }
 
 
     public function conectar(){
-        $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-        $server = $url["host"];
-        $username = $url["user"];
-        $password = $url["pass"];
-        $db = substr($url["path"], 1);
+        $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
-        $conn = new mysqli($server, $username, $password, $db);
-        return $conn;
+        $cleardb_server = $cleardb_url["host"];
+        $cleardb_username = $cleardb_url["user"];
+        $cleardb_password = $cleardb_url["pass"];
+        $cleardb_db = substr($cleardb_url["path"],1);
+        $active_group = 'default';
+        $query_builder = TRUE;
+
+        $conection = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+        if (mysqli_connect_errno()) {
+            $status = ("Falló la conexión con la base de datos: ". mysqli_connect_error());
+            exit();
+        }
+        return $conection;
     }
 
+    public function consulta($consulta){
+        if ($resultado = $this->conection->query($consulta)) {
+
+            /* obtener el array de objetos */
+            while ($obj = $resultado->fetch_object()) {
+                printf ("%s (%s)\n", $obj->username);
+            }
+            /* liberar el conjunto de resultados */
+            $resultado->close();
+        }
+
+        /* cerrar la conexión */
+        $this->conection->cerrar();
+
+    }
 
 
     /**
@@ -78,7 +87,7 @@ class Heroku
 
     public function cerrar()
     {
-        unset($this->conection);
+       $this->conection->close();
     }
 
 

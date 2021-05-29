@@ -9,41 +9,18 @@ if(isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-   /* $datos['host'] = "localhost";
-    $datos['user'] = "isa";
-    $datos['password'] = "isa";
-    $datos['bd'] = "proyecto";*/
 
-    try {
-      /*  $connection = new BD_PDO($datos);*/
-        $connection = new Heroku();
-        $conn = $connection->conectar();
-        $query = $conn->prepare("SELECT * FROM heroku_4edea3226fe2494.users WHERE username=:username");
-        $query->bindParam("username", $username, PDO::PARAM_STR);
-        $query->execute();
+    $connection = new Heroku();
+        $consulta = "SELECT * FROM heroku_4edea3226fe2494.users WHERE username=$username";
+        $result = $connection->consulta($consulta);
+        var_dump($result);
 
-        $result = $query->fetch(PDO::FETCH_ASSOC);
-
-
-        if (!$result) {
-
-            $msj = '<p class="bg-danger">El usuario o la contraseña están equivocados.</p>';
-        } else {
-            if (password_verify($password, $result['PASSWORD'])) {
+            /*if (password_verify($password, $result['PASSWORD'])) {
                 $_SESSION['user_id'] = $result['ID'];
-                header('Location:../../index.php');
-                exit;
-            } else {
-                $msj ='<p class="bg-danger">El usuario o la contraseña están equivocados.</p>';
-            }
-        }
-        $connection->cerrar();
-    } catch (PDOException $e) {
-        $msj ='<p class="bg-danger">' . $e->getMessage() . '</p>';
-        $connection->cerrar();
-    }
+                header('Location:../../index.php');*/
 
-}
+
+
 
 ?>
 <!doctype html>

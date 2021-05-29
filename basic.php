@@ -1,5 +1,5 @@
 <?php
-/*DB url   mysql://b0a56ad1436acf:64c5235e@us-cdbr-east-03.cleardb.com/heroku_4edea3226fe2494?reconnect=true*/
+
 
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
