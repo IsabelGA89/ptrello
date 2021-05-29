@@ -4,7 +4,7 @@ spl_autoload_register(function ($clase) {
 });
 
 session_start();
-$msj = "TESTING";
+$msj = "";
 
 
 if(isset($_POST['login'])) {
@@ -31,6 +31,7 @@ if(isset($_POST['login'])) {
         $msj = "Conexión exitosa con la bd";
     }
     $consulta ="select * from users where username='$username'";
+    var_dump($consulta);
 
     if ($resultado = $conn->query($consulta)) {
         $arr_info = $resultado->fetch_array();
@@ -38,7 +39,7 @@ if(isset($_POST['login'])) {
     }
     /* cerrar la conexión */
     $conn->close();
-    $msj = $arr_info;
+    $msj = $arr_info['username'];
 
     if(password_verify($password,$arr_info['password'])){
         $_SESSION['user_id'] = $arr_info['id'];
@@ -65,7 +66,6 @@ if(isset($_POST['login'])) {
 </head>
 
 <body>
-
     <section class="min-h-screen flex items-stretch text-white ">
     <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
          style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
@@ -99,7 +99,7 @@ if(isset($_POST['login'])) {
             <h1 class="my-6">
                 <span class="text-5xl font-bold text-left tracking-wide">Trello Report</span>
             </h1>
-            <div class="py-6 space-x-2 "> HOLI mensajeee:
+            <div class="py-6 space-x-2 "> MENSAJE:
                 <?php
                 if($msj != ""){
                     echo $msj;
