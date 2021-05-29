@@ -191,7 +191,7 @@ if($_POST['actualizar']){
                         name="password2"
                         type="password"
                         placeholder="Tu nueva contraseña
-required"/>
+" required/>
 
                 </a>
             </div>
