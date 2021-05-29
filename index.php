@@ -205,7 +205,6 @@ if (isset($_POST['logout'])) {
 </head>
 
 <body>
-
 <div class="flex w-screen h-screen text-gray-400 bg-gray-900">
     <!--Navbar-->
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
@@ -239,6 +238,7 @@ if (isset($_POST['logout'])) {
     </div>
 
     <div class="flex flex-col flex-grow">
+
         <!--Header-->
         <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
             <h1 class="text-lg font-medium"><h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
@@ -251,6 +251,8 @@ if (isset($_POST['logout'])) {
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
+            <div class="bg-cover bg-center border rounded-t-lg shadow-lg" style="background-image: url(https://images.unsplash.com/photo-1572817519612-d8fadd929b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+
 
             <div class="container w-full md:max-w-3xl mx-auto pt-20">
 
@@ -290,12 +292,12 @@ if (isset($_POST['logout'])) {
                                 </li>
                             </ol>
                             <hr/>
+                           <!-- Boton a reportes-->
                             <div class="p-2 md:w-40 ">
                                 <a href="pages/report.php" class="flex items-center p-4 bg-blue-200 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100">
-
                                     <svg class="h-6 fill-current hover:text-gray-100 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PHP icon</title><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg>
                                     <div>
-                                        <p class=" text-xs font-medium ml-2 ">
+                                        <p class=" text-3xl font-medium ml-2 ">
                                             Ir a reportes
                                         </p>
 
@@ -319,8 +321,6 @@ if (isset($_POST['logout'])) {
                             </p>
                         </div>
                     </div>
-
-
                 </div>
 
             </div>
@@ -331,7 +331,7 @@ if (isset($_POST['logout'])) {
 
 
 </div>
-
+</div>
 <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
