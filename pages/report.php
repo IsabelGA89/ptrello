@@ -144,8 +144,42 @@ if ($boardId != null) {
         //Eliminamos el primer elemento del array, que siempre viene vacío:
         $arr_cards = parse_array_cards($arr_cards);
     }
+    //FILTER SECTION:
+    if (isset($_POST['submit']) && $_POST['submit'] == "Aplicar Filtros") {
+        save_filters();
+    }
+    if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
+        delete_filters();
+    }
 
+
+    //DOWNLOAD SECTION:
+    if (isset($_POST['submit']) && $_POST['submit'] == "Descargar JSON") {
+        download_Json($arr_cards);
+    }
+    if (isset($_POST['submit']) && $_POST['submit'] == "Descargar PDF") {
+        download_PDF($arr_cards);
+    }
+
+
+    /*    if (isset($_POST['submit']) && $_POST['submit'] == "Test PDF") {
+            //Guardamos la info en sesion
+            $arr_serialized = serialize($arr_cards);
+            $_SESSION['data'] = $arr_serialized;
+            header("Location: print_view.php");
+            exit;
+        }*/
 }
+
+
+// Si se ha seleccionado desloguear
+if (isset($_POST['logout'])) {
+    unset ($_SESSION['user_id']);
+    header('Location: pages/login.php');
+    exit;
+}
+
+
 
 ?>
 <!doctype html>
@@ -246,7 +280,7 @@ if ($boardId != null) {
                                         <input class="btn btn-primary btn-lg" type="submit" name="login" value="Login">
                                         <input class="btn btn-danger btn-lg" type="submit" name="reset"
                                                value="Reiniciar Conexion"
-                                            <?php if (!$_SESSION['access_data']) {
+                                            <?php if(!$_SESSION['access_data']) {
                                                 echo "disabled";
                                             } ?> />
                                     </div>
