@@ -10,7 +10,7 @@ $info="";
 
 
 if(isset($_GET['info'])){
-    $info = $_GET['info'];
+    $msj = $_GET['info'];
 }
 
 if(isset($_POST['login'])) {
