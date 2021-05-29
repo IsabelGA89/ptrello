@@ -4,7 +4,7 @@ $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 $cleardb_server = $cleardb_url["host"];
 $cleardb_username = $cleardb_url["user"];
 $cleardb_password = $cleardb_url["pass"];
-$cleardb_db = substr($cleardb_url["path"],1);
+$cleardb_db = substr($cleardb_url["path"], 1);
 $active_group = 'default';
 $query_builder = TRUE;
 
@@ -15,19 +15,29 @@ if (mysqli_connect_errno()) {
     printf("Falló la conexión con la base de datos: %s\n", mysqli_connect_error());
     exit();
 }
-$consulta ="select * from users where username='isa'";
+
+$consulta_email = "SELECT * FROM users WHERE EMAIL='gonza.isabel@gmail.com'";
 
 
-if ($resultado = $conn->query($consulta)) {
-
+if ($resultado = $conn->query($consulta_email)) {
     /* obtener el array de objetos */
-    while ($obj = $resultado->fetch_array()) {
-        var_dump($obj);
-    }
+    $obj = $resultado->fetch_array();
+    var_dump($obj);
+
+
     /* liberar el conjunto de resultados */
     $resultado->close();
+}else{
+    $pass = password_hash('123');
+    $query = "INSERT INTO users(USERNAME,PASSWORD,EMAIL) VALUES ('juan','$pass',:'j@gmail.com')";
+
+    if ($conn->query($query) === TRUE) {
+        echo "Nuevo registro creado";
+    } else {
+        echo "Error: " . $query . "<br>" . $conn->error;
+    }
+
 }
 
 /* cerrar la conexión */
 $conn->close();
-

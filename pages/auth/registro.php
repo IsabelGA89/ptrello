@@ -9,10 +9,7 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
-    $datos['host']="localhost";
-    $datos['user']="isa";
-    $datos['password']="isa";
-    $datos['bd']="proyecto";
+
 
     try {
         $connection = new BD_PDO($datos);
