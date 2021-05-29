@@ -18,7 +18,7 @@ printf ("%s (%s)\n", $row[0], $row[1]);*/
 /*$result->free();*/
 
 /* cerrar la conexión */
-$connection->close();
+/*$connection->close();*/
 
 
 echo $msj;
