@@ -4,7 +4,8 @@ spl_autoload_register(function ($clase) {
 });
 
 $connection = new Heroku();
-$msj = $connection->getStatus() ?? null;
+   $con =  $connection->conectar();
+$msj = $con->getStatus() ?? null;
 
 /*$query = "SELECT * FROM users Where username=isa";
 $result = $connection->query($query);*/
