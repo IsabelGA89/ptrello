@@ -10,11 +10,11 @@ if(isset($_POST['login'])) {
     $password = $_POST['password'];
 
 
-    $connection = new Heroku();
+    /*$connection = new Heroku();
     $consulta = "SELECT * FROM users WHERE username= $username";
     $result = $connection->consulta($consulta);
     var_dump($result);
-    $connection->cerrar();
+    $connection->cerrar();*/
     /*if (password_verify($password, $result['PASSWORD'])) {
         $_SESSION['user_id'] = $result['ID'];
         header('Location:../../index.php');*/
