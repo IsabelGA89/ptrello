@@ -1,5 +1,8 @@
 <?php
-/*require "./classes/Heroku.php";*/
+spl_autoload_register(function ($clase) {
+    include 'classes/' . $clase . '.clase.php';
+});
+
 session_start();
 $msj = "";
 
