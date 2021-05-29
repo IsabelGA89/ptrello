@@ -24,7 +24,7 @@ if ($resultado = $conn->query($consulta)) {
     /* obtener el array de objetos */
     while ($obj = $resultado->fetch_object()) {
        /* printf ("%s (%s)\n", $obj->username);*/
-        var_dump($obj);
+        echo($obj);
     }
     /* liberar el conjunto de resultados */
     $resultado->close();
