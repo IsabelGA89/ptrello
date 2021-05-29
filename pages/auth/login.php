@@ -9,7 +9,7 @@ $error="";
 $info="";
 if (isset($_GET)) {
     echo '<pre>';
-    echo htmlspecialchars(print_r($_POST, true));
+    echo htmlspecialchars(print_r($_GET, true));
     echo '</pre>';
 }
 
