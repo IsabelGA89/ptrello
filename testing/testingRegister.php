@@ -24,13 +24,11 @@ if ($resultado = $conn->query($consulta_email)) {
     $obj = $resultado->fetch_array();
     var_dump($obj);
 
-
     /* liberar el conjunto de resultados */
     $resultado->close();
 }else{
     $pass = password_hash('123');
-    $query = "INSERT INTO users(USERNAME,PASSWORD,EMAIL) VALUES ('juan','$pass',:'j@gmail.com')";
-
+    $query = "INSERT INTO users(username,password,email) VALUES ('juan','$pass','j@gmail.com')";
     if ($conn->query($query) === TRUE) {
         echo "Nuevo registro creado";
     } else {

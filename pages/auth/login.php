@@ -44,7 +44,7 @@ if(isset($_POST['login'])) {
         header('Location:../../index.php');
         exit();
     }else{
-        $error = "O el usuario o la contraseña no son válidos, por favor, revise los datos introducidos";
+        $error = "O el usuario o la contraseña no son válidos, por favor, vuelva a introducir los datos de acceso.";
     }
 
 
