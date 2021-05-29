@@ -286,7 +286,7 @@ if (isset($_POST['logout'])) {
                             </div>
 
                         </div>
-                        <div class="container" id="application">
+                        <div class="jumbotron" id="application">
                             <?php
                             if ($data != null || $data != "") {
                                 if (isset($arr_cards) && $arr_cards != "") {
