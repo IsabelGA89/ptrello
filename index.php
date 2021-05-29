@@ -58,7 +58,7 @@ if ((!$_SESSION['user_id'])) {
 
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
-           href="#">
+           href="pages/account.php">
             <i class="fas fa-id-card fa-2x"></i>
         </a>
     </div>
