@@ -139,7 +139,7 @@ if($info != ""){
             <p class="text-gray-100">
                 Rellena el formulario
             </p>
-            <form method="post" action="registro" name="signup-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+            <form method="post" action="registro.php" name="signup-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class="pb-2 pt-4">
                     <input type="text" name="username" pattern="[a-zA-Z0-9]+" required placeholder="Username"
                            class="block w-full p-4 text-lg rounded-sm bg-black">
