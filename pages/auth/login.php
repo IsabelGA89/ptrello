@@ -6,21 +6,24 @@ spl_autoload_register(function ($clase) {
 session_start();
 $msj = "";
 
+$connection = new Heroku();
+$msj = $connection->getStatus();
+
+$consulta = "SELECT * FROM users WHERE username= isa";
+$result = $connection->query($consulta);
+while ($obj = $result->fetch_object()) {
+    echo $result;
+}
+
+var_dump($result);
+
+
 if(isset($_POST['login'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    $connection = new Heroku();
-    $msj = $connection->getStatus();
 
-    $consulta = "SELECT * FROM users WHERE username= $username";
-    $result = $connection->query($consulta);
-    while ($obj = $result->fetch_object()) {
-        echo $result;
-    }
-
-    var_dump($result);
 
     /*if(password_verify($password,$result->password)){
         var_dump("la contraseña coincide");
@@ -34,7 +37,7 @@ if(isset($_POST['login'])) {
     /*if (password_verify($password, $result['PASSWORD'])) {
         $_SESSION['user_id'] = $result['ID'];
         header('Location:../../index.php');*/
-    $connection->cerrar();
+    /*$connection->cerrar();*/
 
 }
 ?>
