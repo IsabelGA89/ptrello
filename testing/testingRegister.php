@@ -16,7 +16,7 @@ if (mysqli_connect_errno()) {
     exit();
 }
 
-$consulta_email = "SELECT * FROM users WHERE EMAIL='gonza.isabel@gmail.com'";
+$consulta_email = "SELECT * FROM users WHERE EMAIL='j@gmail.com'";
 
 
 if ($resultado = $conn->query($consulta_email)) {
@@ -27,13 +27,13 @@ if ($resultado = $conn->query($consulta_email)) {
     /* liberar el conjunto de resultados */
     $resultado->close();
 }else{
-    $pass = password_hash('123');
+   /* $pass = password_hash('123');
     $query = "INSERT INTO users(username,password,email) VALUES ('juan','$pass','j@gmail.com')";
     if ($conn->query($query) === TRUE) {
         echo "Nuevo registro creado";
     } else {
         echo "Error: " . $query . "<br>" . $conn->error;
-    }
+    }*/
 
 }
 
