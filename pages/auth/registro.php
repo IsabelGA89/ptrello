@@ -1,8 +1,8 @@
 <?php
 session_start();
 $msj = "";
-$error="";
-$info="";
+$error = "";
+$info = "";
 
 //BD////////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['register'])) {
@@ -23,9 +23,9 @@ if (isset($_POST['register'])) {
 // Connect to DB
     $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
     if (mysqli_connect_errno()) {
-        $msj =("Falló la conexión con la base de datos: %s\n". mysqli_connect_error());
+        $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
         exit();
-    }else{
+    } else {
         $msj = "Conexión exitosa con la bd";
     }
 
@@ -34,7 +34,7 @@ if (isset($_POST['register'])) {
     if ($resultado = $conn->query($consulta_email)) {
         /* obtener el array de objetos */
         $obj = $resultado->fetch_array();
-        if($obj === null){
+        if ($obj === null) {
             //el email no existe insertamos:
             $query = "INSERT INTO users(username,password,email) VALUES ('$username','$password_hash','$email')";
             if ($conn->query($query) === TRUE) {
@@ -42,7 +42,7 @@ if (isset($_POST['register'])) {
             } else {
                 $error = "Error: $conn->error";
             }
-        }else{
+        } else {
             $error = "El email introducido ya existe en el sistema, pruebe con otro";
         }
         $resultado->close();
@@ -71,18 +71,21 @@ if (isset($_POST['register'])) {
 
 <body>
 <?php
-if($error != ""){
+if ($error != "") {
     ?>
     <!--Msj section-->
-    <div class="block text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
+    <div class="block text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 rounded-sm relative"
+         role="alert">
           <span class="mr-1">
-            <svg class="fill-current text-red-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="heroicon-ui" d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
+            <svg class="fill-current text-red-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" width="24" height="24">
+              <path class="heroicon-ui"
+                    d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
             </svg>
           </span>
         <span>
            <?php
-           if($error != ""){
+           if ($error != "") {
                echo $error;
            } ?>
           </span>
@@ -92,16 +95,19 @@ if($error != ""){
 ?>
 
 <?php
-if($info != ""){
+if ($info != "") {
     ?>
     <!--Msj section-->
-    <div class="block text-sm text-blue-600 bg-blue-200 border border-blue-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
+    <div class="block text-sm text-blue-600 bg-blue-200 border border-blue-400 h-12 flex items-center p-4 rounded-sm relative"
+         role="alert">
           <span class="mr-1">
-            <svg class="fill-current text-blue-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-              <path class="heroicon-ui" d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
+            <svg class="fill-current text-blue-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" width="24" height="24">
+              <path class="heroicon-ui"
+                    d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
             </svg>
           </span> <?php
-        if($info != ""){
+        if ($info != "") {
             echo $info;
         } ?>
         <span>
@@ -119,7 +125,7 @@ if($info != ""){
             <h1 class="text-5xl font-bold text-left tracking-wide">Formulario de Registro</h1>
             <div class="py-6 space-x-2">
                 <?php
-                if($msj != ""){
+                if ($msj != "") {
                     echo $msj;
                 }
                 ?>
@@ -145,7 +151,7 @@ if($info != ""){
                            class="block w-full p-4 text-lg rounded-sm bg-black">
                 </div>
                 <div class="pb-2 pt-4">
-                    <input  type="email" name="email" required placeholder="Email"
+                    <input type="email" name="email" required placeholder="Email"
                            class="block w-full p-4 text-lg rounded-sm bg-black">
                 </div>
                 <div class="pb-2 pt-4">
@@ -153,14 +159,18 @@ if($info != ""){
                            id="password" required placeholder="Password">
                 </div>
                 <div class="px-4 pb-2 pt-4">
-                    <input type="submit" name="register" value="registro" class="uppercase w-1/2 p-2 text-lg rounded-full bg-green-500 hover:bg-green-600 focus:outline-none"/>
+                    <input type="submit" name="register" value="registro"
+                           class="uppercase w-1/2 p-2 text-lg rounded-full bg-green-500 hover:bg-green-600 focus:outline-none"/>
                 </div>
             </form>
-            <form method="post" action="login.php">
-                <div class="px-4 pb-2 pt-4">
-                    <input type="submit" name="back" value="volver a login" class="uppercase w-1/2 p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"/>
-                </div>
-            </form>
+
+            <div class="px-4 pb-2 pt-4">
+                <form method="post" action="login.php">
+                    <input type="submit" name="back" value="volver a login"
+                           class="uppercase w-1/2 p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"/>
+                </form>
+            </div>
+
         </div>
     </div>
 </section>

@@ -4,10 +4,10 @@ require "./classes/PDF.php";
 
 session_start();
 
-if((!$_SESSION['user_id'])){
+/*if((!$_SESSION['user_id'])){
     header('Location: pages/auth/login.php');
     exit;
-}
+}*/
 
 
 // Test user acreditations :
@@ -250,70 +250,7 @@ if (isset($_POST['logout'])) {
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
-            <div class="grid grid-cols-3 gap-6">
-                <div class="h-24 col-span-1 bg-gray-700">
-                    <div class="jumbotron" id="login-form">
-                        <h1>Login access data</h1>
-                        <br>
-                        <div class="container">
-                            <form class="form-inline" action="index.php" method="post">
-                                <div class="form-group mx-sm-3 mb-2 ">
-                                    <label for="nombre">Usuario </label>
-                                    <input class="form-control" name="user" type="text" placeholder=" <?= $user ?>"
-                                    <!--required-->
-                                </div>
-                                <div class="form-group mx-sm-3 mb-2 ">
-                                    <label for="key">Key </label>
-                                    <input class="form-control" type="password" name="key" placeholder="<?= $key ?>"
-                                    <!--required-->
-                                </div>
-                                <div class="form-group mx-sm-3 mb-2 ">
-                                    <label for="token">Token </label>
-                                    <input class="form-control" type="password" name="token" placeholder="<?= $token ?>"
-                                    <!--required-->
-                                </div>
-                                <br/>
-                                <div class="form-group" id="login_buttons">
-                                    <input class="btn btn-primary btn-lg" type="submit" name="login" value="Login">
-                                    <input class="btn btn-danger btn-lg" type="submit" name="reset"
-                                           value="Reiniciar Conexion"
-                                        <?php if (!$_SESSION['access_data']) {
-                                            echo "disabled";
-                                        } ?> />
-                                </div>
-                            </form>
-                        </div>
 
-                    </div>
-                    <div class="jumbotron" id="application">
-                        <?php
-                        if ($data != null || $data != "") {
-                            if (isset($arr_cards) && $arr_cards != "") {
-                                echo "<h2>Previsualización</h2>";
-                                echo "<br/>";
-                                echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
-                                echo "<div  id='cards-box'>";
-                                foreach ($arr_cards as $card) {
-                                    render_card($card);
-                                }
-                                echo "</div>";
-                                echo "</div>";
-                            }
-                            ?>
-                            <?php
-                            echo "<hr/>";
-                            echo "<div class='container' id='select-board-section'>";
-                            echo "<h2>Seleccione su tablero</h2>";
-                            echo "<br/>";
-                            echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
-                            echo "</div>";
-                        }
-                        ?>
-
-                        <!---->
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
