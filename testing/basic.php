@@ -17,14 +17,14 @@ if (mysqli_connect_errno()) {
     printf("Falló la conexión con la base de datos: %s\n", mysqli_connect_error());
     exit();
 }
-$consulta ="select * from users where username='isa'";
+$consulta ="select username from users";
 
 if ($resultado = $conn->query($consulta)) {
 
     /* obtener el array de objetos */
     while ($obj = $resultado->fetch_object()) {
        /* printf ("%s (%s)\n", $obj->username);*/
-        echo($obj);
+        var_dump($obj);
     }
     /* liberar el conjunto de resultados */
     $resultado->close();

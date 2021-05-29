@@ -20,8 +20,7 @@ $consulta ="select * from users where username=isa";
 if ($resultado = $conn->query($consulta)) {
 
     /* obtener el array de objetos */
-    while ($obj = $resultado->fetch_object()) {
-        /* printf ("%s (%s)\n", $obj->username);*/
+    while ($obj = $resultado->fetch_array()) {
         echo($obj);
     }
     /* liberar el conjunto de resultados */
