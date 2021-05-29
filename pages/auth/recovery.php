@@ -162,7 +162,7 @@ required"/>
             </input>
         </div>
     </div>
-    <div>
+    <div class="w-full xl:w-1/2 p-8">
         <?php
         if ($error != "") {
             ?>
