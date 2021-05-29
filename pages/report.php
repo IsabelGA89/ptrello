@@ -213,7 +213,6 @@ if (isset($_POST['logout'])) {
            href="../index.php">
             <i class="fas fa-home fa-2x"></i>
         </a>
-
         <!--Quien Soy-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            target="_blank" href="quiensoy.php">
@@ -221,7 +220,7 @@ if (isset($_POST['logout'])) {
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-           href="#">
+           href="account.php">
             <i class="fas fa-file-alt fa-2x"></i>
         </a>
 
