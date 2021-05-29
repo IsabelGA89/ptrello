@@ -18,10 +18,10 @@ $username="ejemplo nick";
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!--Tailwindcss-->
-    <link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
     <!--Personal css-->
     <link rel="stylesheet" href="../css/style.css">
-    <title>Consultas a tableros de Trello</title>
+    <title>Cuenta</title>
     <!--Favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
     <!--ICONOS FONT AWESOME-->
@@ -33,7 +33,7 @@ $username="ejemplo nick";
     </style>
 </head>
 
-<body>
+<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
 <div class="flex w-screen h-screen text-gray-400 bg-gray-900">
     <!--Navbar-->
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
