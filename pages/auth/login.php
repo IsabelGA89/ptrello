@@ -31,7 +31,7 @@ if(isset($_POST['login'])) {
         $msj = "Conexión exitosa con la bd";
     }
     $consulta ="select * from users where username='$username'";
-    var_dump($consulta);
+    echo $consulta;
 
     if ($resultado = $conn->query($consulta)) {
         $arr_info = $resultado->fetch_array();
@@ -39,7 +39,7 @@ if(isset($_POST['login'])) {
     }
     /* cerrar la conexión */
     $conn->close();
-    $msj = $arr_info['username'];
+    $msj = $arr_info[0];
 
     if(password_verify($password,$arr_info['password'])){
         $_SESSION['user_id'] = $arr_info['id'];
@@ -114,7 +114,7 @@ if(isset($_POST['login'])) {
             <p class="text-gray-100">
                 Identificate
             </p>
-            <form method="post" action="../../index.php" name="signin-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
+            <form method="post" action="login.php" name="signin-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class="pb-2 pt-4">
                     <input type="text" name="username" pattern="[a-zA-Z0-9]+" required placeholder="Username"
                            class="block w-full p-4 text-lg rounded-sm bg-black">
