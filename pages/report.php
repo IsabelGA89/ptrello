@@ -291,6 +291,7 @@ if (isset($_POST['logout'])) {
                                     if ($data != null || $data != "") {
                                         if (isset($arr_cards) && $arr_cards != "") {
                                             echo "<h2>Previsualización</h2>";
+                                            echo "<br/>";
                                             render_trello_header();
                                             echo "<br/>";
                                             echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
