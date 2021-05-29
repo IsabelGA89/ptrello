@@ -14,6 +14,7 @@ if(isset($_POST['login'])) {
     $connection = new Heroku();
     $consulta = "SELECT * FROM users WHERE username= $username";
     $result = $connection->consulta_fetch($consulta);
+    
     echo $result;
     var_dump($result->password);
 

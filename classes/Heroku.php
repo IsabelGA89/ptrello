@@ -36,19 +36,16 @@ class Heroku
     }
 
     public function consulta_fetch($consulta){
+        $arr_result= [];
         if ($resultado = $this->conection->query($consulta)) {
-
             /* obtener el array de objetos */
             while ($obj = $resultado->fetch_object()) {
-                printf ("%s (%s)\n", $obj->username);
+              array_push($arr_result,$obj);
             }
-            /* liberar el conjunto de resultados */
-            $resultado->close();
         }
-
         /* cerrar la conexión */
         $this->conection->cerrar();
-        return $resultado;
+        return $arr_result;
     }
 
 
