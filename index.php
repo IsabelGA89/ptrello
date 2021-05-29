@@ -80,6 +80,54 @@ if ((!$_SESSION['user_id'])) {
                  style="background-image: url(https://images.unsplash.com/photo-1572817519612-d8fadd929b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
                 <div class="container w-full md:max-w-3xl mx-auto pt-20">
 
+                    <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+                        <div class="overflow-hidden shadow-md text-gray-100">
+                            <!-- card header -->
+                            <div class="px-6 py-4 bg-gray-800 border-b border-gray-600 font-bold uppercase">
+                                Listado de urls y datos necesarios
+                            </div>
+
+                            <!-- card body -->
+                            <div class="p-6 bg-gray-800 border-b border-gray-600">
+                                <h3><a target="_blank" href="https://trello.com/app-key">Generar la api key </a></h3>
+                                <h4><a target="_blank"
+                                       href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
+                                        Documentación API
+                                        trello</a></h4>
+                                <hr/>
+                                <h5>Datos necesarios para utilizar la aplicación:</h5>
+                                <ul>
+                                    <li>Nombre de usuario de Trello</li>
+                                    <li>Key (si no dispone de ella puede utilizar el enlace de arriba)</li>
+                                    <li>Token (si no dispone de él puede utilizar el enlace de arriba)</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <hr/>
+                                <h5>Pasos para utilizar la aplicación:</h5>
+                                <ol>
+                                    <li>Rellene la sección de Login en función del tablero al que quiera acceder.</li>
+                                    <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
+                                    <li>Se visualizará en el apartado de previsualización un listado con las cards de dicho
+                                        tablero
+                                    </li>
+                                    <li>Puede descargar la versión en json de lo que le está mostrando la sección
+                                        "Previsualización"
+                                    </li>
+                                    <li>Puede descargar la versión en pdf de lo que le está mostrando la sección
+                                        "Previsualización"
+                                    </li>
+                                </ol>
+                            </div>
+
+                            <!-- card footer -->
+                            <div class="p-6 bg-gray-800 border-gray-200 text-right">
+                                <!-- button link -->
+                                <a class="bg-blue-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-blue-400 rounded uppercase"
+                                   href="pages/report.php">Ir a reportes</a>
+                            </div>
+                        </div>
+                    </div>
 
 
                 </div>
