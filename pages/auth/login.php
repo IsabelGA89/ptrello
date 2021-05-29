@@ -5,7 +5,7 @@ spl_autoload_register(function ($clase) {
 
 session_start();
 $msj = "";
-
+$error="";
 
 if(isset($_POST['login'])) {
 
@@ -31,7 +31,6 @@ if(isset($_POST['login'])) {
         $msj = "Conexión exitosa con la bd";
     }
     $consulta ="select * from users where username='$username'";
-    echo $consulta;
 
     if ($resultado = $conn->query($consulta)) {
         $arr_info = $resultado->fetch_array();
@@ -39,14 +38,15 @@ if(isset($_POST['login'])) {
     }
     /* cerrar la conexión */
     $conn->close();
-    $msj = $arr_info[0];
+
 
     if(password_verify($password,$arr_info['password'])){
         $_SESSION['user_id'] = $arr_info['id'];
-        $msj = "Asignada id, contraseña correcta";
 
-       /* header('Location:../../index.php');
-        exit();*/
+        header('Location:../../index.php');
+        exit();
+    }else{
+        $error="O el usuario o la contraseña no son válidos, por favor, revise los datos introducidos";
     }
 
 
@@ -66,6 +66,21 @@ if(isset($_POST['login'])) {
 </head>
 
 <body>
+<!--Msj section-->
+<div class="block text-sm text-blue-600 bg-blue-200 border border-blue-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
+          <span class="mr-1">
+            <svg class="fill-current text-blue-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="heroicon-ui" d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
+            </svg>
+          </span>
+    <span>
+           <?php
+           if($error != ""){
+                    echo $error;
+                } ?>
+          </span>
+</div>
+
     <section class="min-h-screen flex items-stretch text-white ">
     <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
          style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
@@ -99,7 +114,7 @@ if(isset($_POST['login'])) {
             <h1 class="my-6">
                 <span class="text-5xl font-bold text-left tracking-wide">Trello Report</span>
             </h1>
-            <div class="py-6 space-x-2 "> MENSAJE:
+            <div class="py-6 space-x-2">
                 <?php
                 if($msj != ""){
                     echo $msj;
