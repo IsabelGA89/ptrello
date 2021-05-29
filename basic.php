@@ -13,7 +13,21 @@ $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
-$arr_info = $conn->query("select * from users;");
-foreach($arr_info as $row){
-    var_dump($row);
+if (mysqli_connect_errno()) {
+    printf("Falló la conexión con la base de datos: %s\n", mysqli_connect_error());
+    exit();
 }
+$consulta ="select username from users";
+
+if ($resultado = $conn->query($consulta)) {
+
+    /* obtener el array de objetos */
+    while ($obj = $resultado->fetch_object()) {
+        printf ("%s (%s)\n", $obj->username);
+    }
+    /* liberar el conjunto de resultados */
+    $resultado->close();
+}
+
+/* cerrar la conexión */
+$conn->close();
