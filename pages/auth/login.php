@@ -14,18 +14,18 @@ if(isset($_POST['login'])) {
     $connection = new Heroku();
     $consulta = "SELECT * FROM users WHERE username= $username";
     $result = $connection->consulta_fetch($consulta);
-    
-    echo $result;
-    var_dump($result->password);
 
-    if(password_verify($password,$result->password)){
+    echo $result;
+    var_dump($result);
+
+    /*if(password_verify($password,$result->password)){
         var_dump("la contraseña coincide");
         $_SESSION['user_id'] = $result->id;
         $result->close();
         $connection->cerrar();
-       /* header('Location:../../index.php');
-        exit();*/
-    }
+        header('Location:../../index.php');
+        exit();
+    }*/
 
     /*if (password_verify($password, $result['PASSWORD'])) {
         $_SESSION['user_id'] = $result['ID'];

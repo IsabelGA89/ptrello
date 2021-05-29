@@ -43,6 +43,7 @@ class Heroku
               array_push($arr_result,$obj);
             }
         }
+        var_dump($arr_result);
         /* cerrar la conexión */
         $this->conection->cerrar();
         return $arr_result;
