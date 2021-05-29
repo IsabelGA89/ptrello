@@ -53,6 +53,7 @@ if (isset($_POST['register'])) {
 
 }
 /////////////////////////////////////////////////////////////////////////////////
+
 ?>
 <!doctype html>
 <html lang="es">
@@ -155,7 +156,7 @@ if($info != ""){
                     <input type="submit" name="register" value="registro" class="uppercase w-1/2 p-2 text-lg rounded-full bg-green-500 hover:bg-green-600 focus:outline-none"/>
                 </div>
             </form>
-            <form method="post" action="registro.php.php">
+            <form method="post" action="registro.php">
                 <div class="px-4 pb-2 pt-4">
                     <input type="submit" name="back" value="volver a login" class="uppercase w-1/2 p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"/>
                 </div>
