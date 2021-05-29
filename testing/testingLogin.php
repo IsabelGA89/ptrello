@@ -2,23 +2,16 @@
 spl_autoload_register(function ($clase) {
     include 'classes/' . $clase . '.clase.php';
 });
+$msj ="";
 
-$connection = new Heroku();
-   $con =  $connection->conectar();
-$msj = $con->getStatus() ?? null;
-
-/*$query = "SELECT * FROM users Where username=isa";
-$result = $connection->query($query);*/
-
-/* array numérico */
-/*$row = $result->fetch_array(MYSQLI_NUM);
-printf ("%s (%s)\n", $row[0], $row[1]);*/
-
-/* liberar la serie de resultados */
-/*$result->free();*/
-
-/* cerrar la conexión */
-/*$connection->close();*/
+$con = new Heroku();
+$msj = $con->getStatus();
+$consulta = "SELECT * FROM  users WHERE username=isa";
+$res = $con->consulta_fetch($consulta);
+var_dump($res);
 
 
+$con->cerrar;
 echo $msj;
+
+
