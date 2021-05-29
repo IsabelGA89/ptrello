@@ -226,7 +226,7 @@ if (isset($_POST['logout'])) {
 
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
-           href="#">
+           href="account.php">
             <i class="fas fa-id-card fa-2x"></i>
         </a>
     </div>
