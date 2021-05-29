@@ -211,15 +211,15 @@ if (isset($_POST['logout'])) {
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
         <!--Contactos-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-           target="_blank" href="./pages/quiensoy.php">
+           target="_blank" href="pages/quiensoy.php">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                       d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
             </svg>
         </a>
-        <!--Información-->
-        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800" href="#">
+        <!--Report App-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800" href="pages/report.php">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -250,6 +250,48 @@ if (isset($_POST['logout'])) {
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
+
+            <div class="container w-full md:max-w-3xl mx-auto pt-20">
+
+                <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+
+                    <div class="jumbotron" id="information">
+                        <h1>Listado de urls y datos necesarios</h1>
+                        <div>
+                            <h3><a target="_blank" href="https://trello.com/app-key">Generar la api key </a></h3>
+                            <h4><a target="_blank" href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/"> Documentación API
+                                    trello</a></h4>
+                            <hr/>
+                            <h5>Datos necesarios para utilizar la aplicación:</h5>
+                            <ul>
+                                <li>Nombre de usuario de Trello</li>
+                                <li>Key (si no dispone de ella puede utilizar el enlace de arriba)</li>
+                                <li>Token (si no dispone de él puede utilizar el enlace de arriba)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <hr/>
+                            <h5>Pasos para utilizar la aplicación:</h5>
+                            <p>Puede dejar los valores por defecto y no hacer Login, en ese caso se utilizará el usuario por defecto</p>
+                            <ol>
+                                <li>Rellene, o no, la sección de Login en función del tablero al que quiera acceder.</li>
+                                <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
+                                <li>Se visualizará en fondo blanco un listado con las cards de dicho tablero</li>
+                                <li>Puede descargar la versión en json de lo que le está mostrando la sección "Previsualización"</li>
+                                <li>Puede descargar la versión en pdf de lo que le está mostrando la sección "Previsualización"</li>
+                            </ol>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+            </div>
+
 
         </div>
     </div>
