@@ -4,7 +4,7 @@ spl_autoload_register(function ($clase) {
 });
 
 session_start();
-$msj = "";
+$msj = "TESTING";
 
 
 if(isset($_POST['login'])) {
@@ -42,9 +42,10 @@ if(isset($_POST['login'])) {
 
     if(password_verify($password,$arr_info['password'])){
         $_SESSION['user_id'] = $arr_info['id'];
+        $msj = "Asignada id, contraseña correcta";
 
-        header('Location:../../index.php');
-        exit();
+       /* header('Location:../../index.php');
+        exit();*/
     }
 
 
