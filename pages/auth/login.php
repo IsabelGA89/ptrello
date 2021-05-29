@@ -7,7 +7,13 @@ session_start();
 $msj = "";
 $error="";
 $info="";
-if($_GET['info']){
+if (isset($_GET)) {
+    echo '<pre>';
+    echo htmlspecialchars(print_r($_POST, true));
+    echo '</pre>';
+}
+
+if(isset($_GET['info'])){
     $info = $_GET['info'];
 }
 
