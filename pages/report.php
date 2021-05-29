@@ -12,7 +12,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 session_start();
 
 if ((!$_SESSION['user_id'])) {
-    $login = $_SERVER['DOCUMENT_ROOT'] . "./pages/auth/login.php";
+    $login = "./pages/auth/login.php";
     header("Location: $login");
     exit;
 }
