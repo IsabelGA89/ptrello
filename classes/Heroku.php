@@ -29,6 +29,7 @@ class Heroku
 
         if (mysqli_connect_errno()) {
             $status = ("Falló la conexión con la base de datos: ". mysqli_connect_error());
+            $this->setStatus($status);
             exit();
         }
         return $conection;
