@@ -25,29 +25,29 @@ if($_POST['actualizar']){
 
 // Connect to DB
     $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
     if (mysqli_connect_errno()) {
         $error =("Falló la conexión con la base de datos: %s\n". mysqli_connect_error());
         exit();
     }else{
         $msj = "Conexión exitosa con la bd";
     }
+
     $consulta ="select * from users where email='$email'";
 
     if ($resultado = $conn->query($consulta)) {
         $arr_info = $resultado->fetch_array();
         $resultado->close();
     }
-    /* cerrar la conexión */
+
     $conn->close();
 
     if($arr_info['email']){
         //comprobar que ambas contraseñas sean la misma:
-        if($pass == $pass2){
+        if($pass === $pass2){
             //Update
             $secure_pass = password_hash($pass,PASSWORD_BCRYPT);
             $query = "UPDATE users SET password='$secure_pass' WHERE email='$email'";
-            if ($conn->query($query) === TRUE) {
+            if ($conn->query($query) === true) {
                 $info = "Se ha actualizado la contraseña, ya puede usar sus nuevas credenciales para acceder a la aplicación.";
                 header('Location:login.php');
                 exit();
@@ -78,8 +78,8 @@ if($_POST['actualizar']){
     <!--Tailwindcss-->
     <link href="https://unpkg.com/tailwindcss@1.0.4/dist/tailwind.min.css" rel="stylesheet">
     <!--Personal css-->
-    <link rel="stylesheet" href="../css/style.css">
-    <title>Consultas a tableros de Trello</title>
+    <!--<link rel="stylesheet" href="../css/style.css">-->
+    <title>Recuperar contraseña</title>
     <!--Favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
     <!--ICONOS FONT AWESOME-->
