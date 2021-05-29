@@ -119,7 +119,7 @@ function render_form_select_board($arr_tableros, $boardId = null, $arr_cards = n
 {
     $html = "";
     $html .= '<div class="container">';
-    $html .= '<form class="form-inline" action="deprecated/index.php" method="post">';
+    $html .= '<form class="form-inline" action="report.php" method="post">';
     $html .= '<div class="form-group mx-sm-3 mb-2">';
     $html .= '<select class="form-control" name="board" required>';
     /* Si ya hay un tablero seleccinado se guarde y se muestra seleccionado*/

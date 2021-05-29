@@ -98,7 +98,7 @@ if ($boardId != null) {
         //Obtenemos los filtros:
         $start_date_filter = $_SESSION['fstart'];
         $end_date_filter = $_SESSION['fend'];
-        
+
         $_SESSION['boardId'] = $boardId;
         $arr_cards[] = array();
         $cards = $trello->request('GET', ("boards/{$boardId}/cards"));
