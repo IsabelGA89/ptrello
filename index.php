@@ -10,175 +10,6 @@ session_start();
 }*/
 
 
-// Test user acreditations :
-$defaultUserName = "isabelgatfg";
-$defaultKey = '46115a7dcf49746db66a0395e4bd1bee';
-$defaultToken = "b2ce7110f3616705713bd97f12fc948dd51fbbbd32d49572fe618b1c463be4f7";
-
-$defaultBoardId = $_POST['boardId'] ?? null;
-
-if (isset($_POST['reset'])) {
-    delete_session_data();
-    $user = "";
-    $token = "";
-    $key = "";
-}
-//Obtenemos las variables del formulario o usamos los valores por defecto;
-if (isset($_POST['login'])) {
-    $_SESSION['access_data']['key'] = $_POST['key'];
-    $_SESSION['access_data']['token'] = $_POST['token'];
-    $_SESSION['access_data']['user'] = $_POST['user'];
-}
-
-if (isset($_POST['submit']) == "Seleccionar") {
-    if ($_SESSION['boardId'] != $_POST['board']) {
-
-        $_SESSION['boardId'] = $_POST['board'];
-    }
-    $boardId = $_SESSION['boardId'];
-}
-
-$key = $_SESSION['access_data']['key'] ?? $defaultKey;
-$token = $_SESSION['access_data']['token'] ?? $defaultToken;
-$user = $_SESSION['access_data']['user'] ?? $defaultUserName;
-$boardId = $_SESSION['boardId'] ?? $defaultBoardId;
-
-
-//Consulta a los tableros:
-$trello = new trello_api($key, $token);
-$data = $trello->request('GET', ("member/me/boards"));
-$arr_tableros = board_request($trello, $data);
-
-//Consulta a las cards del tablero:
-if ($boardId != null) {
-    //Comprobación de los filtros:
-    $are_filters = check_filters();
-
-    if ($are_filters == false) {
-        $_SESSION['boardId'] = $boardId;
-        $arr_cards[] = array();
-        /*$columns = $trello->request('GET', ("boards/$boardId/lists"));*/
-        $cards = $trello->request('GET', ("boards/{$boardId}/cards"));
-        foreach ($cards as $index => $card) {
-            $arr_labels = [];
-            if ($card->labels != "") {
-                foreach ($card->labels as $label) {
-                    $arr_labels[] = array(
-                        "name" => $label->name,
-                        "color" => $label->color
-                    );
-                }
-                $arr_cards[$card->id] = array(
-                    "name" => $card->name,
-                    "descripcion" => $card->desc ?? "",
-                    "comentarios" => $card->badges->comments ?? "",
-                    "url" => $card->url,
-                    "fcreacion" => get_create_card_date($card->id),
-                    "ffinalizacion" => parse_date_format($card->due),
-                    "etiquetas" => $arr_labels
-                );
-            } else {
-                $arr_cards[$card->id] = array(
-                    "name" => $card->name,
-                    "descripcion" => $card->desc ?? "",
-                    "comentarios" => $card->badges->comments ?? "",
-                    "url" => $card->url,
-                    "fcreacion" => get_create_card_date($card->id),
-                    "ffinalizacion" => parse_date_format($card->due),
-                );
-            }
-
-        }
-        //Eliminamos el primer elemento del array, que siempre viene vacío:
-        $arr_cards = parse_array_cards($arr_cards);
-    } else {
-        //Obtenemos los filtros:
-        $start_date_filter = $_SESSION['fstart'];
-        $end_date_filter = $_SESSION['fend'];
-
-
-        $_SESSION['boardId'] = $boardId;
-        $arr_cards[] = array();
-        $cards = $trello->request('GET', ("boards/{$boardId}/cards"));
-        foreach ($cards as $index => $card) {
-            $card_creation = get_create_card_date($card->id);
-            $card_finalization = parse_date_format($card->due);
-
-            $rango = check_in_range($start_date_filter, $end_date_filter, $card_creation);
-
-            $arr_labels = [];
-            if ($rango == true) {
-                if ($card->labels != "") {
-                    foreach ($card->labels as $label) {
-                        $arr_labels[] = array(
-                            "name" => $label->name,
-                            "color" => $label->color
-                        );
-                    }
-                    $arr_cards[$card->id] = array(
-                        "name" => $card->name,
-                        "descripcion" => $card->desc ?? "",
-                        "comentarios" => $card->badges->comments ?? "",
-                        "url" => $card->url,
-                        "fcreacion" => get_create_card_date($card->id),
-                        "ffinalizacion" => parse_date_format($card->due),
-                        "etiquetas" => $arr_labels
-                    );
-                } else {
-                    $arr_cards[$card->id] = array(
-                        "name" => $card->name,
-                        "descripcion" => $card->desc ?? "",
-                        "comentarios" => $card->badges->comments ?? "",
-                        "url" => $card->url,
-                        "fcreacion" => $card_creation,
-                        "ffinalizacion" => $card_finalization,
-                    );
-                }
-            }
-
-
-        }
-        //Eliminamos el primer elemento del array, que siempre viene vacío:
-        $arr_cards = parse_array_cards($arr_cards);
-    }
-
-
-    //FILTER SECTION:
-    if (isset($_POST['submit']) && $_POST['submit'] == "Aplicar Filtros") {
-        save_filters();
-    }
-    if (isset($_POST['submit']) && $_POST['submit'] == "Borrar Filtros") {
-        delete_filters();
-    }
-
-
-    //DOWNLOAD SECTION:
-    if (isset($_POST['submit']) && $_POST['submit'] == "Descargar JSON") {
-        download_Json($arr_cards);
-    }
-    if (isset($_POST['submit']) && $_POST['submit'] == "Descargar PDF") {
-        download_PDF($arr_cards);
-    }
-
-
-    /*    if (isset($_POST['submit']) && $_POST['submit'] == "Test PDF") {
-            //Guardamos la info en sesion
-            $arr_serialized = serialize($arr_cards);
-            $_SESSION['data'] = $arr_serialized;
-            header("Location: print_view.php");
-            exit;
-        }*/
-}
-
-
-// Si se ha seleccionado desloguear
-if (isset($_POST['logout'])) {
-    unset ($_SESSION['user_id']);
-    header('Location: pages/login.php');
-    exit;
-}
-
-
 ?>
 <!doctype html>
 <html lang="es">
@@ -208,32 +39,26 @@ if (isset($_POST['logout'])) {
 <div class="flex w-screen h-screen text-gray-400 bg-gray-900">
     <!--Navbar-->
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
+        <!--Info App-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
+           href="index.php">
+            <i class="fas fa-home fa-2x"></i>
+        </a>
         <!--Quien Soy-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            target="_blank" href="pages/quiensoy.php">
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
-            </svg>
+            <i class="fas fa-female fa-2x"></i>
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="pages/report.php">
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
+            <i class="fas fa-file-alt fa-2x"></i>
         </a>
+
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="#">
-            <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                 stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
+            <i class="fas fa-id-card fa-2x"></i>
         </a>
     </div>
 
