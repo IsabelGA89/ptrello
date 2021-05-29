@@ -171,7 +171,6 @@ if ($boardId != null) {
         }*/
 }
 
-
 // Si se ha seleccionado desloguear
 if (isset($_POST['logout'])) {
     unset ($_SESSION['user_id']);
@@ -287,7 +286,7 @@ if (isset($_POST['logout'])) {
                             </div>
 
                         </div>
-                        <div class="jumbotron" id="application">
+                        <div class="container" id="application">
                             <?php
                             if ($data != null || $data != "") {
                                 if (isset($arr_cards) && $arr_cards != "") {
@@ -302,6 +301,7 @@ if (isset($_POST['logout'])) {
                                     }
                                     echo "</div>";
                                     echo "</div>";
+
                                 }
                                 ?>
 
@@ -318,7 +318,6 @@ if (isset($_POST['logout'])) {
                             ?>
 
                             <!---->
-
                         </div>
                     </div>
                 </div>
