@@ -16,10 +16,9 @@ if(isset($_POST['login'])) {
     $result = $connection->consulta_fetch($consulta);
 
     if(password_verify($password,$result->password)){
+        $_SESSION['user_id'] = $result->id;
         $result->close();
         $connection->cerrar();
-        
-        $_SESSION['user_id'] = $result['ID'];
         header('Location:../../index.php');
     }
 
