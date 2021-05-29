@@ -46,9 +46,9 @@ $user = $_SESSION['access_data']['user'] ?? $defaultUserName;
 $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 
 //Consulta a los tableros:
-$trello = new trello_api($key, $token);
+/*$trello = new trello_api($key, $token);
 $data = $trello->request('GET', ("member/me/boards"));
-$arr_tableros = board_request($trello, $data);
+$arr_tableros = board_request($trello, $data);*/
 
 ?>
 <!doctype html>
