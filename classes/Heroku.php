@@ -35,7 +35,7 @@ class Heroku
         return $conection;
     }
 
-    public function consulta($consulta){
+    public function consulta_fetch($consulta){
         if ($resultado = $this->conection->query($consulta)) {
 
             /* obtener el array de objetos */

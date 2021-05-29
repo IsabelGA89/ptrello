@@ -11,16 +11,22 @@ if(isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-
     $connection = new Heroku();
     $consulta = "SELECT * FROM users WHERE username= $username";
-    $result = $connection->consulta($consulta);
-    var_dump($result);
-    $connection->cerrar();
+    $result = $connection->consulta_fetch($consulta);
+
+    if(password_verify($password,$result->password)){
+        $result->close();
+        $connection->cerrar();
+        
+        $_SESSION['user_id'] = $result['ID'];
+        header('Location:../../index.php');
+    }
+
     /*if (password_verify($password, $result['PASSWORD'])) {
         $_SESSION['user_id'] = $result['ID'];
         header('Location:../../index.php');*/
-
+    $connection->cerrar();
 
 }
 ?>
