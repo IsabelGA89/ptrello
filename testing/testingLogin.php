@@ -3,9 +3,8 @@ spl_autoload_register(function ($clase) {
     include 'classes/' . $clase . '.clase.php';
 });
 
-
 $connection = new Heroku();
-$msj = $connection->getStatus();
+$msj = $connection->getStatus() ?? null;
 
 /*$query = "SELECT * FROM users Where username=isa";
 $result = $connection->query($query);*/
