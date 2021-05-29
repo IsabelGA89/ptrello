@@ -33,14 +33,12 @@ if(isset($_POST['login'])) {
     $consulta ="select * from users where username='$username'";
 
     if ($resultado = $conn->query($consulta)) {
-        /* obtener el array de objetos */
         $arr_info = $resultado->fetch_array();
-        /* liberar el conjunto de resultados */
         $resultado->close();
     }
     /* cerrar la conexión */
     $conn->close();
-
+    $msj = $arr_info;
 
     if(password_verify($password,$arr_info['password'])){
         $_SESSION['user_id'] = $arr_info['id'];
