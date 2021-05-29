@@ -16,7 +16,6 @@ class Heroku
 
 
     public function conectar(){
-
         $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
         $cleardb_server = $cleardb_url["host"];
@@ -38,6 +37,7 @@ class Heroku
     public function consulta_fetch($consulta){
         $arr_result= [];
         if ($resultado = $this->conection->query($consulta)) {
+            $numfilas = $resultado->num_rows;
             /* obtener el array de objetos */
             while ($obj = $resultado->fetch_object()) {
               array_push($arr_result,$obj);

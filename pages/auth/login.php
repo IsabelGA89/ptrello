@@ -12,10 +12,14 @@ if(isset($_POST['login'])) {
     $password = $_POST['password'];
 
     $connection = new Heroku();
-    $consulta = "SELECT * FROM users WHERE username= $username";
-    $result = $connection->consulta_fetch($consulta);
+    $msj = $connection->getStatus();
 
-    echo $result;
+    $consulta = "SELECT * FROM users WHERE username= $username";
+    $result = $connection->query($consulta);
+    while ($obj = $result->fetch_object()) {
+        echo $result;
+    }
+    
     var_dump($result);
 
     /*if(password_verify($password,$result->password)){
