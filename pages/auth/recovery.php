@@ -94,53 +94,6 @@ if($_POST['actualizar']){
 <body class="h-screen overflow-hidden flex items-center justify-center" style="background-color: #161616;">
 
 <div class="container max-w-md mx-auto xl:max-w-3xl h-full flex bg-white rounded-lg shadow overflow-hidden">
-    <?php
-    if ($error != "") {
-        ?>
-        <!--Msj section-->
-        <div class="block text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 rounded-sm relative"
-             role="alert">
-          <span class="mr-1">
-            <svg class="fill-current text-red-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 24 24" width="24" height="24">
-              <path class="heroicon-ui"
-                    d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
-            </svg>
-          </span>
-            <span>
-           <?php
-           if ($error != "") {
-               echo $error;
-           } ?>
-          </span>
-        </div>
-        <?php
-    }
-    ?>
-
-    <?php
-    if ($info != "") {
-        ?>
-        <!--Msj section-->
-        <div class="block text-sm text-blue-600 bg-blue-200 border border-blue-400 h-12 flex items-center p-4 rounded-sm relative"
-             role="alert">
-          <span class="mr-1">
-            <svg class="fill-current text-blue-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg"
-                 viewBox="0 0 24 24" width="24" height="24">
-              <path class="heroicon-ui"
-                    d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
-            </svg>
-          </span> <?php
-            if ($info != "") {
-                echo $info;
-            } ?>
-            <span>
-
-          </span>
-        </div>
-        <?php
-    }
-    ?>
     <div class="relative hidden xl:block xl:w-1/2 h-full">
         <img
                 class="absolute h-auto w-full object-cover"
@@ -203,12 +156,60 @@ required"/>
                 </input>
             </div>
         </form>
-        <div class="flex w-full mt-8">
-            <input class="w-full bg-gray-800 hover:bg-grey-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10"
-                    type="submit" value="volver atrás" name="login">
-
+        <div class="flex w-full mt-2">
+            <input class="w-full bg-green-800 hover:bg-green-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10"
+                    type="submit" value="Volver atrás" name="login">
             </input>
         </div>
+    </div>
+    <div>
+        <?php
+        if ($error != "") {
+            ?>
+            <!--Msj section-->
+            <div class="block text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 rounded-sm relative"
+                 role="alert">
+          <span class="mr-1">
+            <svg class="fill-current text-red-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" width="24" height="24">
+              <path class="heroicon-ui"
+                    d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
+            </svg>
+          </span>
+                <span>
+           <?php
+           if ($error != "") {
+               echo $error;
+           } ?>
+          </span>
+            </div>
+            <?php
+        }
+        ?>
+
+        <?php
+        if ($info != "") {
+            ?>
+            <!--Msj section-->
+            <div class="block text-sm text-blue-600 bg-blue-200 border border-blue-400 h-12 flex items-center p-4 rounded-sm relative"
+                 role="alert">
+          <span class="mr-1">
+            <svg class="fill-current text-blue-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg"
+                 viewBox="0 0 24 24" width="24" height="24">
+              <path class="heroicon-ui"
+                    d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
+            </svg>
+          </span> <?php
+                if ($info != "") {
+                    echo $info;
+                } ?>
+                <span>
+
+          </span>
+            </div>
+            <?php
+        }
+        ?>
     </div>
 </div>
 </body>
