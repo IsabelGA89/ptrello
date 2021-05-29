@@ -89,7 +89,7 @@ if ((!$_SESSION['user_id'])) {
 
                             <!-- card body -->
                             <div class="p-6 bg-gray-800 border-b border-gray-600">
-                                <h3 class="text-2xl"><a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://trello.com/app-key">Generar la api
+                                <h3 class="text-2xl"><a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#authentication-and-authorization">Generar la api
                                         key </a></h3>
                                 <h4 class="text-xl"><a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank"
                                                        href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
@@ -141,7 +141,7 @@ if ((!$_SESSION['user_id'])) {
                                     <p>Trello es una aplicación online gratuita, que mediante un canvan ayuda a la
                                         gestión de
                                         proyectos.
-                                        <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://trello.com/c/RZExuHxu/6-qué-es-trello-y-cómo-se-usa">Aquí tiene
+                                        <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://trello.com/c/RZExuHxu/6-qué-es-trello-y-cómo-se-usa">Aquí tiene
                                             parte
                                             de la documentación oficial.</a></p>
                                     <p>
