@@ -1,6 +1,6 @@
 <?php
-require './libs/fpdf/fpdf.php';
-require '../functions.php';
+require $_SERVER['DOCUMENT_ROOT'].'./libs/fpdf/fpdf.php';
+require $_SERVER['DOCUMENT_ROOT'].'../functions.php';
 
 class PDF extends FPDF
 {
