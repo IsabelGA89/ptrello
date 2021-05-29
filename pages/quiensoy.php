@@ -1,3 +1,12 @@
+<?php
+session_start();
+if ((!$_SESSION['user_id'])) {
+    $login = $_SERVER['DOCUMENT_ROOT'] . "pages/auth/login.php";
+    header("Location: $login");
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +19,7 @@
     <meta name="author" content="Isabel Gonzalez Anzano">
 
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
-    <!--Replace with your tailwind.css once created-->
+
 
 </head>
 

@@ -1,7 +1,7 @@
 <?php
 
 /*require $_SERVER['DOCUMENT_ROOT'] .'functions.php';*/
-require "../../functions.php";
+
 
 $info = "";
 $error = "";

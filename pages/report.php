@@ -11,10 +11,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 
 session_start();
 
-/*if((!$_SESSION['user_id'])){
-header('Location: pages/auth/login.php');
-exit;
-}*/
+if ((!$_SESSION['user_id'])) {
+    $login = $_SERVER['DOCUMENT_ROOT'] . "pages/auth/login.php";
+    header("Location: $login");
+    exit;
+}
 
 // Test user acreditations :
 $defaultUserName = "isabelgatfg";
@@ -287,36 +288,36 @@ if (isset($_POST['logout'])) {
 
                         </div>
                         <div class="jumbotron" id="application">
-                                    <?php
-                                    if ($data != null || $data != "") {
-                                        if (isset($arr_cards) && $arr_cards != "") {
-                                            echo "<h2>Previsualización</h2>";
-                                            echo "<br/>";
-                                            render_trello_header();
-                                            echo "<br/>";
-                                            echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
-                                            echo "<div  id='cards-box'>";
-                                            foreach ($arr_cards as $card) {
-                                                render_card($card);
-                                            }
-                                            echo "</div>";
-                                            echo "</div>";
-                                        }
-                                        ?>
-
-                                        <?php
-                                        echo "<hr/>";
-                                        echo "<div class='container' id='select-board-section'>";
-                                        echo "<h2>Seleccione su tablero</h2>";
-                                        echo "<br/>";
-                                        echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
-                                        echo "</div>";
-                                    } else {
-                                        echo "data está vacío";
+                            <?php
+                            if ($data != null || $data != "") {
+                                if (isset($arr_cards) && $arr_cards != "") {
+                                    echo "<h2>Previsualización</h2>";
+                                    echo "<br/>";
+                                    render_trello_header();
+                                    echo "<br/>";
+                                    echo '<div class="bg-blue w-full p-8 flex justify-center font-sans">';
+                                    echo "<div  id='cards-box'>";
+                                    foreach ($arr_cards as $card) {
+                                        render_card($card);
                                     }
-                                    ?>
+                                    echo "</div>";
+                                    echo "</div>";
+                                }
+                                ?>
 
-                                    <!---->
+                                <?php
+                                echo "<hr/>";
+                                echo "<div class='container' id='select-board-section'>";
+                                echo "<h2>Seleccione su tablero</h2>";
+                                echo "<br/>";
+                                echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
+                                echo "</div>";
+                            } else {
+                                echo "data está vacío";
+                            }
+                            ?>
+
+                            <!---->
 
                         </div>
                     </div>
