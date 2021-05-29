@@ -1,11 +1,13 @@
 <?php
-spl_autoload_register('myAutoLoaderPerson');
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+/*spl_autoload_register('myAutoLoaderPerson');
 
 function myAutoLoaderPerson($className) {
-    require_once __DIR__ . "/../../../Class/$className.class.php";
-}
-/*include "Class/trello_api.php";
-include "Class/PDF.php";*/
+    require_once __DIR__ . "./Class/$className.php";
+}*/
+require_once "Class/trello_api.php";
+require_once "Class/PDF.php";
 
 session_start();
 $data = "";
@@ -47,8 +49,8 @@ $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 
 //Consulta a los tableros:
 $trello = new trello_api($key, $token);
-$data = $trello->request('GET', ("member/me/boards"));
-$arr_tableros = board_request($trello, $data);
+/*$data = $trello->request('GET', ("member/me/boards"));
+$arr_tableros = board_request($trello, $data);*/
 
 ?>
 <!doctype html>

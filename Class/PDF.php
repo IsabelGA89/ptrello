@@ -1,6 +1,6 @@
 <?php
 require './libs/fpdf/fpdf.php';
-require 'functions.php';
+require '../functions.php';
 
 class PDF extends FPDF
 {
