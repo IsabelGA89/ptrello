@@ -14,4 +14,6 @@ $query_builder = TRUE;
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
 $arr_info = $conn->query("select * from users;");
-var_dump($arr_info);
+foreach($arr_info as $row){
+    var_dump($info);
+}
