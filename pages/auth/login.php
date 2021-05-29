@@ -99,7 +99,7 @@ if(isset($_POST['login'])) {
             <h1 class="my-6">
                 <span class="text-5xl font-bold text-left tracking-wide">Trello Report</span>
             </h1>
-            <div class="py-6 space-x-2 ">
+            <div class="py-6 space-x-2 "> HOLI mensajeee: 
                 <?php
                 if($msj != ""){
                     echo $msj;
