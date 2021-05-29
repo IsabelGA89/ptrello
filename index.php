@@ -209,7 +209,7 @@ if (isset($_POST['logout'])) {
 <div class="flex w-screen h-screen text-gray-400 bg-gray-900">
     <!--Navbar-->
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
-        <!--Contactos-->
+        <!--Quien Soy-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            target="_blank" href="pages/quiensoy.php">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -219,7 +219,8 @@ if (isset($_POST['logout'])) {
             </svg>
         </a>
         <!--Report App-->
-        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800" href="pages/report.php">
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
+           href="pages/report.php">
             <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                  stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -253,13 +254,16 @@ if (isset($_POST['logout'])) {
 
             <div class="container w-full md:max-w-3xl mx-auto pt-20">
 
-                <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal" style="font-family:Georgia,serif;">
+                <div class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal"
+                     style="font-family:Georgia,serif;">
 
                     <div class="jumbotron" id="information">
                         <h1>Listado de urls y datos necesarios</h1>
                         <div>
                             <h3><a target="_blank" href="https://trello.com/app-key">Generar la api key </a></h3>
-                            <h4><a target="_blank" href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/"> Documentación API
+                            <h4><a target="_blank"
+                                   href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
+                                    Documentación API
                                     trello</a></h4>
                             <hr/>
                             <h5>Datos necesarios para utilizar la aplicación:</h5>
@@ -272,20 +276,49 @@ if (isset($_POST['logout'])) {
                         <div>
                             <hr/>
                             <h5>Pasos para utilizar la aplicación:</h5>
-                            <p>Puede dejar los valores por defecto y no hacer Login, en ese caso se utilizará el usuario por defecto</p>
                             <ol>
-                                <li>Rellene, o no, la sección de Login en función del tablero al que quiera acceder.</li>
+                                <li>Rellene la sección de Login en función del tablero al que quiera acceder.</li>
                                 <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
-                                <li>Se visualizará en fondo blanco un listado con las cards de dicho tablero</li>
-                                <li>Puede descargar la versión en json de lo que le está mostrando la sección "Previsualización"</li>
-                                <li>Puede descargar la versión en pdf de lo que le está mostrando la sección "Previsualización"</li>
+                                <li>Se visualizará en el apartado de previsualización un listado con las cards de dicho
+                                    tablero
+                                </li>
+                                <li>Puede descargar la versión en json de lo que le está mostrando la sección
+                                    "Previsualización"
+                                </li>
+                                <li>Puede descargar la versión en pdf de lo que le está mostrando la sección
+                                    "Previsualización"
+                                </li>
                             </ol>
+                            <hr/>
+                            <div class="p-2 md:w-40 ">
+                                <a href="pages/report.php" class="flex items-center p-4 bg-blue-200 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100">
+
+                                    <svg class="h-6 fill-current hover:text-gray-100 " viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>PHP icon</title><path d="M7.01 10.207h-.944l-.515 2.648h.838c.556 0 .97-.105 1.242-.314.272-.21.455-.559.55-1.049.092-.47.05-.802-.124-.995-.175-.193-.523-.29-1.047-.29zM12 5.688C5.373 5.688 0 8.514 0 12s5.373 6.313 12 6.313S24 15.486 24 12c0-3.486-5.373-6.312-12-6.312zm-3.26 7.451c-.261.25-.575.438-.917.551-.336.108-.765.164-1.285.164H5.357l-.327 1.681H3.652l1.23-6.326h2.65c.797 0 1.378.209 1.744.628.366.418.476 1.002.33 1.752a2.836 2.836 0 0 1-.305.847c-.143.255-.33.49-.561.703zm4.024.715l.543-2.799c.063-.318.039-.536-.068-.651-.107-.116-.336-.174-.687-.174H11.46l-.704 3.625H9.388l1.23-6.327h1.367l-.327 1.682h1.218c.767 0 1.295.134 1.586.401s.378.7.263 1.299l-.572 2.944h-1.389zm7.597-2.265a2.782 2.782 0 0 1-.305.847c-.143.255-.33.49-.561.703a2.44 2.44 0 0 1-.917.551c-.336.108-.765.164-1.286.164h-1.18l-.327 1.682h-1.378l1.23-6.326h2.649c.797 0 1.378.209 1.744.628.366.417.477 1.001.331 1.751zM17.766 10.207h-.943l-.516 2.648h.838c.557 0 .971-.105 1.242-.314.272-.21.455-.559.551-1.049.092-.47.049-.802-.125-.995s-.524-.29-1.047-.29z"/></svg>
+                                    <div>
+                                        <p class=" text-xs font-medium ml-2 ">
+                                            Ir a reportes
+                                        </p>
+
+                                    </div>
+                                </a>
+                            </div>
                         </div>
                     </div>
-
-
-
-
+                    <div class="jumbotron" id="trello">
+                        <h1>Qué es Trello</h1>
+                        <div>
+                            <p>Trello es una aplicación online gratuita, que mediante un canvan ayuda a la gestión de
+                                proyectos.
+                                <a href="https://trello.com/c/RZExuHxu/6-qué-es-trello-y-cómo-se-usa">Aquí tiene parte
+                                    de la documentación oficial.</a></p>
+                            <p >
+                                <iframe class="justify-items-start md:justify-items-center" width="560" height="315" src="https://www.youtube.com/embed/7XFAAZpQkbM"
+                                        title="YouTube video player" frameborder="0"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen></iframe>
+                            </p>
+                        </div>
+                    </div>
 
 
                 </div>
