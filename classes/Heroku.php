@@ -48,7 +48,7 @@ class Heroku
 
         /* cerrar la conexión */
         $this->conection->cerrar();
-
+        return $resultado;
     }
 
 
