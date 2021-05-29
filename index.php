@@ -101,8 +101,8 @@ if ((!$_SESSION['user_id'])) {
                                     <li>Key (si no dispone de ella puede utilizar el enlace de arriba)</li>
                                     <li>Token (si no dispone de él puede utilizar el enlace de arriba)</li>
                                 </ul>
-                            </div>
-                           
+
+
                                 <h5>Pasos para utilizar la aplicación:</h5>
                                 <ol>
                                     <li>Rellene la sección de Login en función del tablero al que quiera acceder.</li>
@@ -118,7 +118,7 @@ if ((!$_SESSION['user_id'])) {
                                     </li>
                                 </ol>
 
-
+                            </div>
                             <!-- card footer -->
                             <div class="p-6 bg-gray-800 border-gray-200 text-right">
                                 <!-- button link -->
