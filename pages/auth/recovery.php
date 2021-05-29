@@ -207,11 +207,13 @@ if($_POST['actualizar']){
                 </input>
             </div>
         </form>
+        <form method="post" action="recovery.php">
         <div class="flex w-full mt-2">
             <input class="w-full bg-green-800 hover:bg-green-900 text-white text-sm py-2 px-4 font-semibold rounded focus:outline-none focus:shadow-outline h-10"
                     type="submit" value="Volver atrás" name="login">
             </input>
         </div>
+        </form>
     </div>
 </div>
 
