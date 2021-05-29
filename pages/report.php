@@ -52,6 +52,101 @@ $trello = new trello_api($key, $token);
 $data = $trello->request('GET', ("member/me/boards"));
 $arr_tableros = board_request($trello, $data);
 
+//Consulta a las cards del tablero:
+if ($boardId != null) {
+//Comprobación de los filtros:
+    $are_filters = check_filters();
+
+    if ($are_filters == false) {
+        $_SESSION['boardId'] = $boardId;
+        $arr_cards[] = array();
+        /*$columns = $trello->request('GET', ("boards/$boardId/lists"));*/
+        $cards = $trello->request('GET', ("boards/{$boardId}/cards"));
+        foreach ($cards as $index => $card) {
+            $arr_labels = [];
+            if ($card->labels != "") {
+                foreach ($card->labels as $label) {
+                    $arr_labels[] = array(
+                        "name" => $label->name,
+                        "color" => $label->color
+                    );
+                }
+                $arr_cards[$card->id] = array(
+                    "name" => $card->name,
+                    "descripcion" => $card->desc ?? "",
+                    "comentarios" => $card->badges->comments ?? "",
+                    "url" => $card->url,
+                    "fcreacion" => get_create_card_date($card->id),
+                    "ffinalizacion" => parse_date_format($card->due),
+                    "etiquetas" => $arr_labels
+                );
+            } else {
+                $arr_cards[$card->id] = array(
+                    "name" => $card->name,
+                    "descripcion" => $card->desc ?? "",
+                    "comentarios" => $card->badges->comments ?? "",
+                    "url" => $card->url,
+                    "fcreacion" => get_create_card_date($card->id),
+                    "ffinalizacion" => parse_date_format($card->due),
+                );
+            }
+
+        }
+        //Eliminamos el primer elemento del array, que siempre viene vacío:
+        $arr_cards = parse_array_cards($arr_cards);
+    } else {
+        //Obtenemos los filtros:
+        $start_date_filter = $_SESSION['fstart'];
+        $end_date_filter = $_SESSION['fend'];
+
+
+        $_SESSION['boardId'] = $boardId;
+        $arr_cards[] = array();
+        $cards = $trello->request('GET', ("boards/{$boardId}/cards"));
+        foreach ($cards as $index => $card) {
+            $card_creation = get_create_card_date($card->id);
+            $card_finalization = parse_date_format($card->due);
+
+            $rango = check_in_range($start_date_filter, $end_date_filter, $card_creation);
+
+            $arr_labels = [];
+            if ($rango == true) {
+                if ($card->labels != "") {
+                    foreach ($card->labels as $label) {
+                        $arr_labels[] = array(
+                            "name" => $label->name,
+                            "color" => $label->color
+                        );
+                    }
+                    $arr_cards[$card->id] = array(
+                        "name" => $card->name,
+                        "descripcion" => $card->desc ?? "",
+                        "comentarios" => $card->badges->comments ?? "",
+                        "url" => $card->url,
+                        "fcreacion" => get_create_card_date($card->id),
+                        "ffinalizacion" => parse_date_format($card->due),
+                        "etiquetas" => $arr_labels
+                    );
+                } else {
+                    $arr_cards[$card->id] = array(
+                        "name" => $card->name,
+                        "descripcion" => $card->desc ?? "",
+                        "comentarios" => $card->badges->comments ?? "",
+                        "url" => $card->url,
+                        "fcreacion" => $card_creation,
+                        "ffinalizacion" => $card_finalization,
+                    );
+                }
+            }
+
+
+        }
+        //Eliminamos el primer elemento del array, que siempre viene vacío:
+        $arr_cards = parse_array_cards($arr_cards);
+    }
+
+}
+
 ?>
 <!doctype html>
 <html lang="es">
