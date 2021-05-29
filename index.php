@@ -89,24 +89,26 @@ if ((!$_SESSION['user_id'])) {
 
                             <!-- card body -->
                             <div class="p-6 bg-gray-800 border-b border-gray-600">
-                                <h3 class="text-2xl"><a target="_blank" href="https://trello.com/app-key">Generar la api key </a></h3>
+                                <h3 class="text-2xl"><a target="_blank" href="https://trello.com/app-key">Generar la api
+                                        key </a></h3>
                                 <h4 class="text-xl"><a target="_blank"
-                                       href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
+                                                       href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
                                         Documentación API
                                         trello</a></h4>
                                 <hr/>
                                 <h5 class="text-lg">Datos necesarios para utilizar la aplicación:</h5>
-                                <ul>
+                                <ul class="list-disc">
                                     <li>Nombre de usuario de Trello</li>
                                     <li>Key (si no dispone de ella puede utilizar el enlace de arriba)</li>
                                     <li>Token (si no dispone de él puede utilizar el enlace de arriba)</li>
                                 </ul>
                                 <hr/>
-                                <h5 class="text-lg" >Pasos para utilizar la aplicación:</h5>
-                                <ol>
+                                <h5 class="text-lg">Pasos para utilizar la aplicación:</h5>
+                                <ol class="list-decimal">
                                     <li>Rellene la sección de Login en función del tablero al que quiera acceder.</li>
                                     <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
-                                    <li>Se visualizará en el apartado de previsualización un listado con las cards de dicho
+                                    <li>Se visualizará en el apartado de previsualización un listado con las cards de
+                                        dicho
                                         tablero
                                     </li>
                                     <li>Puede descargar la versión en json de lo que le está mostrando la sección
@@ -127,39 +129,44 @@ if ((!$_SESSION['user_id'])) {
                     </div>
                     <!--Card trello-->
                     <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
-                        <div class="overflow-hidden shadow-md text-gray-100">
-                            <!-- card header -->
-                            <div class=" text-3xl px-6 py-4 bg-gray-800 border-b border-gray-600 font-bold uppercase">
-                                Qué es Trello
+                        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+                            <div class="overflow-hidden shadow-md text-gray-100">
+                                <!-- card header -->
+                                <div class=" text-3xl px-6 py-4 bg-gray-800 border-b border-gray-600 font-bold uppercase">
+                                    Qué es Trello
+                                </div>
+
+                                <!-- card body -->
+                                <div class="p-6 bg-gray-800 border-b border-gray-600">
+                                    <p>Trello es una aplicación online gratuita, que mediante un canvan ayuda a la
+                                        gestión de
+                                        proyectos.
+                                        <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href="https://trello.com/c/RZExuHxu/6-qué-es-trello-y-cómo-se-usa">Aquí tiene
+                                            parte
+                                            de la documentación oficial.</a></p>
+                                    <p>
+                                        <iframe class="justify-items-start md:justify-items-center" width="560"
+                                                height="315" src="https://www.youtube.com/embed/7XFAAZpQkbM"
+                                                title="YouTube video player" frameborder="0"
+                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                    </p>
+                                </div>
                             </div>
 
-                            <!-- card body -->
-                            <div class="p-6 bg-gray-800 border-b border-gray-600">
-                                <p>Trello es una aplicación online gratuita, que mediante un canvan ayuda a la gestión de
-                                    proyectos.
-                                    <a href="https://trello.com/c/RZExuHxu/6-qué-es-trello-y-cómo-se-usa">Aquí tiene parte
-                                        de la documentación oficial.</a></p>
-                                <p>
-                                    <iframe class="justify-items-start md:justify-items-center" width="560" height="315" src="https://www.youtube.com/embed/7XFAAZpQkbM"
-                                            title="YouTube video player" frameborder="0"
-                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                            allowfullscreen></iframe>
-                                </p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
-</div>
-<!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
 
 </body>
 <!-- Footer -->
