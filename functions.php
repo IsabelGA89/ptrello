@@ -103,7 +103,7 @@ function check_in_range($fecha_inicio, $fecha_fin, $fecha)
     $fecha = strtotime($fecha);
 
     if (($fecha >= $fecha_inicio) && ($fecha <= $fecha_fin)) {
-       //echo "$fecha Entra en rango <br/>";
+        //echo "$fecha Entra en rango <br/>";
         return true;
 
     } else {
@@ -193,17 +193,17 @@ function render_card($data)
 {
     echo '<div class="rounded bg-grey-light w-64 p-2" >';
     echo '<div class="flex justify-between py-1" >';
-        echo $data['name'];
+    echo $data['name'];
     echo '</div >';
     echo '<div class="text-sm mt-2" >';
 
     echo '<div class="bg-white p-2 rounded mt-1 border-b border-grey cursor-pointer hover:bg-grey-lighter" >';
-        echo $data['descripcion'];
+    echo $data['descripcion'];
     echo '<div class="text-grey-darker mt-2 ml-2 flex justify-between items-start">';
     echo '<span class="text-xs flex items-center" >';
-    if(is_array($data['etiquetas']) && $data['etiquetas'] >1){
-        foreach ($data['etiquetas'] as $tag){
-            echo '<span class="inline-block rounded-full text-white bg-indigo-500 px-2 py-1 text-xs font-bold mr-3">'.$tag.'</span>';
+    if (is_array($data['etiquetas']) && $data['etiquetas'] > 1) {
+        foreach ($data['etiquetas'] as $tag) {
+            echo '<span class="inline-block rounded-full text-white bg-indigo-500 px-2 py-1 text-xs font-bold mr-3">' . $tag . '</span>';
         }
     }
     echo "</span>";
@@ -214,6 +214,35 @@ function render_card($data)
     echo "</div>";
     echo "<br/>";
 
+}
+
+//renderiza el encabezado de trello
+function render_trello_header()
+{
+    echo '<div class="bg-blue w-full h-screen font-sans">';
+    echo '<div class="flex p-2 bg-blue-dark items-center">';
+    echo '<div class="hidden md:flex justify-start">';
+    echo '<button class="bg-blue-light rounded p-2 font-bold text-white text-sm mr-2 flex">';
+    echo '<svg class="fill-current text-white h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M41 4H9C6.24 4 4 6.24 4 9v32c0 2.76 2.24 5 5 5h32c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5zM21 36c0 1.1-.9 2-2 2h-7c-1.1 0-2-.9-2-2V12c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v24zm19-12c0 1.1-.9 2-2 2h-7c-1.1 0-2-.9-2-2V12c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v12z"/></svg>';
+    echo 'Pannels';
+    echo '</button>';
+    echo '<input type="text" class="bg-blue-light rounded p-2">';
+    echo '</div>';
+    echo '<div class="mx-0 md:mx-auto">';
+    echo '<h1 class="text-blue-lighter text-xl flex items-center font-sans italic">';
+    echo '<svg class="fill-current h-8 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M41 4H9C6.24 4 4 6.24 4 9v32c0 2.76 2.24 5 5 5h32c2.76 0 5-2.24 5-5V9c0-2.76-2.24-5-5-5zM21 36c0 1.1-.9 2-2 2h-7c-1.1 0-2-.9-2-2V12c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v24zm19-12c0 1.1-.9 2-2 2h-7c-1.1 0-2-.9-2-2V12c0-1.1.9-2 2-2h7c1.1 0 2 .9 2 2v12z"/></svg>';
+    echo 'Trello';
+    echo '</h1>';
+    echo '</div>';
+    echo ' <div class="flex items-center ml-auto">';
+    echo '<button class="bg-blue-light rounded h-8 w-8 font-bold text-white text-sm mr-2">+</button>';
+    echo '<button class="bg-blue-light rounded h-8 w-8 font-bold text-white text-sm mr-2">i</button>';
+    echo '<button class="bg-red rounded h-8 w-8 font-bold text-white text-sm mr-2">';
+    echo ' <svg class="h-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2c-.8 0-1.5.7-1.5 1.5v.688C7.344 4.87 5 7.62 5 11v4.5l-2 2.313V19h18v-1.188L19 15.5V11c0-3.379-2.344-6.129-5.5-6.813V3.5c0-.8-.7-1.5-1.5-1.5zm-2 18c0 1.102.898 2 2 2 1.102 0 2-.898 2-2z"/></svg>';
+    echo ' </button>';
+    echo '<img src="https://i.imgur.com/OZaT7jl.png" class="rounded-full" />';
+    echo '</div>';
+    echo '</div>';
 }
 
 
