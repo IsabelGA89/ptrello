@@ -79,31 +79,30 @@ if ((!$_SESSION['user_id'])) {
             <div class="bg-cover bg-center border rounded-t-lg shadow-lg"
                  style="background-image: url(https://images.unsplash.com/photo-1572817519612-d8fadd929b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
                 <div class="container w-full md:max-w-3xl mx-auto pt-20">
-
+                    <!--Card info-->
                     <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
                         <div class="overflow-hidden shadow-md text-gray-100">
                             <!-- card header -->
-                            <div class="px-6 py-4 bg-gray-800 border-b border-gray-600 font-bold uppercase">
+                            <div class=" text-3xl px-6 py-4 bg-gray-800 border-b border-gray-600 font-bold uppercase">
                                 Listado de urls y datos necesarios
                             </div>
 
                             <!-- card body -->
                             <div class="p-6 bg-gray-800 border-b border-gray-600">
-                                <h3><a target="_blank" href="https://trello.com/app-key">Generar la api key </a></h3>
-                                <h4><a target="_blank"
+                                <h3 class="text-2xl"><a target="_blank" href="https://trello.com/app-key">Generar la api key </a></h3>
+                                <h4 class="text-xl"><a target="_blank"
                                        href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
                                         Documentación API
                                         trello</a></h4>
                                 <hr/>
-                                <h5>Datos necesarios para utilizar la aplicación:</h5>
+                                <h5 class="text-lg">Datos necesarios para utilizar la aplicación:</h5>
                                 <ul>
                                     <li>Nombre de usuario de Trello</li>
                                     <li>Key (si no dispone de ella puede utilizar el enlace de arriba)</li>
                                     <li>Token (si no dispone de él puede utilizar el enlace de arriba)</li>
                                 </ul>
-
-
-                                <h5>Pasos para utilizar la aplicación:</h5>
+                                <hr/>
+                                <h5 class="text-lg" >Pasos para utilizar la aplicación:</h5>
                                 <ol>
                                     <li>Rellene la sección de Login en función del tablero al que quiera acceder.</li>
                                     <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
@@ -117,7 +116,6 @@ if ((!$_SESSION['user_id'])) {
                                         "Previsualización"
                                     </li>
                                 </ol>
-
                             </div>
                             <!-- card footer -->
                             <div class="p-6 bg-gray-800 border-gray-200 text-right">
@@ -127,7 +125,28 @@ if ((!$_SESSION['user_id'])) {
                             </div>
                         </div>
                     </div>
+                    <!--Card trello-->
+                    <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+                        <div class="overflow-hidden shadow-md text-gray-100">
+                            <!-- card header -->
+                            <div class=" text-3xl px-6 py-4 bg-gray-800 border-b border-gray-600 font-bold uppercase">
+                                Qué es Trello
+                            </div>
 
+                            <!-- card body -->
+                            <div class="p-6 bg-gray-800 border-b border-gray-600">
+                                <p>Trello es una aplicación online gratuita, que mediante un canvan ayuda a la gestión de
+                                    proyectos.
+                                    <a href="https://trello.com/c/RZExuHxu/6-qué-es-trello-y-cómo-se-usa">Aquí tiene parte
+                                        de la documentación oficial.</a></p>
+                                <p>
+                                    <iframe class="justify-items-start md:justify-items-center" width="560" height="315" src="https://www.youtube.com/embed/7XFAAZpQkbM"
+                                            title="YouTube video player" frameborder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowfullscreen></iframe>
+                                </p>
+                        </div>
+                    </div>
 
                 </div>
             </div>
