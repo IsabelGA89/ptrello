@@ -22,11 +22,19 @@ $consulta_email = "SELECT * FROM users WHERE EMAIL='j@gmail.com'";
 if ($resultado = $conn->query($consulta_email)) {
     /* obtener el array de objetos */
     $obj = $resultado->fetch_array();
-    var_dump($obj);
-
+    if($obj === null){
+        //el email no existe insertamos:
+        $pass = password_hash('123');
+        $query = "INSERT INTO users(username,password,email) VALUES ('juan','$pass','j@gmail.com')";
+        if ($conn->query($query) === TRUE) {
+            echo "Nuevo registro creado";
+        } else {
+            echo "Error: " . $query . "<br>" . $conn->error;
+        }
+    }
     /* liberar el conjunto de resultados */
     $resultado->close();
-}else{
+}
    /* $pass = password_hash('123');
     $query = "INSERT INTO users(username,password,email) VALUES ('juan','$pass','j@gmail.com')";
     if ($conn->query($query) === TRUE) {
@@ -35,7 +43,7 @@ if ($resultado = $conn->query($consulta_email)) {
         echo "Error: " . $query . "<br>" . $conn->error;
     }*/
 
-}
+
 
 /* cerrar la conexión */
 $conn->close();
