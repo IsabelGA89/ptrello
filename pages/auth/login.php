@@ -142,7 +142,7 @@ if($error != ""){
                            id="password" placeholder="Password">
                 </div>
                 <div class="text-right text-gray-400 hover:underline hover:text-gray-100">
-                    <a href="#">Forgot your password?</a>
+                    <a href="recovery.php">¿Has olvidado tu contraseña?</a>
                 </div>
                 <div class="px-4 pb-2 pt-4">
                     <input type="submit" name="login" value="login"
