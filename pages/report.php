@@ -6,8 +6,8 @@ ini_set('display_errors', '1');
 function myAutoLoaderPerson($className) {
     require_once __DIR__ . "./Class/$className.php";
 }*/
-require_once "Class/trello_api.php";
-require_once "Class/PDF.php";
+require_once "./Class/trello_api.php";
+require_once "./Class/PDF.php";
 
 session_start();
 $data = "";
