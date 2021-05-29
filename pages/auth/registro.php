@@ -2,6 +2,7 @@
 session_start();
 $msj = "";
 $error="";
+$info="";
 
 //BD////////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['register'])) {
@@ -88,6 +89,27 @@ if($error != ""){
     <?php
 }
 ?>
+
+<?php
+if($info != ""){
+    ?>
+    <!--Msj section-->
+    <div class="block text-sm text-blue-600 bg-blue-200 border border-blue-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
+          <span class="mr-1">
+            <svg class="fill-current text-blue-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="heroicon-ui" d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
+            </svg>
+          </span> <?php
+        if($info != ""){
+            echo $info;
+        } ?>
+        <span>
+
+          </span>
+    </div>
+    <?php
+}
+?>
 <section class="min-h-screen flex items-stretch text-white ">
     <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
          style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
@@ -133,7 +155,7 @@ if($error != ""){
                     <input type="submit" name="register" value="registro" class="uppercase w-1/2 p-2 text-lg rounded-full bg-green-500 hover:bg-green-600 focus:outline-none"/>
                 </div>
             </form>
-            <form method="post" action="login.php">
+            <form method="post" action="registro.php.php">
                 <div class="px-4 pb-2 pt-4">
                     <input type="submit" name="back" value="volver a login" class="uppercase w-1/2 p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"/>
                 </div>
