@@ -7,30 +7,46 @@ session_start();
 $msj = "";
 
 
-
-
-
-
 if(isset($_POST['login'])) {
 
     $username = $_POST['username'];
     $password = $_POST['password'];
 
 
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_server = $cleardb_url["host"];
+    $cleardb_username = $cleardb_url["user"];
+    $cleardb_password = $cleardb_url["pass"];
+    $cleardb_db = substr($cleardb_url["path"],1);
+    $active_group = 'default';
+    $query_builder = TRUE;
 
-    /*if(password_verify($password,$result->password)){
-        var_dump("la contraseña coincide");
-        $_SESSION['user_id'] = $result->id;
-        $result->close();
-        $connection->cerrar();
+// Connect to DB
+    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+    if (mysqli_connect_errno()) {
+        $msj =("Falló la conexión con la base de datos: %s\n". mysqli_connect_error());
+        exit();
+    }
+    $consulta ="select * from users where username='$username'";
+
+    if ($resultado = $conn->query($consulta)) {
+        /* obtener el array de objetos */
+        $arr_info = $resultado->fetch_array();
+        /* liberar el conjunto de resultados */
+        $resultado->close();
+    }
+    /* cerrar la conexión */
+    $conn->close();
+
+
+    if(password_verify($password,$arr_info['password'])){
+        $_SESSION['user_id'] = $arr_info['id'];
+
         header('Location:../../index.php');
         exit();
-    }*/
+    }
 
-    /*if (password_verify($password, $result['PASSWORD'])) {
-        $_SESSION['user_id'] = $result['ID'];
-        header('Location:../../index.php');*/
-    /*$connection->cerrar();*/
 
 }
 ?>
