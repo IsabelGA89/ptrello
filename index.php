@@ -69,9 +69,9 @@ if ((!$_SESSION['user_id'])) {
             <h1 class="text-lg font-medium"><h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello</h1>
                 <form action="pages/auth/login.php" method="post"
-                      class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
+                      class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-sign-out-alt"></i><input type="submit" name="logout" value="Log out"
-                                                              class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800"/>
+                                                              class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
         </div>
         <!--Body-->

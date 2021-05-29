@@ -190,6 +190,7 @@ if (isset($_POST['logout'])) {
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <!--Tailwindcss-->
     <link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet">
+    <!--<link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">-->
     <!--Personal css-->
     <link rel="stylesheet" href="../css/style.css">
     <title>Consultas a tableros de Trello</title>
@@ -237,9 +238,9 @@ if (isset($_POST['logout'])) {
             <h1 class="text-lg font-medium"><h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello</h1>
                 <form action="auth/login.php" method="post"
-                      class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
+                      class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-sign-out-alt fa-lg"></i><input type="submit" name="logout" value="Log out"
-                                                                    class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800"/>
+                                                                    class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
         </div>
         <!--Body-->
