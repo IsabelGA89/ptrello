@@ -1,6 +1,6 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', '1');
+/*error_reporting(E_ALL);
+ini_set('display_errors', '1');*/
 /*spl_autoload_register('myAutoLoaderPerson');
 
 function myAutoLoaderPerson($className) {
@@ -10,7 +10,7 @@ require_once $_SERVER['DOCUMENT_ROOT']."/Class/trello_api.php";
 require_once $_SERVER['DOCUMENT_ROOT']."/Class/PDF.php";
 
 session_start();
-$data = "";
+
 /*if((!$_SESSION['user_id'])){
 header('Location: pages/auth/login.php');
 exit;
@@ -98,8 +98,7 @@ if ($boardId != null) {
         //Obtenemos los filtros:
         $start_date_filter = $_SESSION['fstart'];
         $end_date_filter = $_SESSION['fend'];
-
-
+        
         $_SESSION['boardId'] = $boardId;
         $arr_cards[] = array();
         $cards = $trello->request('GET', ("boards/{$boardId}/cards"));
@@ -290,7 +289,6 @@ if (isset($_POST['logout'])) {
                         </div>
                         <div class="jumbotron" id="application">
                             <?php
-
                             if ($data != null || $data != "") {
                                 if (isset($arr_cards) && $arr_cards != "") {
                                     echo "<h2>Previsualización</h2>";
@@ -311,6 +309,8 @@ if (isset($_POST['logout'])) {
                                 echo "<br/>";
                                  echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
                                 echo "</div>";
+                            }else{
+                                echo "data está vacío";
                             }
                             ?>
 
