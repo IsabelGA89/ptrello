@@ -275,7 +275,7 @@ if ($boardId != null) {
                                 echo "<div class='container' id='select-board-section'>";
                                 echo "<h2>Seleccione su tablero</h2>";
                                 echo "<br/>";
-                                /* echo render_form_select_board($arr_tableros, $boardId, $arr_cards);*/
+                                 echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
                                 echo "</div>";
                             }
                             ?>
