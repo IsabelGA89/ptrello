@@ -38,9 +38,10 @@ class Heroku
         $arr_result= [];
         if ($resultado = $this->conection->query($consulta)) {
             $numfilas = $resultado->num_rows;
-            /* obtener el array de objetos */
-            while ($obj = $resultado->fetch_object()) {
-              array_push($arr_result,$obj);
+
+            for ($x=0;$x<$numfilas;$x++) {
+                $fila = $resultado->fetch_array();
+                array_push($arr_result);
             }
         }
         var_dump($arr_result);

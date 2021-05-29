@@ -19,7 +19,7 @@ if(isset($_POST['login'])) {
     while ($obj = $result->fetch_object()) {
         echo $result;
     }
-    
+
     var_dump($result);
 
     /*if(password_verify($password,$result->password)){
