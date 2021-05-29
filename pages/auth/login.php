@@ -9,13 +9,28 @@ $msj = "";
 $connection = new Heroku();
 $msj = $connection->getStatus();
 
-$consulta = "SELECT * FROM users WHERE username= isa";
-$result = $connection->query($consulta);
-while ($obj = $result->fetch_object()) {
-    echo $result;
-}
+$query = "SELECT * FROM users Where username=isa";
+$result = $connection->query($query);
 
-var_dump($result);
+/* array numérico */
+$row = $result->fetch_array(MYSQLI_NUM);
+printf ("%s (%s)\n", $row[0], $row[1]);
+
+/* array asociativo */
+$row = $result->fetch_array(MYSQLI_ASSOC);
+var_dump($row);
+
+
+
+
+
+/* liberar la serie de resultados */
+$result->free();
+
+/* cerrar la conexión */
+$connection->close();
+
+
 
 
 if(isset($_POST['login'])) {
