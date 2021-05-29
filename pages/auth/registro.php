@@ -1,5 +1,7 @@
 <?php
 session_start();
+$msj = "";
+$error="";
 
 //BD////////////////////////////////////////////////////////////////////////////////
 if (isset($_POST['register'])) {
@@ -9,37 +11,44 @@ if (isset($_POST['register'])) {
     $password = $_POST['password'];
     $password_hash = password_hash($password, PASSWORD_BCRYPT);
 
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_server = $cleardb_url["host"];
+    $cleardb_username = $cleardb_url["user"];
+    $cleardb_password = $cleardb_url["pass"];
+    $cleardb_db = substr($cleardb_url["path"], 1);
+    $active_group = 'default';
+    $query_builder = TRUE;
 
-
-    try {
-        $connection = new BD_PDO($datos);
-        $query = $connection->prepare("SELECT * FROM users WHERE EMAIL=:email");
-        $query->bindParam("email", $email, PDO::PARAM_STR);
-        $query->execute();
-
-        if ($query->rowCount() > 0) {
-            echo '<p class="error">El email ya existe.</p>';
-        }
-
-        if ($query->rowCount() == 0) {
-            $query = $connection->prepare("INSERT INTO users(USERNAME,PASSWORD,EMAIL) VALUES (:username,:password_hash,:email)");
-            $query->bindParam("username", $username, PDO::PARAM_STR);
-            $query->bindParam("password_hash", $password_hash, PDO::PARAM_STR);
-            $query->bindParam("email", $email, PDO::PARAM_STR);
-            $result = $query->execute();
-
-            if ($result) {
-                header('Location:./index.php');
-                exit;
-            } else {
-                echo '<p class="error">Algo ha ido mal.</p>';
-            }
-            $connection->cerrar();
-        }
-    } catch (PDOException $e) {
-        echo '<p class="error">'.$e->getMessage().'</p>';
-        $connection->cerrar();
+// Connect to DB
+    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    if (mysqli_connect_errno()) {
+        $msj =("Falló la conexión con la base de datos: %s\n". mysqli_connect_error());
+        exit();
+    }else{
+        $msj = "Conexión exitosa con la bd";
     }
+
+    $consulta_email = "SELECT * FROM users WHERE EMAIL='j@gmail.com'";
+
+    if ($resultado = $conn->query($consulta_email)) {
+        /* obtener el array de objetos */
+        $obj = $resultado->fetch_array();
+        if($obj === null){
+            //el email no existe insertamos:
+            $query = "INSERT INTO users(username,password,email) VALUES ('$username','$password_hash','$email')";
+            if ($conn->query($query) === TRUE) {
+                $info = "Usuario creado correctamente, ya puede usar sus nuevas credenciales para acceder a la aplicación.";
+            } else {
+                $error = "Error: $conn->error";
+            }
+        }else{
+            $error = "El email introducido ya existe en el sistema, pruebe con otro";
+        }
+        $resultado->close();
+    }
+    /* cerrar la conexión */
+    $conn->close();
+
 
 }
 /////////////////////////////////////////////////////////////////////////////////
@@ -59,13 +68,39 @@ if (isset($_POST['register'])) {
 
 
 <body>
+<?php
+if($error != ""){
+    ?>
+    <!--Msj section-->
+    <div class="block text-sm text-red-600 bg-red-200 border border-red-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
+          <span class="mr-1">
+            <svg class="fill-current text-red-500 inline-block h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+              <path class="heroicon-ui" d="M15 19a3 3 0 0 1-6 0H4a1 1 0 0 1 0-2h1v-6a7 7 0 0 1 4.02-6.34 3 3 0 0 1 5.96 0A7 7 0 0 1 19 11v6h1a1 1 0 0 1 0 2h-5zm-4 0a1 1 0 0 0 2 0h-2zm0-12.9A5 5 0 0 0 7 11v6h10v-6a5 5 0 0 0-4-4.9V5a1 1 0 0 0-2 0v1.1z"/>
+            </svg>
+          </span>
+        <span>
+           <?php
+           if($error != ""){
+               echo $error;
+           } ?>
+          </span>
+    </div>
+    <?php
+}
+?>
 <section class="min-h-screen flex items-stretch text-white ">
     <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
          style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
         <div class="absolute bg-black opacity-60 inset-0 z-0"></div>
         <div class="w-full px-24 z-10">
             <h1 class="text-5xl font-bold text-left tracking-wide">Formulario de Registro</h1>
-           <!-- <p class="text-3xl my-4"></p>-->
+            <div class="py-6 space-x-2">
+                <?php
+                if($msj != ""){
+                    echo $msj;
+                }
+                ?>
+            </div>
         </div>
     </div>
     <div class="lg:w-1/2 w-full flex items-center justify-center text-center md:px-16 px-0 z-0"

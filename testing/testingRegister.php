@@ -24,7 +24,7 @@ if ($resultado = $conn->query($consulta_email)) {
     $obj = $resultado->fetch_array();
     if($obj === null){
         //el email no existe insertamos:
-        $pass = password_hash('123');
+        $pass = password_hash('123', PASSWORD_DEFAULT);
         $query = "INSERT INTO users(username,password,email) VALUES ('juan','$pass','j@gmail.com')";
         if ($conn->query($query) === TRUE) {
             echo "Nuevo registro creado";
@@ -35,15 +35,6 @@ if ($resultado = $conn->query($consulta_email)) {
     /* liberar el conjunto de resultados */
     $resultado->close();
 }
-   /* $pass = password_hash('123');
-    $query = "INSERT INTO users(username,password,email) VALUES ('juan','$pass','j@gmail.com')";
-    if ($conn->query($query) === TRUE) {
-        echo "Nuevo registro creado";
-    } else {
-        echo "Error: " . $query . "<br>" . $conn->error;
-    }*/
-
-
 
 /* cerrar la conexión */
 $conn->close();
