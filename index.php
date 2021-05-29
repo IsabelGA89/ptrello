@@ -1,6 +1,6 @@
 <?php
-require "./classes/trello_api.php";
-require "./classes/PDF.php";
+require "./Class/trello_api.php";
+require "./Class/PDF.php";
 
 session_start();
 

@@ -1,6 +1,6 @@
 <?php
 spl_autoload_register(function ($clase) {
-    include 'classes/' . $clase . '.clase.php';
+    include 'Class/' . $clase . '.clase.php';
 });
 
 session_start();

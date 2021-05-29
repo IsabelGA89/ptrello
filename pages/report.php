@@ -1,14 +1,54 @@
 <?php
-spl_autoload_register(function ($clase) {
-    include 'classes/' . $clase . '.clase.php';
-});
+spl_autoload_register('myAutoLoaderPerson');
+
+function myAutoLoaderPerson($className) {
+    require_once __DIR__ . "/../../../Class/$className.class.php";
+}
+/*include "Class/trello_api.php";
+include "Class/PDF.php";*/
+
 session_start();
-$data ="";
+$data = "";
 /*if((!$_SESSION['user_id'])){
 header('Location: pages/auth/login.php');
 exit;
 }*/
 
+// Test user acreditations :
+$defaultUserName = "isabelgatfg";
+$defaultKey = '46115a7dcf49746db66a0395e4bd1bee';
+$defaultToken = "b2ce7110f3616705713bd97f12fc948dd51fbbbd32d49572fe618b1c463be4f7";
+
+$defaultBoardId = $_POST['boardId'] ?? null;
+if (isset($_POST['reset'])) {
+    delete_session_data();
+    $user = "";
+    $token = "";
+    $key = "";
+}
+//Obtenemos las variables del formulario o usamos los valores por defecto;
+if (isset($_POST['login'])) {
+    $_SESSION['access_data']['key'] = $_POST['key'];
+    $_SESSION['access_data']['token'] = $_POST['token'];
+    $_SESSION['access_data']['user'] = $_POST['user'];
+}
+if (isset($_POST['submit']) == "Seleccionar") {
+    if ($_SESSION['boardId'] != $_POST['board']) {
+
+        $_SESSION['boardId'] = $_POST['board'];
+    }
+    $boardId = $_SESSION['boardId'];
+}
+
+$key = $_SESSION['access_data']['key'] ?? $defaultKey;
+$token = $_SESSION['access_data']['token'] ?? $defaultToken;
+$user = $_SESSION['access_data']['user'] ?? $defaultUserName;
+$boardId = $_SESSION['boardId'] ?? $defaultBoardId;
+
+//Consulta a los tableros:
+$trello = new trello_api($key, $token);
+$data = $trello->request('GET', ("member/me/boards"));
+$arr_tableros = board_request($trello, $data);
 
 ?>
 <!doctype html>
@@ -22,7 +62,7 @@ exit;
     <!--Tailwindcss-->
     <link href="https://unpkg.com/tailwindcss@0.3.0/dist/tailwind.min.css" rel="stylesheet">
     <!--Personal css-->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Consultas a tableros de Trello</title>
     <!--Favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
@@ -64,41 +104,44 @@ exit;
     </div>
 
     <div class="flex flex-col flex-grow">
-
         <!--Header-->
         <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
-            <h1 class="text-lg font-medium"><h1 style="text-align: center;"><i  class="fab fa-trello text-primary"></i>
+            <h1 class="text-lg font-medium"><h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello</h1>
                 <form action="auth/login.php" method="post"
                       class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
                     <i class="fas fa-sign-out-alt fa-lg"></i><input type="submit" name="logout" value="Log out"
-                                                              class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800"/>
+                                                                    class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800"/>
                 </form>
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
-            <div class="bg-cover bg-center border rounded-t-lg shadow-lg" style="background-image: url(https://images.unsplash.com/photo-1572817519612-d8fadd929b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+            <div class="bg-cover bg-center border rounded-t-lg shadow-lg"
+                 style="background-image: url(https://images.unsplash.com/photo-1572817519612-d8fadd929b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
 
                 <div class="grid grid-cols-3 gap-6">
                     <div class="h-24 col-span-1 bg-gray-700">
                         <div class="jumbotron" id="login-form">
-                            <h1>Login access data</h1>
+                            <h1>Acceso a tableros - Login en Trello</h1>
                             <br>
                             <div class="container">
-                                <form class="form-inline" action="index.php" method="post">
+                                <form class="form-inline" action="report.php" method="post">
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="nombre">Usuario </label>
-                                        <input class="form-control" name="user" type="text" placeholder=" <?= $user ?? null ?>"
+                                        <input class="form-control" name="user" type="text"
+                                               placeholder=" <?= $user ?? null ?>"
                                         <!--required-->
                                     </div>
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="key">Key </label>
-                                        <input class="form-control" type="password" name="key" placeholder="<?= $key ?? null ?>"
+                                        <input class="form-control" type="password" name="key"
+                                               placeholder="<?= $key ?? null ?>"
                                         <!--required-->
                                     </div>
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="token">Token </label>
-                                        <input class="form-control" type="password" name="token" placeholder="<?= $token?? null ?>"
+                                        <input class="form-control" type="password" name="token"
+                                               placeholder="<?= $token ?? null ?>"
                                         <!--required-->
                                     </div>
                                     <br/>
@@ -135,7 +178,7 @@ exit;
                                 echo "<div class='container' id='select-board-section'>";
                                 echo "<h2>Seleccione su tablero</h2>";
                                 echo "<br/>";
-                                   /* echo render_form_select_board($arr_tableros, $boardId, $arr_cards);*/
+                                /* echo render_form_select_board($arr_tableros, $boardId, $arr_cards);*/
                                 echo "</div>";
                             }
                             ?>
@@ -146,10 +189,8 @@ exit;
                 </div>
 
 
-
             </div>
         </div>
-
 
     </div>
 </div>
@@ -163,9 +204,9 @@ exit;
 
 </body>
 <!-- Footer -->
-<!--<footer class="page-footer font-small">
+<footer class="page-footer font-small">
     <div class="footer-copyright text-center py-3">© 2021 Copyright
         Isabel González Anzano
     </div>
-</footer>-->
+</footer>
 <!-- Footer -->

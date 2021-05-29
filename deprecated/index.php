@@ -1,7 +1,7 @@
 <?php
 /*require "functions.php";*/
-require "classes/trello_api.php";
-require "classes/PDF.php";
+require "Class/trello_api.php";
+require "Class/PDF.php";
 //require "print_pdf.php";
 
 session_start();
