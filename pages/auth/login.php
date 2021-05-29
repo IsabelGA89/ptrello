@@ -66,6 +66,9 @@ if(isset($_POST['login'])) {
 </head>
 
 <body>
+<?php
+if($error != ""){
+?>
 <!--Msj section-->
 <div class="block text-sm text-blue-600 bg-blue-200 border border-blue-400 h-12 flex items-center p-4 rounded-sm relative" role="alert">
           <span class="mr-1">
@@ -80,7 +83,9 @@ if(isset($_POST['login'])) {
                 } ?>
           </span>
 </div>
-
+<?php
+}
+?>
     <section class="min-h-screen flex items-stretch text-white ">
     <div class="lg:flex w-1/2 hidden bg-gray-500 bg-no-repeat bg-cover relative items-center"
          style="background-image: url(https://images.unsplash.com/photo-1577495508048-b635879837f1?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80);">
