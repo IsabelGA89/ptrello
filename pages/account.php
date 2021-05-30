@@ -103,7 +103,7 @@ if (isset($_POST['actualizar'])) {
     $conn->close();
 }
 //DELETE
-if($_GET['delete']){
+if($_GET['delete'] === true){
     $error ="se ha seleccionado eliminar";
     /*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $cleardb_server = $cleardb_url["host"];
@@ -365,10 +365,10 @@ if($_GET['delete']){
                             <hr/>
                             <!--ELiminar cuenta-->
                             <div class="w-full p-4 text-right text-gray-500 ">
-                                <form id="delete_form" action="account.php" method="post">
+                                <form id="delete_form">
                                     <button type="button" id="button_delete" name="eliminar"
                                             class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400"
-                                    <!--onclick="show_confirmation();"--> >
+                                    <!--onclick="show_confirmation();"--> 
                                     <svg
                                             fill="none"
                                             class="w-4 mr-2"
@@ -427,7 +427,7 @@ if($_GET['delete']){
                 .then(resultado => {
                     if (resultado.value) {
                         form.method = "post";
-                        form.action = "account.php?delete=true";
+                        form.action = "./account.php?delete=true";
                         form.submit();
                     }
                 })
