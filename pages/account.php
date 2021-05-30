@@ -365,7 +365,7 @@ if (isset($_POST['eliminar'])) {
                             <!--ELiminar cuenta-->
 
                             <div class="w-full p-4 text-right text-gray-500 ">
-                                <form id="delete_form" action="#" method="post">
+                                <form id="delete_form" action="account.php" method="post">
                                     <button type="button" name="eliminar"
                                             class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400"
                                             onclick="show_confirmation();">
