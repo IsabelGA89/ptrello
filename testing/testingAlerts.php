@@ -1,7 +1,12 @@
 <?php
+if ($_POST) {
+    echo '<pre>';
+    echo htmlspecialchars(print_r($_POST, true));
+    echo '</pre>';
+}
 
 if (isset($_POST['eliminar'])) {
-    $error ="se ha seleccionado eliminar";
+    $error = "se ha seleccionado eliminar";
 }
 ?>
 
@@ -24,7 +29,7 @@ if (isset($_POST['eliminar'])) {
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
     <!--SweetAlert-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="sweetalert2.all.min.js"></script>
+    <script src="../libs/sweetalert2.all.min.js"></script>
 
     <style>
         .group:focus .group-focus\:flex {
@@ -123,24 +128,24 @@ if (isset($_POST['eliminar'])) {
                                     <div class="w-full inline-flex border">
                                         <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
                                             <svg
-                                                fill="none"
-                                                class="w-6 text-gray-400 mx-auto"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
+                                                    fill="none"
+                                                    class="w-6 text-gray-400 mx-auto"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
                                             >
                                                 <path
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="2"
-                                                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                                                 />
                                             </svg>
                                         </div>
                                         <input
-                                            type="email"
-                                            class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                            placeholder="<?= $email ?? "TEST" ?>"
-                                            disabled
+                                                type="email"
+                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                placeholder="<?= $email ?? "TEST" ?>"
+                                                disabled
                                         />
                                     </div>
 
@@ -151,24 +156,24 @@ if (isset($_POST['eliminar'])) {
                                         <div class="w-full inline-flex border">
                                             <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
                                                 <svg
-                                                    fill="none"
-                                                    class="w-6 text-gray-400 mx-auto"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
+                                                        fill="none"
+                                                        class="w-6 text-gray-400 mx-auto"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
                                                 >
                                                     <path
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                                                     />
                                                 </svg>
                                             </div>
                                             <input
-                                                name="new_username"
-                                                type="text"
-                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                                placeholder="<?= $username ?>"
+                                                    name="new_username"
+                                                    type="text"
+                                                    class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                    placeholder="<?= $username ?>"
                                             />
                                         </div>
 
@@ -183,24 +188,24 @@ if (isset($_POST['eliminar'])) {
                                     <div class="w-full inline-flex border-b">
                                         <div class="w-1/12 pt-2">
                                             <svg
-                                                fill="none"
-                                                class="w-6 text-gray-400 mx-auto"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor"
+                                                    fill="none"
+                                                    class="w-6 text-gray-400 mx-auto"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
                                             >
                                                 <path
-                                                    stroke-linecap="round"
-                                                    stroke-linejoin="round"
-                                                    stroke-width="2"
-                                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
                                                 />
                                             </svg>
                                         </div>
                                         <input
-                                            name="new_pass"
-                                            type="password"
-                                            class="w-11/12 focus:outline-none focus:text-gray-600 p-2 ml-4"
-                                            placeholder="Nueva"
+                                                name="new_pass"
+                                                type="password"
+                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2 ml-4"
+                                                placeholder="Nueva"
                                         />
                                     </div>
                                 </div>
@@ -217,24 +222,25 @@ if (isset($_POST['eliminar'])) {
                             <hr/>
                             <!--ELiminar cuenta-->
                             <div class="w-full p-4 text-right text-gray-500 ">
-                                <form id="delete_form" action="#" method="post">
-                                <button type="button" name="eliminar"
-                                       class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400"
-                                       onclick="show_confirmation();">
-                                <svg
-                                        fill="none"
-                                        class="w-4 mr-2"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                >
-                                    <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                    />
-                                </svg>Borrar cuenta
-                                </button>
+                                <form id="delete_form" action="testingAlerts.php" method="post">
+                                    <button type="button" id="button_delete" name="eliminar"
+                                            class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400"
+                                    <!--onclick="show_confirmation();"--> >
+                                    <svg
+                                            fill="none"
+                                            class="w-4 mr-2"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                    >
+                                        <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                        />
+                                    </svg>
+                                    Borrar cuenta
+                                    </button>
                                 </form>
                             </div>
                         </div>
@@ -245,31 +251,6 @@ if (isset($_POST['eliminar'])) {
             </div>
         </div>
     </div>
-    <!--Alert-->
-    <script type="text/javascript">
-        function show_confirmation(){
-            let $form = $(this).closest('#delete_form');
-            Swal.fire({
-                title: 'Cuidado',
-                text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
-                icon: 'error',
-                showConfirmButton: true,
-                confirmButtonText: 'Confirmar',
-                showCancelButton:true,
-                cancelButtonText:"Me lo he pensado mejor"
-            })
-                .then(resultado =>{
-                    if(resultado.value){
-                        console.log("siiiii");
-                        $form.submit();
-                    }else{
-                        console.log("NOOOOOOOOOOOOOOOOO");
-                    }
-                })
-        }
-
-
-    </script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -277,6 +258,42 @@ if (isset($_POST['eliminar'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
+    <!--Alert-->
+    <script type="text/javascript">
+        $("#button_delete").click(function (e) {
+            e.preventDefault(); // Prevent the href from redirecting directly
+            var form = document.getElementById("delete_form");
+            show_confirmation(form);
+        });
+
+        function show_confirmation(form) {
+            //var form = document.getElementById("delete_form");
+            console.log(form);
+            var name = document.getElementById("button_delete");
+            Swal.fire({
+                title: 'Cuidado',
+                text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonText: 'Confirmar',
+                showCancelButton: true,
+                cancelButtonText: "Me lo he pensado mejor"
+            })
+                .then(resultado => {
+                    if (resultado.value) {
+                        console.log("siiiii");
+                        form.method = "post";
+                        form.action = "testingAlerts.php";
+                        form.submit();
+                    } else {
+                        console.log("NOOOOOOOOOOOOOOOOO");
+                    }
+                })
+        }
+
+
+    </script>
+
 
 </body>
 <!-- Footer -->
