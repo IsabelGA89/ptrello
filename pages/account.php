@@ -291,10 +291,9 @@ if ($info != "") {
                                     </div>
                                     <!-- Boton actualizar-->
                                     <div class="md:w-3/12 text-center md:pl-6">
-                                        <button name="actualizar" type="submit" class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-2 inline-flex items-center focus:outline-none md:float-right">
-                                            <i class="fas fa-sync mr-2"></i>
-                                            Actualizar
-                                        </button>
+                                        <input name="actualizar" value="Actualizar" type="submit" class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-2 inline-flex items-center focus:outline-none md:float-right">
+                                           <!-- <i class="fas fa-sync mr-2"></i>-->
+                                        </input>
                                     </div>
                                 </form>
                             </div>
