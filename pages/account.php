@@ -148,6 +148,9 @@ if(isset($_GET['delete']) && ($_GET['delete']=="true")){
     <!--SweetAlert-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="../libs/sweetalert2.all.min.js"></script>
+    <!--Tooltips-->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
 
     <style>
         .group:focus .group-focus\:flex {
