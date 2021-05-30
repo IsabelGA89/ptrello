@@ -120,7 +120,7 @@ if ($info != "") {
         <div class="w-full px-24 z-10">
             <h1 class="text-5xl font-bold text-left tracking-wide">Bienvenid@</h1>
             <p class="text-3xl my-4">Para obtener acceso debes registrarte en esta aplicación utilizando el botón Registro.</p>
-            <p class="text-3xl my-4">Una vez accedas a la aplicación y con tu cuenta de Trello podrás comenzar a generar informes.</p>
+            <p class="text-xl my-4">Una vez accedas a la aplicación y con tu cuenta de Trello podrás comenzar a generar informes.</p>
         </div>
         <div class="bottom-0 absolute p-4 text-center right-0 left-0 flex justify-center space-x-4">
                 <span>
