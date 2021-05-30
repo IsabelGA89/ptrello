@@ -1,13 +1,6 @@
 <?php
 session_start();
 
-if ($_POST) {
-    echo '<pre>';
-    echo htmlspecialchars(print_r($_POST, true));
-    echo '</pre>';
-}
-
-
 if ((!$_SESSION['user_id'])) {
     $login = "./auth/login.php";
     header("Location: $login");
@@ -110,7 +103,7 @@ if (isset($_POST['actualizar'])) {
     $conn->close();
 }
 //DELETE
-if (isset($_POST['eliminar'])) {
+if($_GET['delete']){
     $error ="se ha seleccionado eliminar";
     /*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $cleardb_server = $cleardb_url["host"];
@@ -433,12 +426,9 @@ if (isset($_POST['eliminar'])) {
             })
                 .then(resultado => {
                     if (resultado.value) {
-                        console.log("siiiii");
                         form.method = "post";
-                        form.action = "account.php";
+                        form.action = "account.php?delete=true";
                         form.submit();
-                    } else {
-                        console.log("NOOOOOOOOOOOOOOOOO");
                     }
                 })
         }

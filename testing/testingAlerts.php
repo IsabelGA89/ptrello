@@ -8,6 +8,9 @@ if ($_POST) {
 if (isset($_POST['eliminar'])) {
     $error = "se ha seleccionado eliminar";
 }
+if($_GET['delete']){
+    $error ="SIIIIIIIIIIIIIIIIIIIIIIII";
+}
 ?>
 
 <!doctype html>
@@ -283,7 +286,7 @@ if (isset($_POST['eliminar'])) {
                     if (resultado.value) {
                         console.log("siiiii");
                         form.method = "post";
-                        form.action = "testingAlerts.php";
+                        form.action = "testingAlerts.php?delete=true";
                         form.submit();
                     } else {
                         console.log("NOOOOOOOOOOOOOOOOO");
