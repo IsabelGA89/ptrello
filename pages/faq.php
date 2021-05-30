@@ -111,8 +111,10 @@
                                             <div class="flex-auto">¿Cómo se utiliza?</div>
                                         </div>
                                         <div class="p-2 text-justify text-left text-gray-800 mb-5 bg-white" style="">
-                                           Para trabajar con Trello Report, simplemente tienes que ir al apartado de Reports desde la cinta de opciones situada a la izquierda
-                                            y loguearte en Trello para poder seleccionar los tableros y descargar la información.
+                                            Para trabajar con Trello Report, simplemente tienes que ir al apartado de
+                                            Reports desde la cinta de opciones situada a la izquierda
+                                            y loguearte en Trello para poder seleccionar los tableros y descargar la
+                                            información.
                                         </div>
                                     </div>
                                     <div class="mb-2">
@@ -120,15 +122,23 @@
                                             <div class="flex-auto">Pasos a seguir</div>
                                         </div>
                                         <div class="p-2 text-justify text-left text-gray-800 mb-5 bg-white" style="">
-                                         <ol class="list-decimal ml-4">
-                                             <li>Si no dispones de una cuenta en Trello, debes hacerte una y crear tu primer tablero, con algunas tarjetas para poder probarlo todo.
-                                                 <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://www.genbeta.com/guia-de-inicio/como-usar-trello-para-organizar-tu-trabajo-tu-vida">En esta guía te explican cómo hacerlo.</a> </li>
-                                             <li>Siguiendo los enlaces que aparecen en la página principal, obtener tu token y tu clave de acceso.</li>
-                                             <li>Acceder a la aplicaión Trello Report, en la sección Reports</li>
-                                             <li>Introducir los datos de username,token y clave en el apartado Login en Trello y darle al botón de Login</li>
-                                             <li>Seleccionar el tablero</li>
-                                             <li>Descargar la información en el formato deseado.</li>
-                                         </ol>
+                                            <ol class="list-decimal ml-4">
+                                                <li>Si no dispones de una cuenta en Trello, debes hacerte una y crear tu
+                                                    primer tablero, con algunas tarjetas para poder probarlo todo.
+                                                    <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                                       target="_blank"
+                                                       href="https://www.genbeta.com/guia-de-inicio/como-usar-trello-para-organizar-tu-trabajo-tu-vida">En
+                                                        esta guía te explican cómo hacerlo.</a></li>
+                                                <li>Siguiendo los enlaces que aparecen en la página principal, obtener
+                                                    tu token y tu clave de acceso.
+                                                </li>
+                                                <li>Acceder a la aplicaión Trello Report, en la sección Reports</li>
+                                                <li>Introducir los datos de username,token y clave en el apartado Login
+                                                    en Trello y darle al botón de Login
+                                                </li>
+                                                <li>Seleccionar el tablero</li>
+                                                <li>Descargar la información en el formato deseado.</li>
+                                            </ol>
                                         </div>
                                     </div>
 
@@ -138,6 +148,63 @@
                     </div>
                 </div>
             </div>
+            <hr/>
+            <!--Contact us-->
+            <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+                <div class="container mx-auto">
+                    <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+                        <div class="text-center">
+                            <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">¿Tienes más
+                                preguntas?</h1>
+                            <p class="text-gray-400 dark:text-gray-400">Contacta con nosotros</p>
+                        </div>
+                        <div class="m-7">
+                            <form action="https://api.web3forms.com/submit" method="POST" id="form">
+
+                                <input type="hidden" name="apikey" value="b4728622-30f9-4197-9d75-f4c6d4751501">
+                                <input type="hidden" name="subject" value="New Submission from Web3Forms">
+                                <input type="checkbox" name="botcheck" id="" style="display: none;">
+
+
+                                <div class="mb-6">
+                                    <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Nombre
+                                        Completo</label>
+                                    <input type="text" name="name" id="name" placeholder="Reith Ress" required
+                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
+                                    <input type="email" name="email" id="email" placeholder="you@company.com" required
+                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
+                                </div>
+                               <!-- <div class="mb-6">
+
+                                    <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone
+                                        Number</label>
+                                    <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required
+                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
+                                </div>-->
+                                <div class="mb-6">
+                                    <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Tu mensaje</label>
+
+                                    <textarea rows="5" name="message" id="message" placeholder="Cuéntanos tus dudas :3"
+                                              class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                                              required></textarea>
+                                </div>
+                                <div class="mb-6">
+                                    <button type="submit"
+                                            class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+                                       Enviar Mensaje
+                                    </button>
+                                </div>
+                                <p class="text-base text-center text-gray-400" id="result">
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
     </div>
