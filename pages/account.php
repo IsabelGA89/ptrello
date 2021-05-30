@@ -5,10 +5,10 @@ if ((!$_SESSION['user_id'])) {
     header("Location: $login");
     exit;
 }
-$info="";
-$error="";
+$info = "";
+$error = "";
 
-if(isset($_GET['info'])){
+if (isset($_GET['info'])) {
     $info = $_GET['info'];
 }
 
@@ -46,7 +46,7 @@ $username = $arr_info['username'];
 ////// FIN  BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Acciones
 //UPDATE
-if(isset($_POST['actualizar'])){
+if (isset($_POST['actualizar'])) {
     $new_username = $_POST['new_username'] ?? null;
     $new_pass = $_POST['new_pass'] ?? null;
     //Conexión Bd
@@ -65,9 +65,9 @@ if(isset($_POST['actualizar'])){
         $msj = "Conexión exitosa con la bd";
     }
 
-    switch (true){
-        case ($new_username!=null) && ($new_pass!=null):
-            $secure_pass = password_hash($new_pass,PASSWORD_BCRYPT);
+    switch (true) {
+        case ($new_username != null) && ($new_pass != null):
+            $secure_pass = password_hash($new_pass, PASSWORD_BCRYPT);
             $consulta = "UPDATE users SET password='$secure_pass',username='$new_username' WHERE id='$bd_id'";
             if ($conn->query($consulta) === true) {
                 $info = "Datos modificados correctamente";
@@ -79,7 +79,7 @@ if(isset($_POST['actualizar'])){
             break;
 
         case $new_pass != null:
-            $secure_pass = password_hash($new_pass,PASSWORD_BCRYPT);
+            $secure_pass = password_hash($new_pass, PASSWORD_BCRYPT);
             $consulta = "UPDATE users SET password='$secure_pass' WHERE id='$bd_id'";
             if ($conn->query($consulta) === true) {
                 $info = "Se ha actualizado la contraseña correctamente";
@@ -101,7 +101,32 @@ if(isset($_POST['actualizar'])){
     }
     $conn->close();
 }
-
+//DELETE
+if (isset($_POST['eliminar'])) {
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_server = $cleardb_url["host"];
+    $cleardb_username = $cleardb_url["user"];
+    $cleardb_password = $cleardb_url["pass"];
+    $cleardb_db = substr($cleardb_url["path"], 1);
+    $active_group = 'default';
+    $query_builder = TRUE;
+    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    if (mysqli_connect_errno()) {
+        $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
+        exit();
+    } else {
+        $msj = "Conexión exitosa con la bd";
+    }
+    $consulta = "DELETE FROM users WHERE id='$bd_id'";
+    $info= "se ejecuta consulta";
+    /*if ($conn->query($consulta) === true) {
+        $info = "Usuario eliminado correctamente";
+        session_destroy();
+        header("Location:./auth/login.php?info=$info");
+        exit();
+    }*/
+    $conn->close();
+}
 ?>
 <!doctype html>
 <html lang="es">
@@ -261,44 +286,12 @@ if(isset($_POST['actualizar'])){
                                         />
                                     </div>
 
-                                <form action="account.php" method="post">
-                                <!--Username-->
+                                    <form action="account.php" method="post">
+                                        <!--Username-->
 
-                                    <label class="text-sm mt-5 text-gray-400">Username</label>
-                                    <div class="w-full inline-flex border">
-                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
-                                            <svg
-                                                    fill="none"
-                                                    class="w-6 text-gray-400 mx-auto"
-                                                    viewBox="0 0 24 24"
-                                                    stroke="currentColor"
-                                            >
-                                                <path
-                                                        stroke-linecap="round"
-                                                        stroke-linejoin="round"
-                                                        stroke-width="2"
-                                                        d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                                                />
-                                            </svg>
-                                        </div>
-                                        <input
-                                                name="new_username"
-                                                type="text"
-                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                                placeholder="<?= $username ?>"
-                                        />
-                                    </div>
-
-                                </div>
-                            </div>
-
-                          <!--  <hr/>-->
-                            <!-- Cambiar contraseña-->
-                            <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
-                                <h2 class="md:w-4/12 max-w-sm mx-auto">Cambiar contraseña</h2>
-                                    <div class="md:w-5/12 w-full md:pl-9 max-w-sm mx-auto space-y-5 md:inline-flex pl-2">
-                                        <div class="w-full inline-flex border-b">
-                                            <div class="w-1/12 pt-2">
+                                        <label class="text-sm mt-5 text-gray-400">Username</label>
+                                        <div class="w-full inline-flex border">
+                                            <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
                                                 <svg
                                                         fill="none"
                                                         class="w-6 text-gray-400 mx-auto"
@@ -309,46 +302,80 @@ if(isset($_POST['actualizar'])){
                                                             stroke-linecap="round"
                                                             stroke-linejoin="round"
                                                             stroke-width="2"
-                                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                                                     />
                                                 </svg>
                                             </div>
                                             <input
-                                                    name="new_pass"
-                                                    type="password"
-                                                    class="w-11/12 focus:outline-none focus:text-gray-600 p-2 ml-4"
-                                                    placeholder="Nueva"
+                                                    name="new_username"
+                                                    type="text"
+                                                    class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                    placeholder="<?= $username ?>"
                                             />
                                         </div>
+
+                                </div>
+                            </div>
+
+                            <!--  <hr/>-->
+                            <!-- Cambiar contraseña-->
+                            <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
+                                <h2 class="md:w-4/12 max-w-sm mx-auto">Cambiar contraseña</h2>
+                                <div class="md:w-5/12 w-full md:pl-9 max-w-sm mx-auto space-y-5 md:inline-flex pl-2">
+                                    <div class="w-full inline-flex border-b">
+                                        <div class="w-1/12 pt-2">
+                                            <svg
+                                                    fill="none"
+                                                    class="w-6 text-gray-400 mx-auto"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                            >
+                                                <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <input
+                                                name="new_pass"
+                                                type="password"
+                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2 ml-4"
+                                                placeholder="Nueva"
+                                        />
                                     </div>
-                                    <!-- Boton actualizar-->
-                                    <div class="md:w-3/12 text-center md:pl-6">
-                                        <input name="actualizar" value="Actualizar" type="submit" class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
-                                           <!-- <i class="fas fa-sync mr-2"></i>-->
-                                        </input>
-                                    </div>
+                                </div>
+                                <!-- Boton actualizar-->
+                                <div class="md:w-3/12 text-center md:pl-6">
+                                    <input name="actualizar" value="Actualizar" type="submit"
+                                           class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
+                                    <!-- <i class="fas fa-sync mr-2"></i>-->
+                                    </input>
+                                </div>
                                 </form>
                             </div>
 
                             <hr/>
                             <!--ELiminar cuenta-->
                             <div class="w-full p-4 text-right text-gray-500 ">
-                                <button class="inline-flex items-center focus:outline-none border-bg-red mr-4 hover:text-red-400">
-                                    <svg
-                                            fill="none"
-                                            class="w-4 mr-2"
-                                            viewBox="0 0 24 24"
-                                            stroke="currentColor"
-                                    >
-                                        <path
-                                                stroke-linecap="round"
-                                                stroke-linejoin="round"
-                                                stroke-width="2"
-                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                        />
-                                    </svg>
-                                    Borrar cuenta
-                                </button>
+                                <input type="submit" name="eliminar" value="Eliminar cuenta"
+                                       class="inline-flex items-center focus:outline-none border-bg-red mr-4 hover:text-red-400">
+                                <svg
+                                        fill="none"
+                                        class="w-4 mr-2"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                >
+                                    <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                    />
+                                </svg>
+                                <!--Borrar cuenta-->
+                                </input>
                             </div>
                         </div>
                     </div>
