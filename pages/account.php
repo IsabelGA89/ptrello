@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ((!$_SESSION['user_id'])) {
-    $login = "/auth/login.php";
+    $login = "./pages/auth/login.php";
     header("Location: $login");
     exit;
 }
@@ -200,10 +200,10 @@ if ($info != "") {
                                                 disabled
                                         />
                                     </div>
-                                </div>
+
                                 <form action="account.php" method="post">
                                 <!--Username-->
-                                <div class="md:w-2/3 max-w-sm mx-auto">
+                               
                                     <label class="text-sm text-gray-400">Username</label>
                                     <div class="w-full inline-flex border">
                                         <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
