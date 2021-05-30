@@ -52,6 +52,11 @@
            href="account.php">
             <i class="fas fa-id-card fa-2x"></i>
         </a>
+        <!--Reconocmiento-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
+           href="reconocimientos.php">
+            <i class="fas fa-chess-rook fa-2x"></i>
+        </a>
     </div>
 
     <div class="flex flex-col flex-grow">
@@ -77,10 +82,11 @@
                     <cite> - Thomas Fuller</cite>
                 </blockquote>
             </section>
-            <div class="w-full h-screen bg-center bg-no-repeat bg-cover" style="background-image: url('https://images.unsplash.com/photo-1609342475528-dd7d93e8311e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80');">
+
+            <div class="w-full h-screen bg-center bg-no-repeat bg-cover  justify-center items-center" style="background-image: url('https://images.unsplash.com/photo-1609342475528-dd7d93e8311e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80');">
                 <div class="w-full h-screen bg-opacity-50 bg-black flex justify-center items-center">
                     <div class="mx-4 text-center text-white">
-                       <h1 class="font-bold text-6xl mb-4">Muchas gracias por vuestra colaboración</h1>
+                        <h1 class="font-bold text-6xl mb-4 mb-15">Muchas gracias por vuestra colaboración</h1>
                         <h2 class="font-bold text-3xl mb-12">Carlos Sallén - QA, Beta tester</h2>
                         <div>
                         </div>

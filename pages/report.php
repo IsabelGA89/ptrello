@@ -228,7 +228,7 @@ if (isset($_POST['logout'])) {
         <!--Reconocmiento-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="reconocimientos.php">
-            <i class="fas fa-chess-rook"></i>
+            <i class="fas fa-chess-rook fa-2x"></i>
         </a>
     </div>
 
