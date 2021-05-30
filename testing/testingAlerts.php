@@ -1,6 +1,5 @@
 <?php
 
-
 if (isset($_POST['eliminar'])) {
     $error ="se ha seleccionado eliminar";
 }
@@ -25,7 +24,8 @@ if (isset($_POST['eliminar'])) {
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
     <!--SweetAlert-->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="../libs/sweetalert2.all.min.js"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
     <style>
         .group:focus .group-focus\:flex {
             display: flex;
@@ -139,7 +139,7 @@ if (isset($_POST['eliminar'])) {
                                         <input
                                             type="email"
                                             class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                            placeholder="<?= $email ?? "test" ?>"
+                                            placeholder="<?= $email ?? "TEST" ?>"
                                             disabled
                                         />
                                     </div>
@@ -216,28 +216,27 @@ if (isset($_POST['eliminar'])) {
 
                             <hr/>
                             <!--ELiminar cuenta-->
-                            <form action="account.php" method="post">
                             <div class="w-full p-4 text-right text-gray-500 ">
-                               <!-- <svg
-                                    fill="none"
-                                    class="w-4 mr-2"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="2"
-                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                                    />
-                                </svg>-->
-                                <input type="submit" name="eliminar" value="Eliminar cuenta"
+                                <form id="delete_form" action="#" method="post">
+                                <button type="button" name="eliminar"
                                        class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400"
                                        onclick="show_confirmation();">
-                                <!--Borrar cuenta-->
-                                </input>
+                                <svg
+                                        fill="none"
+                                        class="w-4 mr-2"
+                                        viewBox="0 0 24 24"
+                                        stroke="currentColor"
+                                >
+                                    <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            stroke-width="2"
+                                            d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                    />
+                                </svg>Borrar cuenta
+                                </button>
+                                </form>
                             </div>
-                            </form>
                         </div>
                     </div>
                 </section>
@@ -249,6 +248,7 @@ if (isset($_POST['eliminar'])) {
     <!--Alert-->
     <script type="text/javascript">
         function show_confirmation(){
+            let $form = $(this).closest('#delete_form');
             Swal.fire({
                 title: 'Cuidado',
                 text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
@@ -258,13 +258,14 @@ if (isset($_POST['eliminar'])) {
                 showCancelButton:true,
                 cancelButtonText:"Me lo he pensado mejor"
             })
-            .then(resultado =>{
-                if(resultado.value){
-                    console.log("siiiii");
-                }else{
-                    console.log("NOOOOOOOOOOOOOOOOO");
-                }
-            })
+                .then(resultado =>{
+                    if(resultado.value){
+                        console.log("siiiii");
+                        $form.submit();
+                    }else{
+                        console.log("NOOOOOOOOOOOOOOOOO");
+                    }
+                })
         }
 
 
