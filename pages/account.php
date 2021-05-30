@@ -165,12 +165,12 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
     <!--Navbar-->
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
         <!--Info App-->
-        <span data-title='Inicio' data-placement="right" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="../index.php">
-            <i  class="fas fa-home fa-2x"></i>
+            <i  class="fas fa-home fa-2x"><span data-title='Inicio' data-placement="right" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none"></span></i>
         </a>
-        </span>
+
         <!--Quien Soy-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            target="_blank" href="quiensoy.php">
