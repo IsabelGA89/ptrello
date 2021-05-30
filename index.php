@@ -83,6 +83,13 @@ if ((!$_SESSION['user_id'])) {
                 <i class="fas fa-question-circle fa-2x"></i>
             </button>
         </a>
+        <!--VideoTutoriales-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
+           href="pages/tutorial.php">
+            <button type="button" data-title='VideoTutoriales' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fab fa-youtube  fa-2x"></i>
+            </button>
+        </a>
     </div>
 
     <div class="flex flex-col flex-grow">
@@ -164,11 +171,11 @@ if ((!$_SESSION['user_id'])) {
                             <!-- card footer -->
                             <div class="p-6 bg-gray-800 border-gray-200 text-right">
                                 <!-- button link -->
-                                <a class="bg-blue-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-blue-400 rounded uppercase"
+                                <a class="bg-blue-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-blue-400 rounded"
                                    href="pages/report.php">Vamos a crear Reportes</a>
                                 <!-- button link -->
-                                <a class="bg-indigo-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-indigo-400 rounded uppercase"
-                                   href="pages/tutorial.php">Me he perdido, necesito un tutorial</a>
+                                <a class="bg-indigo-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-indigo-400 rounded"
+                                   href="pages/tutorial.php">Necesito un tutorial</a>
                             </div>
                         </div>
                     </div>

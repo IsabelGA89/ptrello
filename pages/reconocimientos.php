@@ -77,6 +77,13 @@ if ((!$_SESSION['user_id'])) {
                 <i class="fas fa-question-circle fa-2x"></i>
             </button>
         </a>
+        <!--VideoTutoriales-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
+           href="tutorial.php">
+            <button type="button" data-title='VideoTutoriales' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fab fa-youtube  fa-2x"></i>
+            </button>
+        </a>
     </div>
 
     <div class="flex flex-col flex-grow">
@@ -120,6 +127,7 @@ if ((!$_SESSION['user_id'])) {
                         <h2 class="font-bold text-3xl mb-12">Sheila Cosculluela - QA, Beta tester</h2>
                         <h2 class="font-bold text-3xl mb-12">Cristina González -  Beta tester</h2>
                         <h2 class="font-bold text-3xl mb-12">Diego Rández - QA, Beta tester</h2>
+                        <h2 class="font-bold text-3xl mb-12">Coronel Pingüino - QA, Beta tester</h2>
                         <div>
                         </div>
                         <p>Si quieres colaborar, puedes ayudarnos contestando a <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSctQrpeHpU48KaJYJjBLWg7VgeD0L4iO-eTiLb5EkRkU6AN_w/viewform">esta encuesta</a>, no te llevará mas de un minuto .</p>
