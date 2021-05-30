@@ -104,8 +104,7 @@ if (isset($_POST['actualizar'])) {
 }
 //DELETE
 if(isset($_GET['delete']) && ($_GET['delete']=="true")){
-    $error ="se ha seleccionado eliminar";
-    /*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $cleardb_server = $cleardb_url["host"];
     $cleardb_username = $cleardb_url["user"];
     $cleardb_password = $cleardb_url["pass"];
@@ -127,7 +126,7 @@ if(isset($_GET['delete']) && ($_GET['delete']=="true")){
         header("Location:./auth/login.php?info=$info");
         exit();
     }*/
-    /*$conn->close();*/
+    $conn->close();
 }
 ?>
 <!doctype html>
