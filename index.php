@@ -165,7 +165,10 @@ if ((!$_SESSION['user_id'])) {
                             <div class="p-6 bg-gray-800 border-gray-200 text-right">
                                 <!-- button link -->
                                 <a class="bg-blue-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-blue-400 rounded uppercase"
-                                   href="pages/report.php">Ir a reportes</a>
+                                   href="pages/report.php">Vamos a crear Reportes</a>
+                                <!-- button link -->
+                                <a class="bg-indigo-500 shadow-md text-sm text-white font-bold py-3 md:px-8 px-4 hover:bg-indigo-400 rounded uppercase"
+                                   href="pages/tutorial.php">Me he perdido, necesito un tutorial</a>
                             </div>
                         </div>
                     </div>
