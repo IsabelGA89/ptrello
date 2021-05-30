@@ -45,42 +45,48 @@ if ((!$_SESSION['user_id'])) {
         <!--Info App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="../index.php">
-            <button type="button" data-title='Inicio' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i  class="fas fa-home fa-2x"></i>
+            <button type="button" data-title='Inicio' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-home fa-2x"></i>
             </button>
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="report.php">
-            <button type="button" data-title='Reportes' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='Reportes' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-file-alt fa-2x"></i>
             </button>
         </a>
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="account.php">
-            <button type="button" data-title='Cuenta' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='Cuenta' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-user-circle fa-2x"></i>
             </button>
         </a>
         <!--Reconocmiento-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="reconocimientos.php">
-            <button type="button" data-title='Reconocimientos' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='Reconocimientos' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-chess-rook fa-2x"></i>
             </button>
         </a>
         <!--FAQs-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="faq.php">
-            <button type="button" data-title='FAQ' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='FAQ' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-question-circle fa-2x"></i>
             </button>
         </a>
         <!--VideoTutoriales-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="tutorial.php">
-            <button type="button" data-title='VideoTutoriales' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='VideoTutoriales' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fab fa-youtube  fa-2x"></i>
             </button>
         </a>
@@ -94,7 +100,8 @@ if ((!$_SESSION['user_id'])) {
                     Consultas a tableros de Trello
                 </h1>
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="quiensoy.php" method="post" target="_blank" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                    <form action="quiensoy.php" method="post" target="_blank"
+                          class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Quienes somos"
                            class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
@@ -113,27 +120,39 @@ if ((!$_SESSION['user_id'])) {
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
             <div class="heading text-center font-bold text-2xl m-5 text-gray-100">Video tutoriales</div>
 
-            <div class="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+            <div class="holder mx-auto  grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
 
-                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
-                    <!--<video width="500" height="500" controls>
-                        <source src="https://youtu.be/7r9pYbtBEcE" type="video/mp4">
-                    </video>-->
-                    <iframe width="500" height="500" src="https://www.youtube.com/embed/7r9pYbtBEcE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="desc p-4 text-gray-800">
-                        <a href="https://www.youtube.com/watch?v=7r9pYbtBEcE" target="_new" class="title font-bold block cursor-pointer hover:underline">Cuenta en Trello y Mi primer Tablero</a>
-                        <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
+                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 ">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7r9pYbtBEcE"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
+                    <div class="desc p-4  text-gray-800">
+                        <a href="https://www.youtube.com/watch?v=7r9pYbtBEcE" target="_new"
+                           class="title font-bold block cursor-pointer hover:underline">Cuenta en Trello y Mi primer
+                            Tablero</a>
+                        <a href="#" target="_new"
+                           class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
                         <span class="description text-sm block py-2 border-gray-400 mb-2">Paso a paso para crear una cuenta en Trello y crear nuestros primeros tableros.</span>
                     </div>
                 </div>
-                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
+                <div class=" mb-10 m-2 bg-gray-800">
+
+                </div>
+                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100">
                     <!--<video width="500" height="500" controls>
                         <source src="../video/clave.mp4" type="video/mp4">
                     </video>-->
-                    <iframe width="500" height="500" src="https://www.youtube.com/embed/4RP6hIQZ93k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4RP6hIQZ93k"
+                            title="YouTube video player" frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen></iframe>
                     <div class="desc p-4 text-gray-800">
-                        <a href="https://www.youtube.com/watch?v=4RP6hIQZ93k" target="_new" class="title font-bold block cursor-pointer hover:underline">Como obtener las claves de Trello</a>
-                        <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
+                        <a href="https://www.youtube.com/watch?v=4RP6hIQZ93k" target="_new"
+                           class="title font-bold block cursor-pointer hover:underline">Como obtener las claves de
+                            Trello</a>
+                        <a href="#" target="_new"
+                           class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
                         <span class="description text-sm block py-2 border-gray-400 mb-2">Tutorial para obtener la api Key y el Token necesarios de trello para poder utilizar Trello Report</span>
                     </div>
                 </div>
