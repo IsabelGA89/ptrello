@@ -45,7 +45,6 @@ if ($resultado = $conn->query($consulta)) {
     $arr_info = $resultado->fetch_array();
     $resultado->close();
 }
-/* cerrar la conexión */
 $conn->close();
 //2º Obtenemos la info de la cuenta
 $email = $arr_info['email'];
@@ -54,32 +53,21 @@ $username = $arr_info['username'];
 //Acciones
 //UPDATE
 if($_POST['actualizar']){
-    echo "se ha seleccionado actualizar";
-    echo '<pre>';
-    echo htmlspecialchars(print_r($arr_info, true));
-    echo '</pre>';
-
     $new_username = $_POST['new_username'] ?? null;
     $new_pass = $_POST['new_pass'] ?? null;
-    if($new_pass != null && $new_username != null){
-        //Modificamos ambas
-        /*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-        $cleardb_server = $cleardb_url["host"];
-        $cleardb_username = $cleardb_url["user"];
-        $cleardb_password = $cleardb_url["pass"];
-        $cleardb_db = substr($cleardb_url["path"], 1);
-        $active_group = 'default';
-        $query_builder = TRUE;
-        // Connect to DB
-        $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-        if (mysqli_connect_errno()) {
-            $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
-            exit();
-        } else {
-            $msj = "Conexión exitosa con la bd";
-        }
-        $consulta = "select * from users where id='$bd_id'";*/
+
+    switch (true){
+        case $new_pass != null:
+            var_dump("contraseña con contenido");
+            break;
+        case $new_username != null:
+            var_dump("Usuario con contenido");
+            break;
+        case $new_username!=null && $new_pass!=null:
+            var_dump("ambas tienen contenido");
+            break;
     }
+
 }
 
 ?>
