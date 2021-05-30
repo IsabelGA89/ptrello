@@ -216,7 +216,7 @@
                         object[key] = value
                     });
                     var json = JSON.stringify(object);
-                    result.innerHTML = "Please wait..."
+                    result.innerHTML = "Por favor, espere..."
 
                     fetch('https://api.web3forms.com/submit', {
                         method: 'POST',
@@ -241,7 +241,7 @@
                         })
                         .catch(error => {
                             console.log(error);
-                            result.innerHTML = "Something went wrong!";
+                            result.innerHTML = "¡Se ha roto algo!";
                         })
                         .then(function() {
                             form.reset();
