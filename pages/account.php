@@ -1,10 +1,8 @@
 <?php
-require_once "../Class/Heroku.php";
-
 session_start();
 if ((!$_SESSION['user_id'])) {
-    //$login = "./pages/auth/login.php";
-    header("Location:./auth/login.php");
+    $login = "/auth/login.php";
+    header("Location: $login");
     exit;
 }
 $info="";
@@ -14,7 +12,23 @@ $error="";
 //0.5º obtenemos el id del user
 $bd_id = $_SESSION['user_id'];
 //1º consulta datos en bd
-$conn = new Heroku;
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"], 1);
+$active_group = 'default';
+$query_builder = TRUE;
+
+// Connect to DB
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+if (mysqli_connect_errno()) {
+    $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
+    exit();
+} else {
+    $msj = "Conexión exitosa con la bd";
+}
 $consulta = "select * from users where id='$bd_id'";
 
 if ($resultado = $conn->query($consulta)) {

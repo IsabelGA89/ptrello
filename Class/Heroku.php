@@ -1,6 +1,5 @@
 <?php
 
-
 class Heroku
 {
     private $conection;
