@@ -103,7 +103,7 @@ if (isset($_POST['actualizar'])) {
     $conn->close();
 }
 //DELETE
-if(isset($_GET['delete']) && ($_GET['delete']=="true")){
+if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
     $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $cleardb_server = $cleardb_url["host"];
     $cleardb_username = $cleardb_url["user"];
@@ -165,10 +165,12 @@ if(isset($_GET['delete']) && ($_GET['delete']=="true")){
     <!--Navbar-->
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
         <!--Info App-->
+        <span data-title='Inicio' data-placement="right" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="../index.php">
-            <i  data-title='This is right tooltip' data-placement="right" class=" fas fa-home fa-2x bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none"></i>
+            <i  class="fas fa-home fa-2x"></i>
         </a>
+        </span>
         <!--Quien Soy-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            target="_blank" href="quiensoy.php">
@@ -447,10 +449,10 @@ if(isset($_GET['delete']) && ($_GET['delete']=="true")){
     <!--Tooltips-->
     <script>
         tippy('button', {
-            content:(reference)=>reference.getAttribute('data-title'),
+            content: (reference) => reference.getAttribute('data-title'),
             onMount(instance) {
                 instance.popperInstance.setOptions({
-                    placement :instance.reference.getAttribute('data-placement')
+                    placement: instance.reference.getAttribute('data-placement')
                 });
             }
         });
