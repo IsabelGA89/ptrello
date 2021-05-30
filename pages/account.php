@@ -8,6 +8,9 @@ if ((!$_SESSION['user_id'])) {
 $info="";
 $error="";
 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 /*if ($_POST) {
     echo '<pre>';
     echo htmlspecialchars(print_r($_POST, true));
@@ -51,10 +54,11 @@ $username = $arr_info['username'];
 //Acciones
 //UPDATE
 if($_POST['actualizar']){
+    echo "se ha seleccionado actualizar";
     echo '<pre>';
     echo htmlspecialchars(print_r($arr_info, true));
     echo '</pre>';
-    
+
     $new_username = $_POST['new_username'] ?? null;
     $new_pass = $_POST['new_pass'] ?? null;
     if($new_pass != null && $new_username != null){
@@ -240,7 +244,7 @@ if ($info != "") {
                                 <form action="account.php" method="post">
                                 <!--Username-->
 
-                                    <label class="text-sm text-gray-400">Username</label>
+                                    <label class="text-sm mt-5 text-gray-400">Username</label>
                                     <div class="w-full inline-flex border">
                                         <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
                                             <svg
