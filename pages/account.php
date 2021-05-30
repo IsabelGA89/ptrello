@@ -372,7 +372,7 @@ if (isset($_POST['eliminar'])) {
                             <hr/>
                             <!--ELiminar cuenta-->
                             <div class="w-full p-4 text-right text-gray-500 ">
-                                <form id="delete_form" action="testingAlerts.php" method="post">
+                                <form id="delete_form" action="account.php" method="post">
                                     <button type="button" id="button_delete" name="eliminar"
                                             class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400"
                                     <!--onclick="show_confirmation();"--> >
@@ -435,7 +435,7 @@ if (isset($_POST['eliminar'])) {
                     if (resultado.value) {
                         console.log("siiiii");
                         form.method = "post";
-                        form.action = "testingAlerts.php";
+                        form.action = "account.php";
                         form.submit();
                     } else {
                         console.log("NOOOOOOOOOOOOOOOOO");
