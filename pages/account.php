@@ -72,7 +72,6 @@ $username = $arr_info['username'];
            href="../index.php">
             <i class="fas fa-home fa-2x"></i>
         </a>
-
         <!--Quien Soy-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            target="_blank" href="quiensoy.php">
@@ -80,13 +79,12 @@ $username = $arr_info['username'];
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-           href="#">
+           href="report.php">
             <i class="fas fa-file-alt fa-2x"></i>
         </a>
-
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
-           href="#">
+           href="account.php">
             <i class="fas fa-id-card fa-2x"></i>
         </a>
     </div>
@@ -94,8 +92,10 @@ $username = $arr_info['username'];
     <div class="flex flex-col flex-grow">
         <!--Header-->
         <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
-            <h1 class="text-3xl font-medium"><h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
-                    Consultas a tableros de Trello</h1>
+            <h1 class="text-3xl font-medium">
+                <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
+                    Consultas a tableros de Trello
+                </h1>
                 <form action="auth/login.php" method="post"
                       class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-sign-out-alt fa-lg"></i>
@@ -111,10 +111,10 @@ $username = $arr_info['username'];
                 <section class="py-40 bg-gray-100  bg-opacity-50 h-screen">
                     <div class="mx-auto container max-w-2xl md:w-3/4 shadow-md">
                         <!-- Icono y nombre-->
-                        <div class="bg-gray-100 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
+                        <div class="bg-white space-y-6 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
                             <div class="max-w-sm mx-auto md:w-full md:mx-0">
                                 <div class="inline-flex items-center space-x-4">
-                                    <i class="fas fa-user-circle"></i>
+                                    <i class="fas fa-user-circle fa-7x"></i>
                                     <h1 class="text-gray-600"><?= $username ?></h1>
                                 </div>
                             </div>
@@ -257,9 +257,9 @@ $username = $arr_info['username'];
 
 </body>
 <!-- Footer -->
-<!--<footer class="page-footer font-small">
+<footer class="page-footer font-small">
     <div class="footer-copyright text-center py-3">© 2021 Copyright
         Isabel González Anzano
     </div>
-</footer>-->
+</footer>
 <!-- Footer -->
