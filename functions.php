@@ -122,7 +122,7 @@ function render_form_select_board($arr_tableros, $boardId = null, $arr_cards = n
     $html .= '<form class="form-inline" action="report.php" method="post">';
     $html .= '<div class="form-group mx-sm-3 mb-2">';
     $html .= '<select class="form-control" name="board" required>';
-    /* Si ya hay un tablero seleccinado se guarde y se muestra seleccionado*/
+    /* Si ya hay un tablero seleccinado se guarda y se muestra seleccionado*/
     if ($boardId != null) {
         foreach ($arr_tableros as $tablero => $id) {
             if ($id == $boardId) {
@@ -149,9 +149,9 @@ function render_form_select_board($arr_tableros, $boardId = null, $arr_cards = n
         $html .= "</div>";
     }
     /*FILTROS*/
-    if ($arr_cards != null || sizeof($arr_cards) > 1) {
+    /*if ($arr_cards != null || sizeof($arr_cards) > 1) {
         $html .= render_filters($arr_cards);
-    }
+    }*/
     $html .= "</form>";
     $html .= "</div>";
 
