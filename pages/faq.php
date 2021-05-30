@@ -46,42 +46,42 @@ if ((!$_SESSION['user_id'])) {
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="../index.php">
             <button type="button" data-title='Inicio' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i  class="fas fa-home fa-2x"></i>
+                <i  class="fas fa-home fa-lg"></i>
             </button>
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="report.php">
             <button type="button" data-title='Reportes' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i class="fas fa-file-alt fa-2x"></i>
+                <i class="fas fa-file-alt fa-lg"></i>
             </button>
         </a>
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="account.php">
             <button type="button" data-title='Cuenta' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i class="fas fa-user-circle fa-2x"></i>
+                <i class="fas fa-user-circle fa-lg"></i>
             </button>
         </a>
         <!--Reconocmiento-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="reconocimientos.php">
             <button type="button" data-title='Reconocimientos' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i class="fas fa-chess-rook fa-2x"></i>
+                <i class="fas fa-chess-rook fa-lg"></i>
             </button>
         </a>
         <!--FAQs-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="faq.php">
             <button type="button" data-title='FAQ' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i class="fas fa-question-circle fa-2x"></i>
+                <i class="fas fa-question-circle fa-lg"></i>
             </button>
         </a>
         <!--VideoTutoriales-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="tutorial.php">
             <button type="button" data-title='VideoTutoriales' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i class="fab fa-youtube  fa-2x"></i>
+                <i class="fab fa-youtube fa-lg"></i>
             </button>
         </a>
     </div>
