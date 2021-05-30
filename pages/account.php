@@ -397,20 +397,20 @@ if (isset($_POST['eliminar'])) {
 <!--Alert-->
     <script type="text/javascript">
         function show_confirmation(){
-            let $form = $(this).closest('#delete_form');
+            let form = $(this).closest('#delete_form');
             Swal.fire({
                 title: 'Cuidado',
                 text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
                 icon: 'error',
                 showConfirmButton: true,
                 confirmButtonText: 'Confirmar',
-                showCancelButton:true,
+                showCancelButton: true,
                 cancelButtonText:"Me lo he pensado mejor"
             })
                 .then(resultado =>{
                     if(resultado.value){
                         console.log("siiiii");
-                        $form.submit();
+                        form.submit();
                     }else{
                         console.log("NOOOOOOOOOOOOOOOOO");
                     }
