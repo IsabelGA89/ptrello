@@ -8,14 +8,6 @@ if ((!$_SESSION['user_id'])) {
 $info="";
 $error="";
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
-/*if ($_POST) {
-    echo '<pre>';
-    echo htmlspecialchars(print_r($_POST, true));
-    echo '</pre>';
-}*/
 if(isset($_GET['info'])){
     $info = $_GET['info'];
 }
@@ -54,7 +46,7 @@ $username = $arr_info['username'];
 ////// FIN  BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Acciones
 //UPDATE
-if($_POST['actualizar']){
+if(isset($_POST['actualizar'])){
     $new_username = $_POST['new_username'] ?? null;
     $new_pass = $_POST['new_pass'] ?? null;
     //Conexión Bd
@@ -79,6 +71,8 @@ if($_POST['actualizar']){
             $consulta = "UPDATE users SET password='$secure_pass',username='$new_username' WHERE id='$bd_id'";
             if ($conn->query($consulta) === true) {
                 $info = "Datos modificados correctamente";
+                header("Location:account.php?info=$info");
+                exit();
             } else {
                 $error = "Se ha producido un error tratando de modificar sus datos, por favor, contacte con un administrador.";
             }
@@ -123,7 +117,7 @@ if($_POST['actualizar']){
     <link rel="stylesheet" href="../css/style.css">
     <title>Cuenta</title>
     <!--Favicon-->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png">
     <!--ICONOS FONT AWESOME-->
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
     <style>
