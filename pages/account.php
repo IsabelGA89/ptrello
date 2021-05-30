@@ -208,17 +208,21 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                 <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello
                 </h1>
-                <form action="auth/login.php" method="post"
-                      class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
-                    <i class="fas fa-sign-out-alt fa-lg"></i>
-                    <input type="submit" name="logout" value="Log out"
-                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
-                </form>
-                <form action="quiensoy.php" method="post" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
+                    <form action="quiensoy.php" method="post" target="_blank" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Quienes somos"
                            class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
+                </span>
+                <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium bg-gray-800 rounded hover:bg-gray-700">
+                    <form action="auth/login.php" method="post"
+                          class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                    <i class="fas fa-sign-out-alt fa-lg"></i>
+                    <input type="submit" name="logout" value="Log out"
+                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                </form>
+                </span>
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
