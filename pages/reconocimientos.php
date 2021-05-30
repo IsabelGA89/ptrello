@@ -92,8 +92,10 @@
                 <div class="w-full h-screen bg-opacity-50 bg-black flex justify-center items-center">
                     <div class="mx-4 text-center text-white">
                         <h1 class="font-bold text-6xl mb-4 mb-15">Muchas gracias por vuestra colaboración</h1>
-                        <h2 class="font-bold text-3xl mb-12">Carlos Sallén - QA, Beta tester</h2>
+                        <h2 class="font-bold text-3xl mb-12">Carlos Sallén - Beta tester</h2>
                         <h2 class="font-bold text-3xl mb-12">Sheila Cosculluela - QA, Beta tester</h2>
+                        <h2 class="font-bold text-3xl mb-12">Cristina González -  Beta tester</h2>
+                        <h2 class="font-bold text-3xl mb-12">Diego Rández - QA, Beta tester</h2>
                         <div>
                         </div>
                         <p>Si quieres colaborar, puedes ayudarnos contestando a <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSctQrpeHpU48KaJYJjBLWg7VgeD0L4iO-eTiLb5EkRkU6AN_w/viewform">esta encuesta</a>, no te llevará mas de un minuto .</p>
