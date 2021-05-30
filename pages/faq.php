@@ -141,7 +141,35 @@
                                             </ol>
                                         </div>
                                     </div>
+                                    <!--Card trello-->
+                                    <div class="max-w-2xl mt-5 mx-auto sm:px-6 lg:px-8">
+                                        <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
+                                            <div class="overflow-hidden shadow-md text-gray-100">
+                                                <!-- card header -->
+                                                <div class=" text-3xl px-6 py-4 bg-gray-800 border-b border-gray-600 font-bold uppercase">
+                                                    Qué es Trello
+                                                </div>
 
+                                                <!-- card body -->
+                                                <div class="p-6 bg-gray-800 border-b border-gray-600">
+                                                    <p>Trello es una aplicación online gratuita, que mediante un canvan ayuda a la
+                                                        gestión de
+                                                        proyectos.
+                                                        <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://trello.com/c/RZExuHxu/6-qué-es-trello-y-cómo-se-usa">Aquí tiene
+                                                            parte
+                                                            de la documentación oficial.</a></p>
+                                                    <p>
+                                                        <iframe class="justify-items-start md:justify-items-center" width="560"
+                                                                height="315" src="https://www.youtube.com/embed/7XFAAZpQkbM"
+                                                                title="YouTube video player" frameborder="0"
+                                                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                                                allowfullscreen></iframe>
+                                                    </p>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

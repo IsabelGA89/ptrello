@@ -168,7 +168,9 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
 
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="../index.php">
-            <i  class="fas fa-home fa-2x"><span data-title='Inicio' data-placement="right" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none"></span></i>
+            <span type="button" data-title='This is right tooltip' data-placement="right" class="bg-blue-600 text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i  class="fas fa-home fa-2x"></i>
+            </span>
         </a>
 
         <!--Quien Soy-->
