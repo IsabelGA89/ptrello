@@ -186,6 +186,11 @@ if(isset($_GET['delete']) && ($_GET['delete']=="true")){
            href="reconocimientos.php">
             <i class="fas fa-chess-rook fa-2x"></i>
         </a>
+        <!--FAQs-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
+           href="faq.php">
+            <i class="fas fa-question-circle fa-2x"></i>
+        </a>
     </div>
 
     <div class="flex flex-col flex-grow">
