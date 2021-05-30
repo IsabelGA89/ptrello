@@ -103,7 +103,7 @@ if (isset($_POST['actualizar'])) {
     $conn->close();
 }
 //DELETE
-if($_GET['delete'] === true){
+if(isset($_GET['delete']) && ($_GET['delete']=="true")){
     $error ="se ha seleccionado eliminar";
     /*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $cleardb_server = $cleardb_url["host"];
@@ -368,7 +368,7 @@ if($_GET['delete'] === true){
                                 <form id="delete_form">
                                     <button type="button" id="button_delete" name="eliminar"
                                             class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400"
-                                    <!--onclick="show_confirmation();"--> 
+                                    <!--onclick="show_confirmation();"-->
                                     <svg
                                             fill="none"
                                             class="w-4 mr-2"
@@ -413,8 +413,6 @@ if($_GET['delete'] === true){
 
         function show_confirmation(form) {
             //var form = document.getElementById("delete_form");
-            console.log(form);
-            var name = document.getElementById("button_delete");
             Swal.fire({
                 title: 'Cuidado',
                 text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
