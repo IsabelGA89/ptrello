@@ -45,35 +45,35 @@ if ((!$_SESSION['user_id'])) {
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
         <!--Info App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-           href="../index.php">
+           href="index.php">
             <button type="button" data-title='Inicio' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i  class="fas fa-home fa-2x"></i>
             </button>
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-           href="report.php">
+           href="pages/report.php">
             <button type="button" data-title='Reportes' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-file-alt fa-2x"></i>
             </button>
         </a>
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
-           href="account.php">
+           href="pages/account.php">
             <button type="button" data-title='Cuenta' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-id-card fa-2x"></i>
             </button>
         </a>
         <!--Reconocmiento-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
-           href="reconocimientos.php">
+           href="pages/reconocimientos.php">
             <button type="button" data-title='Reconocimientos' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-chess-rook fa-2x"></i>
             </button>
         </a>
         <!--FAQs-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
-           href="faq.php">
+           href="pages/faq.php">
             <button type="button" data-title='FAQ' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-question-circle fa-2x"></i>
             </button>
@@ -88,14 +88,14 @@ if ((!$_SESSION['user_id'])) {
                     Consultas a tableros de Trello
                 </h1>
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="quiensoy.php" method="post" target="_blank" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                    <form action="pages/quiensoy.php" method="post" target="_blank" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Quienes somos"
                            class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
                 </span>
                 <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium bg-gray-800 rounded hover:bg-gray-700">
-                    <form action="auth/login.php" method="post"
+                    <form action="pages/auth/login.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-sign-out-alt fa-lg"></i>
                     <input type="submit" name="logout" value="Log out"
