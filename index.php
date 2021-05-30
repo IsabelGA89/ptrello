@@ -106,14 +106,14 @@ if ((!$_SESSION['user_id'])) {
                                         trello</a></h4>
                                 <hr/>
                                 <h5 class="text-lg">Datos necesarios para utilizar la aplicación:</h5>
-                                <ul class="list-disc">
+                                <ul class="list-disc ml-4">
                                     <li>Nombre de usuario de Trello</li>
                                     <li>Key (si no dispone de ella puede utilizar el enlace de arriba)</li>
                                     <li>Token (si no dispone de él puede utilizar el enlace de arriba)</li>
                                 </ul>
                                 <hr/>
                                 <h5 class="text-lg">Pasos para utilizar la aplicación:</h5>
-                                <ol class="list-decimal">
+                                <ol class="list-decimal ml-4">
                                     <li>Rellene la sección de Login en función del tablero al que quiera acceder.</li>
                                     <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
                                     <li>Se visualizará en el apartado de previsualización un listado con las cards de
