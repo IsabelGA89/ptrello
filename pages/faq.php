@@ -1,5 +1,11 @@
 <?php
+session_start();
 
+if ((!$_SESSION['user_id'])) {
+    $login = "./auth/login.php";
+    header("Location: $login");
+    exit;
+}
 ?>
 <!doctype html>
 <html lang="es">
