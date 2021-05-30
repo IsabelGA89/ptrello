@@ -3,8 +3,8 @@ require_once "../Class/Heroku.php";
 
 session_start();
 if ((!$_SESSION['user_id'])) {
-    $login = "./pages/auth/login.php";
-    header("Location: $login");
+    //$login = "./pages/auth/login.php";
+    header("Location:./auth/login.php");
     exit;
 }
 $info="";
