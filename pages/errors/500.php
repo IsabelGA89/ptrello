@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="es" >
 <head>
   <meta charset="UTF-8">
   <title>500 Error</title>

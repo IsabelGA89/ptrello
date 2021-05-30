@@ -5,9 +5,39 @@ session_start();
     header("Location: $login");
     exit;
 }*/
+//0.5º obtenemos el id del user
+$bd_id = $_SESSION['user_id'];
+//1º consulta datos en bd
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"],1);
+$active_group = 'default';
+$query_builder = TRUE;
 
-$email = "ejemplo@gmail.com";
-$username = "ejemplo nick";
+// Connect to DB
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+if (mysqli_connect_errno()) {
+    $msj =("Falló la conexión con la base de datos: %s\n". mysqli_connect_error());
+    exit();
+}else{
+    $msj = "Conexión exitosa con la bd";
+}
+$consulta ="select * from users where id='$bd_id'";
+
+if ($resultado = $conn->query($consulta)) {
+    $arr_info = $resultado->fetch_array();
+    $resultado->close();
+}
+/* cerrar la conexión */
+$conn->close();
+
+
+$email = $arr_info['email'];
+$username = $arr_info['username'];
+
 ?>
 <!doctype html>
 <html lang="es">
