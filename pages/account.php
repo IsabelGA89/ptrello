@@ -145,6 +145,10 @@ if (isset($_POST['eliminar'])) {
     <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png">
     <!--ICONOS FONT AWESOME-->
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
+    <!--SweetAlert-->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="sweetalert2.all.min.js"></script>
+
     <style>
         .group:focus .group-focus\:flex {
             display: flex;
@@ -385,6 +389,18 @@ if (isset($_POST['eliminar'])) {
             </div>
         </div>
     </div>
+<!--Alert-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            Swal.fire({
+                title: 'Cuidado',
+                text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
+                icon: 'error',
+                confirmButtonText: 'Cool'
+            })
+        });
+
+    </script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
