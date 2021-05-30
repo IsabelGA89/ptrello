@@ -58,13 +58,13 @@ if($_POST['actualizar']){
 
     switch (true){
         case $new_pass != null:
-            var_dump("contraseña con contenido");
+            $error="contraseña con contenido";
             break;
         case $new_username != null:
-            var_dump("Usuario con contenido");
+            $info="Usuario con contenido";
             break;
         case $new_username!=null && $new_pass!=null:
-            var_dump("ambas tienen contenido");
+            $info="ambas tienen contenido";
             break;
     }
 
