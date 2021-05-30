@@ -1,5 +1,5 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] ."/Class/Heroku.php";
+require_once "../Class/Heroku.php";
 
 session_start();
 if ((!$_SESSION['user_id'])) {
