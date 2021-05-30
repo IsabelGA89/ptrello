@@ -171,7 +171,7 @@ if ($info != "") {
                     <a href="recovery.php">¿Has olvidado tu contraseña?</a>
                 </div>
                 <div class="px-4 pb-2 pt-4">
-                    <input type="submit" name="login" value="login"
+                    <input style="cursor: pointer" type="submit" name="login" value="login"
                             class="uppercase w-1/2 p-2 text-lg rounded-full bg-indigo-500 hover:bg-indigo-600 focus:outline-none"/>
                 </div>
                 <div class="px-4 pb-2 pt-4">
