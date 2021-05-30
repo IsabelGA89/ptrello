@@ -94,13 +94,22 @@ if ((!$_SESSION['user_id'])) {
                     Consultas a tableros de Trello
                 </h1>
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="quiensoy.php" method="post" target="_blank" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                    <form action="quiensoy.php" method="post" target="_blank"
+                          class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
-                    <input type="submit" name="quiensoy" value="Quienes somos"
+                    <input type="submit" name="quiensoy" value="Sobre mí"
                            class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
                 </span>
-                <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium bg-gray-800 rounded hover:bg-gray-700">
+                <span class="flex items-center justify-center h-10 px-4  text-sm font-medium rounded hover:bg-gray-800">
+                    <form action="contact.php" method="post" target="_blank"
+                          class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                        <i class="fas fa-envelope fa-lg"></i>
+                    <input type="submit" name="quiensoy" value="Cuentame cosas"
+                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                </form>
+                </span>
+                <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium rounded hover:bg-gray-800">
                     <form action="auth/login.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-sign-out-alt fa-lg"></i>
@@ -216,109 +225,8 @@ if ((!$_SESSION['user_id'])) {
                     </div>
                 </div>
             </div>
-            <hr/>
-            <!--Contact us-->
-            <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
-                <div class="container mx-auto">
-                    <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
-                        <div class="text-center">
-                            <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">¿Tienes más
-                                preguntas?</h1>
-                            <p class="text-gray-400 dark:text-gray-400">Contacta con nosotros</p>
-                        </div>
-                        <div class="m-7">
-                            <form action="https://api.web3forms.com/submit" method="POST" id="form">
-
-                                <input type="hidden" name="apikey" value="b4728622-30f9-4197-9d75-f4c6d4751501">
-                                <input type="hidden" name="subject" value="New Submission from Web3Forms">
-                                <input type="checkbox" name="botcheck" id="" style="display: none;">
 
 
-                                <div class="mb-6">
-                                    <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Nombre
-                                        Completo</label>
-                                    <input type="text" name="name" id="name" placeholder="Reith Ress" required
-                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
-                                </div>
-                                <div class="mb-6">
-                                    <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
-                                    <input type="email" name="email" id="email" placeholder="you@company.com" required
-                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
-                                </div>
-                               <!-- <div class="mb-6">
-
-                                    <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone
-                                        Number</label>
-                                    <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required
-                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
-                                </div>-->
-                                <div class="mb-6">
-                                    <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Tu mensaje</label>
-
-                                    <textarea rows="5" name="message" id="message" placeholder="Cuéntanos tus dudas :3"
-                                              class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
-                                              required></textarea>
-                                </div>
-                                <div class="mb-6">
-                                    <button type="submit"
-                                            class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-                                       Enviar Mensaje
-                                    </button>
-                                </div>
-                                <p class="text-base text-center text-gray-400" id="result">
-                                </p>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <script>
-                const form = document.getElementById('form');
-                const result = document.getElementById('result');
-
-                form.addEventListener('submit', function(e) {
-                    const formData = new FormData(form);
-                    e.preventDefault();
-                    var object = {};
-                    formData.forEach((value, key) => {
-                        object[key] = value
-                    });
-                    var json = JSON.stringify(object);
-                    result.innerHTML = "Por favor, espere..."
-
-                    fetch('https://api.web3forms.com/submit', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Accept': 'application/json'
-                        },
-                        body: json
-                    })
-                        .then(async (response) => {
-                            let json = await response.json();
-                            if (response.status == 200) {
-                                result.innerHTML = json.message;
-                                result.classList.remove('text-gray-500');
-                                result.classList.add('text-green-500');
-                            } else {
-                                console.log(response);
-                                result.innerHTML = json.message;
-                                result.classList.remove('text-gray-500');
-                                result.classList.add('text-red-500');
-                            }
-                        })
-                        .catch(error => {
-                            console.log(error);
-                            result.innerHTML = "¡Se ha roto algo!";
-                        })
-                        .then(function() {
-                            form.reset();
-                            setTimeout(() => {
-                                result.style.display = "none";
-                            }, 5000);
-                        });
-                })
-            </script>
 
         </div>
     </div>
@@ -343,10 +251,4 @@ if ((!$_SESSION['user_id'])) {
     </script>
 
 </body>
-<!-- Footer -->
-<!--<footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">© 2021 Copyright
-        Isabel González Anzano
-    </div>
-</footer>-->
-<!-- Footer -->
+

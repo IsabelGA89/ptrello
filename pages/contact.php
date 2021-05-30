@@ -120,45 +120,108 @@ if ((!$_SESSION['user_id'])) {
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
-            <div class="heading text-center font-bold text-2xl m-5 text-gray-100">Video tutoriales</div>
+            <!--Contact us-->
+            <div class="flex items-center min-h-screen bg-gray-50 dark:bg-gray-900">
+                <div class="container mx-auto">
+                    <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
+                        <div class="text-center">
+                            <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">¿Tienes más
+                                preguntas?</h1>
+                            <p class="text-gray-400 dark:text-gray-400">Contacta con nosotros</p>
+                        </div>
+                        <div class="m-7">
+                            <form action="https://api.web3forms.com/submit" method="POST" id="form">
 
-            <div class="holder mx-auto  grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+                                <input type="hidden" name="apikey" value="b4728622-30f9-4197-9d75-f4c6d4751501">
+                                <input type="hidden" name="subject" value="New Submission from Web3Forms">
+                                <input type="checkbox" name="botcheck" id="" style="display: none;">
 
-                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 ">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7r9pYbtBEcE"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    <div class="desc p-4  text-gray-800">
-                        <a href="https://www.youtube.com/watch?v=7r9pYbtBEcE" target="_new"
-                           class="title font-bold block cursor-pointer hover:underline">Cuenta en Trello y Mi primer
-                            Tablero</a>
-                        <a href="#" target="_new"
-                           class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
-                        <span class="description text-sm block py-2 border-gray-400 mb-2">Paso a paso para crear una cuenta en Trello y crear nuestros primeros tableros.</span>
+
+                                <div class="mb-6">
+                                    <label for="name" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Nombre
+                                        Completo</label>
+                                    <input type="text" name="name" id="name" placeholder="Reith Ress" required
+                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
+                                </div>
+                                <div class="mb-6">
+                                    <label for="email" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Email</label>
+                                    <input type="email" name="email" id="email" placeholder="you@company.com" required
+                                           class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
+                                </div>
+                                <!-- <div class="mb-6">
+
+                                     <label for="phone" class="text-sm text-gray-600 dark:text-gray-400">Phone
+                                         Number</label>
+                                     <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required
+                                            class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"/>
+                                 </div>-->
+                                <div class="mb-6">
+                                    <label for="message" class="block mb-2 text-sm text-gray-600 dark:text-gray-400">Tu mensaje</label>
+
+                                    <textarea rows="5" name="message" id="message" placeholder="Cuéntanos tus dudas :3"
+                                              class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300 dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                                              required></textarea>
+                                </div>
+                                <div class="mb-6">
+                                    <button type="submit"
+                                            class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
+                                        Enviar Mensaje
+                                    </button>
+                                </div>
+                                <p class="text-base text-center text-gray-400" id="result">
+                                </p>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class=" mb-10 m-2 bg-gray-800"></div>
-                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100">
-                    <!--<video width="500" height="500" controls>
-                        <source src="../video/clave.mp4" type="video/mp4">
-                    </video>-->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4RP6hIQZ93k"
-                            title="YouTube video player" frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen></iframe>
-                    <div class="desc p-4 text-gray-800">
-                        <a href="https://www.youtube.com/watch?v=4RP6hIQZ93k" target="_new"
-                           class="title font-bold block cursor-pointer hover:underline">Como obtener las claves de
-                            Trello</a>
-                        <a href="#" target="_new"
-                           class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
-                        <span class="description text-sm block py-2 border-gray-400 mb-2">Tutorial para obtener la api Key y el Token necesarios de trello para poder utilizar Trello Report</span>
-                    </div>
-                </div>
-
-
             </div>
+            <script>
+                const form = document.getElementById('form');
+                const result = document.getElementById('result');
+
+                form.addEventListener('submit', function(e) {
+                    const formData = new FormData(form);
+                    e.preventDefault();
+                    var object = {};
+                    formData.forEach((value, key) => {
+                        object[key] = value
+                    });
+                    var json = JSON.stringify(object);
+                    result.innerHTML = "Por favor, espere..."
+
+                    fetch('https://api.web3forms.com/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: json
+                    })
+                        .then(async (response) => {
+                            let json = await response.json();
+                            if (response.status == 200) {
+                                result.innerHTML = json.message;
+                                result.classList.remove('text-gray-500');
+                                result.classList.add('text-green-500');
+                            } else {
+                                console.log(response);
+                                result.innerHTML = json.message;
+                                result.classList.remove('text-gray-500');
+                                result.classList.add('text-red-500');
+                            }
+                        })
+                        .catch(error => {
+                            console.log(error);
+                            result.innerHTML = "¡Se ha roto algo!";
+                        })
+                        .then(function() {
+                            form.reset();
+                            setTimeout(() => {
+                                result.style.display = "none";
+                            }, 5000);
+                        });
+                })
+            </script>
         </div>
     </div>
 
