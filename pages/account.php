@@ -119,13 +119,12 @@ if(isset($_GET['delete']) && ($_GET['delete']=="true")){
         $msj = "Conexión exitosa con la bd";
     }
     $consulta = "DELETE FROM users WHERE id='$bd_id'";
-    $info= "se ejecuta consulta";
-    /*if ($conn->query($consulta) === true) {
-        $info = "Usuario eliminado correctamente";
+    if ($conn->query($consulta) === true) {
+        $info = "Usuario eliminado correctamente, si quiere acceder de nuevo a la aplicación tendrá que registrarse de nuevo.";
         session_destroy();
         header("Location:./auth/login.php?info=$info");
         exit();
-    }*/
+    }
     $conn->close();
 }
 ?>
