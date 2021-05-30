@@ -194,6 +194,9 @@ if (isset($_POST['logout'])) {
     <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
     <!--ICONOS FONT AWESOME-->
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
+    <!--Tooltips-->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
     <style>
         .group:focus .group-focus\:flex {
             display: flex;
@@ -208,45 +211,62 @@ if (isset($_POST['logout'])) {
         <!--Info App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="../index.php">
-            <i class="fas fa-home fa-2x"></i>
-        </a>
-        <!--Quien Soy-->
-        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-           target="_blank" href="quiensoy.php">
-            <i class="fas fa-female fa-2x"></i>
+            <button type="button" data-title='Inicio' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i  class="fas fa-home fa-2x"></i>
+            </button>
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
-           href="account.php">
-            <i class="fas fa-file-alt fa-2x"></i>
+           href="report.php">
+            <button type="button" data-title='Reportes' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-file-alt fa-2x"></i>
+            </button>
         </a>
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="account.php">
-            <i class="fas fa-id-card fa-2x"></i>
+            <button type="button" data-title='Cuenta' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-id-card fa-2x"></i>
+            </button>
         </a>
         <!--Reconocmiento-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="reconocimientos.php">
-            <i class="fas fa-chess-rook fa-2x"></i>
+            <button type="button" data-title='Reconocimientos' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-chess-rook fa-2x"></i>
+            </button>
         </a>
         <!--FAQs-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="faq.php">
-            <i class="fas fa-question-circle fa-2x"></i>
+            <button type="button" data-title='FAQ' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-question-circle fa-2x"></i>
+            </button>
         </a>
     </div>
 
     <div class="flex flex-col flex-grow">
         <!--Header-->
         <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
-            <h1 class="text-lg font-medium"><h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
-                    Consultas a tableros de Trello</h1>
-                <form action="auth/login.php" method="post"
-                      class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
-                    <i class="fas fa-sign-out-alt fa-lg"></i><input type="submit" name="logout" value="Log out"
-                                                                    class="flex btn items-center text-gray-400  justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+            <h1 class="text-3xl font-medium">
+                <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
+                    Consultas a tableros de Trello
+                </h1>
+                <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
+                    <form action="quiensoy.php" method="post" target="_blank" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                    <i class="fas fa-female fa-lg"></i>
+                    <input type="submit" name="quiensoy" value="Quienes somos"
+                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
+                </span>
+                <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium bg-gray-800 rounded hover:bg-gray-700">
+                    <form action="auth/login.php" method="post"
+                          class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                    <i class="fas fa-sign-out-alt fa-lg"></i>
+                    <input type="submit" name="logout" value="Log out"
+                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                </form>
+                </span>
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
