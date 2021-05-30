@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>500 Error</title>
-  <link rel="stylesheet" href="./style.css">
-
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
@@ -29,7 +28,7 @@
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-<script src="js/main.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
 </body>
 </body>
 </html>

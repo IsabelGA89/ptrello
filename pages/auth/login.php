@@ -147,11 +147,11 @@ if ($info != "") {
                 <span class="text-5xl font-bold text-left tracking-wide">Trello Report</span>
             </h1>
             <div class="py-6 space-x-2">
-                <?php
-                if($msj != ""){
+              <!--  --><?php
+/*                if($msj != ""){
                     echo $msj;
                 }
-                ?>
+                */?>
             </div>
             <div class="py-6 space-x-2">
                 <span class="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">f</span>
