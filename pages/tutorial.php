@@ -116,21 +116,23 @@ if ((!$_SESSION['user_id'])) {
             <div class="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
 
                 <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
-                    <video width="500" height="500" controls>
-                        <source src="../video/Inicio.mp4" type="video/mp4">
-                    </video>
+                    <!--<video width="500" height="500" controls>
+                        <source src="https://youtu.be/7r9pYbtBEcE" type="video/mp4">
+                    </video>-->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7r9pYbtBEcE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="desc p-4 text-gray-800">
-                        <a href="https://www.youtube.com/watch?v=dvqT-E74Qlo" target="_new" class="title font-bold block cursor-pointer hover:underline">Cuenta en Trello y Mi primer Tablero</a>
+                        <a href="https://www.youtube.com/watch?v=7r9pYbtBEcE" target="_new" class="title font-bold block cursor-pointer hover:underline">Cuenta en Trello y Mi primer Tablero</a>
                         <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
                         <span class="description text-sm block py-2 border-gray-400 mb-2">Paso a paso para crear una cuenta en Trello y crear nuestros primeros tableros.</span>
                     </div>
                 </div>
                 <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
-                    <video width="500" height="500" controls>
+                    <!--<video width="500" height="500" controls>
                         <source src="../video/clave.mp4" type="video/mp4">
-                    </video>
+                    </video>-->
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4RP6hIQZ93k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="desc p-4 text-gray-800">
-                        <a href="https://www.youtube.com/watch?v=dvqT-E74Qlo" target="_new" class="title font-bold block cursor-pointer hover:underline">Como obtener las claves de Trello</a>
+                        <a href="https://www.youtube.com/watch?v=4RP6hIQZ93k" target="_new" class="title font-bold block cursor-pointer hover:underline">Como obtener las claves de Trello</a>
                         <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
                         <span class="description text-sm block py-2 border-gray-400 mb-2">Tutorial para obtener la api Key y el Token necesarios de trello para poder utilizar Trello Report</span>
                     </div>
