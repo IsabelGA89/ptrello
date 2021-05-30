@@ -46,35 +46,40 @@ if ((!$_SESSION['user_id'])) {
         <!--Info App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="index.php">
-            <button type="button" data-title='Inicio' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i  class="fas fa-home fa-2x"></i>
+            <button type="button" data-title='Inicio' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-home fa-2x"></i>
             </button>
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="pages/report.php">
-            <button type="button" data-title='Reportes' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='Reportes' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-file-alt fa-2x"></i>
             </button>
         </a>
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="pages/account.php">
-            <button type="button" data-title='Cuenta' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i class="fas fa-id-card fa-2x"></i>
+            <button type="button" data-title='Cuenta' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-user-circle fa-2x"></i>
             </button>
         </a>
         <!--Reconocmiento-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="pages/reconocimientos.php">
-            <button type="button" data-title='Reconocimientos' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='Reconocimientos' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-chess-rook fa-2x"></i>
             </button>
         </a>
         <!--FAQs-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="pages/faq.php">
-            <button type="button" data-title='FAQ' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='FAQ' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fas fa-question-circle fa-2x"></i>
             </button>
         </a>
@@ -88,7 +93,8 @@ if ((!$_SESSION['user_id'])) {
                     Consultas a tableros de Trello
                 </h1>
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="pages/quiensoy.php" method="post" target="_blank" class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
+                    <form action="pages/quiensoy.php" method="post" target="_blank"
+                          class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Quienes somos"
                            class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
@@ -118,10 +124,16 @@ if ((!$_SESSION['user_id'])) {
 
                             <!-- card body -->
                             <div class="p-6 bg-gray-800 border-b border-gray-600">
-                                <h3 class="text-2xl"><a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#authentication-and-authorization">Generar la api
+                                <h3 class="text-2xl"><a
+                                            class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                            target="_blank"
+                                            href="https://developer.atlassian.com/cloud/trello/guides/rest-api/api-introduction/#authentication-and-authorization">Generar
+                                        la api
                                         key </a></h3>
-                                <h4 class="text-xl"><a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank"
-                                                       href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
+                                <h4 class="text-xl"><a
+                                            class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                            target="_blank"
+                                            href="https://developer.atlassian.com/cloud/trello/rest/api-group-actions/">
                                         Documentación API
                                         trello</a></h4>
                                 <hr/>
@@ -134,11 +146,12 @@ if ((!$_SESSION['user_id'])) {
                                 <hr/>
                                 <h5 class="text-lg">Pasos para utilizar la aplicación:</h5>
                                 <ol class="list-decimal ml-4">
-                                    <li>Rellene la sección de Login en función del tablero al que quiera acceder.</li>
+                                    <li>Recabe sus datos de acceso para Trello, Token y api key</li>
+                                    <li>Vaya al apartado de Reportes</li>
+                                    <li>Rellene la sección de Login en función del tablero al que quiera acceder</li>
                                     <li>Seleccione su tablero de la lista y presione el botón "Seleccionar"</li>
                                     <li>Se visualizará en el apartado de previsualización un listado con las cards de
-                                        dicho
-                                        tablero
+                                        dicho tablero
                                     </li>
                                     <li>Puede descargar la versión en json de lo que le está mostrando la sección
                                         "Previsualización"

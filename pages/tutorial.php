@@ -1,11 +1,11 @@
 <?php
-session_start();
+/*session_start();
 
 if ((!$_SESSION['user_id'])) {
     $login = "./auth/login.php";
     header("Location: $login");
     exit;
-}
+}*/
 ?>
 <!doctype html>
 <html lang="es">
@@ -18,8 +18,8 @@ if ((!$_SESSION['user_id'])) {
     <!--Tailwindcss-->
     <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
     <!--Personal css-->
-    <link rel="stylesheet" href="../css/reconocimientos.css">
-    <title>Reconocimientos</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Cuenta</title>
     <!--Favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png">
     <!--ICONOS FONT AWESOME-->
@@ -30,6 +30,7 @@ if ((!$_SESSION['user_id'])) {
     <!--Tooltips-->
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+
     <style>
         .group:focus .group-focus\:flex {
             display: flex;
@@ -37,8 +38,7 @@ if ((!$_SESSION['user_id'])) {
     </style>
 </head>
 
-<body class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
-
+<body>
 <div class="flex w-screen h-screen text-gray-400 bg-gray-900">
     <!--Navbar-->
     <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
@@ -77,6 +77,13 @@ if ((!$_SESSION['user_id'])) {
                 <i class="fas fa-question-circle fa-2x"></i>
             </button>
         </a>
+        <!--VideoTutoriales-->
+        <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
+           href="tutorial.php">
+            <button type="button" data-title='VideoTutoriales' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fab fa-youtube  fa-2x"></i>
+            </button>
+        </a>
     </div>
 
     <div class="flex flex-col flex-grow">
@@ -104,28 +111,32 @@ if ((!$_SESSION['user_id'])) {
         </div>
         <!--Body-->
         <div class="flex-grow p-6 overflow-auto bg-gray-800">
-            <!--Cita-->
-            <section class="component bg-gray-800 p-10 mx-1 md:mx-10 ">
-                <blockquote class="relative text-2xl text-white text-center p-10 w-full m-1">
-                    La gratitud es la menor de las virtudes, pero la ingratitud es el peor de los vicios.
-                    <cite> - Thomas Fuller</cite>
-                </blockquote>
-            </section>
-            <!--Reconocimientos-->
-            <div class="w-full h-screen bg-center bg-no-repeat bg-cover  justify-center items-center" style="background-image: url('https://images.unsplash.com/photo-1609342475528-dd7d93e8311e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=676&q=80');">
-                <div class="w-full h-screen bg-opacity-50 bg-black flex justify-center items-center">
-                    <div class="mx-4 text-center text-white">
-                        <h1 class="font-bold text-6xl mb-4 mb-15">Muchas gracias por vuestra colaboración</h1>
-                        <h2 class="font-bold text-3xl mb-12">Carlos Sallén - Beta tester</h2>
-                        <h2 class="font-bold text-3xl mb-12">Sheila Cosculluela - QA, Beta tester</h2>
-                        <h2 class="font-bold text-3xl mb-12">Cristina González -  Beta tester</h2>
-                        <h2 class="font-bold text-3xl mb-12">Diego Rández - QA, Beta tester</h2>
-                        <div>
-                        </div>
-                        <p>Si quieres colaborar, puedes ayudarnos contestando a <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSctQrpeHpU48KaJYJjBLWg7VgeD0L4iO-eTiLb5EkRkU6AN_w/viewform">esta encuesta</a>, no te llevará mas de un minuto .</p>
-                    </div>
+            <div class="heading text-center font-bold text-2xl m-5 text-gray-100">Video tutoriales</div>
 
+            <div class="holder mx-auto w-10/12 grid sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+
+                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
+                    <video width="500" height="500" controls>
+                        <source src="../video/Inicio.mp4" type="video/mp4">
+                    </video>
+                    <div class="desc p-4 text-gray-800">
+                        <a href="https://www.youtube.com/watch?v=dvqT-E74Qlo" target="_new" class="title font-bold block cursor-pointer hover:underline">Cuenta en Trello y Mi primer Tablero</a>
+                        <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
+                        <span class="description text-sm block py-2 border-gray-400 mb-2">Paso a paso para crear una cuenta en Trello y crear nuestros primeros tableros.</span>
+                    </div>
                 </div>
+                <div class="each mb-10 m-2 shadow-lg border-gray-800 bg-gray-100 relative">
+                    <video width="500" height="500" controls>
+                        <source src="../video/clave.mp4" type="video/mp4">
+                    </video>
+                    <div class="desc p-4 text-gray-800">
+                        <a href="https://www.youtube.com/watch?v=dvqT-E74Qlo" target="_new" class="title font-bold block cursor-pointer hover:underline">Como obtener las claves de Trello</a>
+                        <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
+                        <span class="description text-sm block py-2 border-gray-400 mb-2">Tutorial para obtener la api Key y el Token necesarios de trello para poder utilizar Trello Report</span>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -137,6 +148,36 @@ if ((!$_SESSION['user_id'])) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
             crossorigin="anonymous"></script>
+    <!--Alert-->
+    <script type="text/javascript">
+        $("#button_delete").click(function (e) {
+            e.preventDefault(); // Prevent the href from redirecting directly
+            var form = document.getElementById("delete_form");
+            show_confirmation(form);
+        });
+
+        function show_confirmation(form) {
+            //var form = document.getElementById("delete_form");
+            Swal.fire({
+                title: 'Cuidado',
+                text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
+                icon: 'error',
+                showConfirmButton: true,
+                confirmButtonText: 'Confirmar',
+                showCancelButton: true,
+                cancelButtonText: "Me lo he pensado mejor"
+            })
+                .then(resultado => {
+                    if (resultado.value) {
+                        form.method = "post";
+                        form.action = "./account.php?delete=true";
+                        form.submit();
+                    }
+                })
+        }
+
+
+    </script>
     <!--Tooltips-->
     <script>
         tippy('button', {
@@ -148,12 +189,5 @@ if ((!$_SESSION['user_id'])) {
             }
         });
     </script>
-
 </body>
-<!-- Footer -->
-<!--<footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">© 2021 Copyright
-        Isabel González Anzano
-    </div>
-</footer>-->
-<!-- Footer -->
+</html>

@@ -182,7 +182,7 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="account.php">
             <button type="button" data-title='Cuenta' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-            <i class="fas fa-id-card fa-2x"></i>
+            <i class="fas fa-user-circle fa-2x"></i>
             </button>
         </a>
         <!--Reconocmiento-->
