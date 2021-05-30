@@ -8,13 +8,14 @@ if ((!$_SESSION['user_id'])) {
 $info="";
 $error="";
 
-if ($_POST) {
+/*if ($_POST) {
     echo '<pre>';
     echo htmlspecialchars(print_r($_POST, true));
     echo '</pre>';
-}
+}*/
 
 
+////// BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //0.5º obtenemos el id del user
 $bd_id = $_SESSION['user_id'];
 //1º consulta datos en bd
@@ -43,10 +44,39 @@ if ($resultado = $conn->query($consulta)) {
 }
 /* cerrar la conexión */
 $conn->close();
-
-
+//2º Obtenemos la info de la cuenta
 $email = $arr_info['email'];
 $username = $arr_info['username'];
+////// FIN  BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//Acciones
+//UPDATE
+if($_POST['actualizar']){
+    echo '<pre>';
+    echo htmlspecialchars(print_r($arr_info, true));
+    echo '</pre>';
+    
+    $new_username = $_POST['new_username'] ?? null;
+    $new_pass = $_POST['new_pass'] ?? null;
+    if($new_pass != null && $new_username != null){
+        //Modificamos ambas
+        /*$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+        $cleardb_server = $cleardb_url["host"];
+        $cleardb_username = $cleardb_url["user"];
+        $cleardb_password = $cleardb_url["pass"];
+        $cleardb_db = substr($cleardb_url["path"], 1);
+        $active_group = 'default';
+        $query_builder = TRUE;
+        // Connect to DB
+        $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+        if (mysqli_connect_errno()) {
+            $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
+            exit();
+        } else {
+            $msj = "Conexión exitosa con la bd";
+        }
+        $consulta = "select * from users where id='$bd_id'";*/
+    }
+}
 
 ?>
 <!doctype html>
@@ -171,7 +201,7 @@ if ($info != "") {
                         <div class="bg-white space-y-6 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
                             <div class="max-w-sm mx-auto md:w-full md:mx-0">
                                 <div class="inline-flex items-center space-x-4">
-                                    <span style="color: Mediumslateblue;" <!--class="text-indigo-400"-->><i class="fas fa-user-circle fa-5x"></i></span>
+                                    <span style="color: #818CF8;"><i class="fas fa-user-circle fa-5x"></i></span>
                                     <h1 class="uppercase text-gray-600 font-black"><?= $username ?></h1>
                                 </div>
                             </div>
@@ -238,7 +268,7 @@ if ($info != "") {
                                 </div>
                             </div>
 
-                            <hr/>
+                          <!--  <hr/>-->
                             <!-- Cambiar contraseña-->
                             <div class="md:inline-flex w-full space-y-4 md:space-y-0 p-8 text-gray-500 items-center">
                                 <h2 class="md:w-4/12 max-w-sm mx-auto">Cambiar contraseña</h2>
