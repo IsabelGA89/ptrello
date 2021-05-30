@@ -16,7 +16,9 @@ error_reporting(E_ALL);
     echo htmlspecialchars(print_r($_POST, true));
     echo '</pre>';
 }*/
-
+if(isset($_GET['info'])){
+    $info = $_GET['info'];
+}
 
 ////// BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //0.5º obtenemos el id del user
@@ -55,19 +57,55 @@ $username = $arr_info['username'];
 if($_POST['actualizar']){
     $new_username = $_POST['new_username'] ?? null;
     $new_pass = $_POST['new_pass'] ?? null;
+    //Conexión Bd
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_server = $cleardb_url["host"];
+    $cleardb_username = $cleardb_url["user"];
+    $cleardb_password = $cleardb_url["pass"];
+    $cleardb_db = substr($cleardb_url["path"], 1);
+    $active_group = 'default';
+    $query_builder = TRUE;
+    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    if (mysqli_connect_errno()) {
+        $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
+        exit();
+    } else {
+        $msj = "Conexión exitosa con la bd";
+    }
 
     switch (true){
         case ($new_username!=null) && ($new_pass!=null):
-            $info="ambas tienen contenido";
+            $secure_pass = password_hash($new_pass,PASSWORD_BCRYPT);
+            $consulta = "UPDATE users SET password='$secure_pass',username='$new_username' WHERE id='$bd_id'";
+            if ($conn->query($consulta) === true) {
+                $info = "Datos modificados correctamente";
+            } else {
+                $error = "Se ha producido un error tratando de modificar sus datos, por favor, contacte con un administrador.";
+            }
             break;
+
         case $new_pass != null:
-            $error="contraseña con contenido";
+            $secure_pass = password_hash($new_pass,PASSWORD_BCRYPT);
+            $consulta = "UPDATE users SET password='$secure_pass' WHERE id='$bd_id'";
+            if ($conn->query($consulta) === true) {
+                $info = "Se ha actualizado la contraseña correctamente";
+            } else {
+                $error = "Se ha producido un error tratando de modificar su contraseña, por favor, contacte con un administrador.";
+            }
             break;
         case $new_username != null:
-            $info="Usuario con contenido";
+            $consulta = "UPDATE users SET username='$new_username' WHERE id='$bd_id'";
+            if ($conn->query($consulta) === true) {
+                $info = "Se ha actualizado el nombre de usuario correctamente";
+                header("Location:account.php?info=$info");
+                exit();
+            } else {
+                $error = "Se ha producido un error modificando su usario, por favor, contacte con un administrador.";
+            }
             break;
-    }
 
+    }
+    $conn->close();
 }
 
 ?>
