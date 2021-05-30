@@ -141,6 +141,15 @@
                                             </ol>
                                         </div>
                                     </div>
+                                    <div class="mb-2">
+                                        <div class="font-medium rounded-sm text-lg px-2 py-3 flex text-gray-800 flex-row-reverse mt-2 text-black bg-white hover:bg-white">
+                                            <div class="flex-auto">¿Son lo mismo Trello y Trello Report?</div>
+                                        </div>
+                                        <div class="p-2 text-justify text-left text-gray-800 mb-5 bg-white" style="">
+                                            No, Trello es una aplicación ajena a esta, sin embargo, Trello Report sí utiliza la información que cede Trello para generar los
+                                            informes, es por este motivo que es necesario loguearse como usuario de Trello además de usuario de esta aplicación.
+                                        </div>
+                                    </div>
                                     <!--Card trello-->
                                     <div class="max-w-2xl mt-5 mx-auto sm:px-6 lg:px-8">
                                         <div class="max-w-2xl mx-auto sm:px-6 lg:px-8">
