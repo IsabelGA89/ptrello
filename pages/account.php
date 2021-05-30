@@ -1,12 +1,12 @@
 <?php
-require "../Class/Heroku.php";
+require_once $_SERVER['DOCUMENT_ROOT'] ."/Class/Heroku.php";
 
 session_start();
-/*if ((!$_SESSION['user_id'])) {
+if ((!$_SESSION['user_id'])) {
     $login = "./pages/auth/login.php";
     header("Location: $login");
     exit;
-}*/
+}
 $info="";
 $error="";
 
