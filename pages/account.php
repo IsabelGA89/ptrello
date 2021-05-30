@@ -364,7 +364,8 @@ if (isset($_POST['eliminar'])) {
                             <!--ELiminar cuenta-->
                             <div class="w-full p-4 text-right text-gray-500 ">
                                 <input type="submit" name="eliminar" value="Eliminar cuenta"
-                                       class="inline-flex items-center focus:outline-none border-bg-red mr-4 hover:text-red-400">
+                                       class="inline-flex items-center focus:outline-none border-bg-red mr-4 hover:text-red-400"
+                                onclick="show_confirmation();">
                                 <svg
                                         fill="none"
                                         class="w-4 mr-2"
@@ -391,14 +392,15 @@ if (isset($_POST['eliminar'])) {
     </div>
 <!--Alert-->
     <script type="text/javascript">
-        $(document).ready(function(){
+        function show_confirmation(){
             Swal.fire({
                 title: 'Cuidado',
                 text: '¿Seguro que quieres eliminar la cuenta? Esta acción es definitiva.',
                 icon: 'error',
                 confirmButtonText: 'Cool'
-            })
-        });
+            });
+        }
+
 
     </script>
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
