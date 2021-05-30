@@ -57,14 +57,14 @@ if($_POST['actualizar']){
     $new_pass = $_POST['new_pass'] ?? null;
 
     switch (true){
+        case ($new_username!=null) && ($new_pass!=null):
+            $info="ambas tienen contenido";
+            break;
         case $new_pass != null:
             $error="contraseña con contenido";
             break;
         case $new_username != null:
             $info="Usuario con contenido";
-            break;
-        case ($new_username!=null) && ($new_pass!=null):
-            $info="ambas tienen contenido";
             break;
     }
 
@@ -301,7 +301,7 @@ if($_POST['actualizar']){
                             <hr/>
                             <!--ELiminar cuenta-->
                             <div class="w-full p-4 text-right text-gray-500 ">
-                                <button class="inline-flex items-center focus:outline-none mr-4 hover:text-red-400">
+                                <button class="inline-flex items-center focus:outline-none border-bg-red mr-4 hover:text-red-400">
                                     <svg
                                             fill="none"
                                             class="w-4 mr-2"
