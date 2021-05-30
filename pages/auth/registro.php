@@ -39,6 +39,8 @@ if (isset($_POST['register'])) {
             $query = "INSERT INTO users(username,password,email) VALUES ('$username','$password_hash','$email')";
             if ($conn->query($query) === TRUE) {
                 $info = "Usuario creado correctamente, ya puede usar sus nuevas credenciales para acceder a la aplicación.";
+                header("Location:login.php?info=$info");
+                exit();
             } else {
                 $error = "Error: $conn->error";
             }
