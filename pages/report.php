@@ -1,11 +1,7 @@
 <?php
 /*error_reporting(E_ALL);
 ini_set('display_errors', '1');*/
-/*spl_autoload_register('myAutoLoaderPerson');
 
-function myAutoLoaderPerson($className) {
-    require_once $_SERVER['DOCUMENT_ROOT']. "./Class/$className.php";
-}*/
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/trello_api.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 
