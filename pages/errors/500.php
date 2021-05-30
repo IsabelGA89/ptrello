@@ -7,17 +7,29 @@
 
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<div class="error-500" data-text="Oh no! Nuestro código espaguetti no está funcionando adecuadamente. Volveremos pronto!">
-    <spaguetti>
-    <fork></fork>
-    <meat></meat>
-    <pasta></pasta>
-    <plate></plate>
-  </spaguetti>
+<link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
+<body class="loading">
+<h1>500</h1>
+<h2>Error inesperado <b>:(</b></h2>
+<div class="gears">
+    <div class="gear one">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear two">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <div class="gear three">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
 </div>
-<!-- partial -->
-  <script  src="./script.js"></script>
-
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="js/main.js" type="text/javascript"></script>
+</body>
 </body>
 </html>

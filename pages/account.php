@@ -165,7 +165,7 @@ if ($info != "") {
                         <div class="bg-white space-y-6 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
                             <div class="max-w-sm mx-auto md:w-full md:mx-0">
                                 <div class="inline-flex items-center space-x-4">
-                                    <i class="fas fa-user-circle fa-7x color:indigo"></i>
+                                    <span class="bg-indigo-400"><i class="fas fa-user-circle fa-5x"></i></span>
                                     <h1 class="uppercase text-gray-600 font-black"><?= $username ?></h1>
                                 </div>
                             </div>
