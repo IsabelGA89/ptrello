@@ -84,7 +84,7 @@ if($_POST['actualizar']){
     <!--<link rel="stylesheet" href="../css/style.css">-->
     <title>Recuperar contraseña</title>
     <!--Favicon-->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/icon.png">
     <!--ICONOS FONT AWESOME-->
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
     <style>

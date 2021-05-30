@@ -64,7 +64,7 @@ if(isset($_POST['login'])) {
     <!--Tailwindcss & daisy-->
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1/dist/tailwind.min.css" rel="stylesheet" type="text/css"/>
     <!--Favicon-->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../img/icon.png">
     <!--ICONOS FONT AWESOME-->
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
 </head>
