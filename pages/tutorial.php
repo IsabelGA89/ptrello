@@ -119,7 +119,7 @@ if ((!$_SESSION['user_id'])) {
                     <!--<video width="500" height="500" controls>
                         <source src="https://youtu.be/7r9pYbtBEcE" type="video/mp4">
                     </video>-->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/7r9pYbtBEcE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="500" height="500" src="https://www.youtube.com/embed/7r9pYbtBEcE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="desc p-4 text-gray-800">
                         <a href="https://www.youtube.com/watch?v=7r9pYbtBEcE" target="_new" class="title font-bold block cursor-pointer hover:underline">Cuenta en Trello y Mi primer Tablero</a>
                         <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
@@ -130,7 +130,7 @@ if ((!$_SESSION['user_id'])) {
                     <!--<video width="500" height="500" controls>
                         <source src="../video/clave.mp4" type="video/mp4">
                     </video>-->
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/4RP6hIQZ93k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <iframe width="500" height="500" src="https://www.youtube.com/embed/4RP6hIQZ93k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <div class="desc p-4 text-gray-800">
                         <a href="https://www.youtube.com/watch?v=4RP6hIQZ93k" target="_new" class="title font-bold block cursor-pointer hover:underline">Como obtener las claves de Trello</a>
                         <a href="#" target="_new" class="badge bg-indigo-500 text-blue-100 rounded px-1 text-xs font-bold cursor-pointer">Formación</a>
