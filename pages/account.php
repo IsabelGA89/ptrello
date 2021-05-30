@@ -8,6 +8,12 @@ if ((!$_SESSION['user_id'])) {
 $info="";
 $error="";
 
+if ($_POST) {
+    echo '<pre>';
+    echo htmlspecialchars(print_r($_POST, true));
+    echo '</pre>';
+}
+
 
 //0.5º obtenemos el id del user
 $bd_id = $_SESSION['user_id'];
@@ -165,7 +171,7 @@ if ($info != "") {
                         <div class="bg-white space-y-6 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
                             <div class="max-w-sm mx-auto md:w-full md:mx-0">
                                 <div class="inline-flex items-center space-x-4">
-                                    <span class="bg-indigo-400"><i class="fas fa-user-circle fa-5x"></i></span>
+                                    <span style="color: Mediumslateblue;" <!--class="text-indigo-400"-->><i class="fas fa-user-circle fa-5x"></i></span>
                                     <h1 class="uppercase text-gray-600 font-black"><?= $username ?></h1>
                                 </div>
                             </div>
@@ -309,9 +315,9 @@ if ($info != "") {
 
 </body>
 <!-- Footer -->
-<footer class="page-footer font-small">
+<!--<footer class="page-footer font-small">
     <div class="footer-copyright text-center py-3">© 2021 Copyright
         Isabel González Anzano
     </div>
-</footer>
+</footer>-->
 <!-- Footer -->
