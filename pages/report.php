@@ -79,9 +79,11 @@ $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 //Consulta a los tableros:
 $trello = new trello_api($key, $token);
 $data = $trello->request('GET', ("member/me/boards"));
+var_dump($data);
+
 $arr_tableros = board_request($trello, $data);
 
-var_dump($arr_tableros);
+
 
 //Consulta a las cards del tablero:
 if ($boardId != null) {
