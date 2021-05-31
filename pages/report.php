@@ -80,7 +80,6 @@ $trello = new trello_api($key, $token);
 $data = $trello->request('GET', ("member/me/boards"));
 $arr_tableros = board_request($trello, $data);
 
-var_dump($arr_tableros);
 
 //Consulta a las cards del tablero:
 if ($boardId != null) {
@@ -200,12 +199,7 @@ if ($boardId != null) {
         }*/
 }
 
-// Si se ha seleccionado desloguear
-/*if (isset($_POST['logout'])) {
-    unset ($_SESSION['user_id']);
-    header('Location: auth/login.php');
-    exit;
-}*/
+
 
 
 ?>

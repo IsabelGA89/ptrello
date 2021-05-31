@@ -149,9 +149,9 @@ function render_form_select_board($arr_tableros, $boardId = null, $arr_cards = n
         $html .= "</div>";
     }
     /*FILTROS*/
-    /*if ($arr_cards != null || sizeof($arr_cards) > 1) {
+    if ($arr_cards != null || sizeof($arr_cards) > 1) {
         $html .= render_filters($arr_cards);
-    }*/
+    }
     $html .= "</form>";
     $html .= "</div>";
 
