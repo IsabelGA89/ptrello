@@ -328,7 +328,7 @@ if ($boardId != null) {
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="nombre">Usuario </label>
                                         <input class="form-control" name="user" type="text"
-                                               placeholder=" <?= $user ?? null ?> value=" <?= $user ?? null ?> "
+                                               placeholder=" <?= $user ?? null ?>" value=" <?= $user ?? null ?> "
                                         <!--required-->
                                     </div>
                                     <div class="form-group mx-sm-3 mb-2 ">
