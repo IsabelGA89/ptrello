@@ -134,7 +134,7 @@ if(isset($_POST['actualizar_trello'])){
     $secure_token = password_hash($token, PASSWORD_BCRYPT);
     $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
     if ($conn->query($consulta) === true) {
-        $info = "Datos modificados correctamente";
+        $info = "Datos de Trello modificados correctamente";
         header("Location:account.php?info=$info");
         exit();
     } else {
@@ -516,7 +516,7 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                                             </div>
                                             <input
                                                     name="api_key"
-                                                    type="text"
+                                                    type="password"
                                                     class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
                                                     placeholder="<?= $api_key ?? null ?>"
                                             />
@@ -529,7 +529,7 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                                             </div>
                                             <input
                                                     name="token"
-                                                    type="text"
+                                                    type="password"
                                                     class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
                                                     placeholder="<?= $token ?? null ?>"
                                             />
