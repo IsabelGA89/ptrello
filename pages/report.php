@@ -6,6 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/trello_api.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 
 session_start();
+imprime_sesiones();
 //Autenticación
 if ((!$_SESSION['user_id'])) {
     $login = "auth/login.php";
@@ -80,6 +81,7 @@ $trello = new trello_api($key, $token);
 $data = $trello->request('GET', ("member/me/boards"));
 $arr_tableros = board_request($trello, $data);
 
+var_dump($arr_tableros);
 
 //Consulta a las cards del tablero:
 if ($boardId != null) {
