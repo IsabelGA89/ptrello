@@ -67,9 +67,9 @@ if (isset($_POST['submit']) == "Seleccionar") {
     $boardId = $_SESSION['boardId'];
 }
 
-$key = $_SESSION['access_data']['key'] ?? $defaultKey;
-$token = $_SESSION['access_data']['token'] ?? $defaultToken;
-$user = $_SESSION['access_data']['user'] ?? $defaultUserName;
+$key = $_SESSION['access_data']['key'] ?? trim($defaultKey);
+$token = $_SESSION['access_data']['token'] ?? trim($defaultToken);
+$user = $_SESSION['access_data']['user'] ?? trim($defaultUserName);
 $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 
 
