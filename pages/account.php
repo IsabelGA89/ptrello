@@ -115,7 +115,7 @@ if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
     if ($update_trello) {
         $secure_api = password_hash($api_key,PASSWORD_BCRYPT);
         $secure_token = password_hash($token,PASSWORD_BCRYPT);
-        $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$secure_api',token_trello='$secure_token' WHERE id='$bd_id'";
+        $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
         if ($conn->query($consulta) === true) {
             $info = "Datos modificados correctamente";
             header("Location:account.php?info=$info");
