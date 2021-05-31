@@ -95,7 +95,7 @@ if ((!$_SESSION['user_id'])) {
     <div class="flex flex-col flex-grow">
         <!--Header-->
         <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
-            <h1 class="text-3xl font-medium">
+            <h1 class="text-lg font-medium">
                 <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello
                 </h1>

@@ -47,9 +47,14 @@ $username = $arr_info['username'];
 ////// FIN  BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Acciones
 //UPDATE
-if (isset($_POST['actualizar'])) {
+if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
     $new_username = $_POST['new_username'] ?? null;
     $new_pass = $_POST['new_pass'] ?? null;
+
+    $user_trello = $_POST['username_trello'] ?? null;
+    $api_key = $_POST['api_key'] ?? null;
+    $token = $_POST['token'] ?? null;
+
     //Conexión Bd
     $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
     $cleardb_server = $cleardb_url["host"];
@@ -65,8 +70,10 @@ if (isset($_POST['actualizar'])) {
     } else {
         $msj = "Conexión exitosa con la bd";
     }
-
-    switch (true) {
+    $update_trello = $_POST['actualizar_trello'] ?? false;
+    $update_treport = $_POST['actualizar'] ?? false;
+    /* Actualización de datos de Trello Report*/
+    switch ($update_treport) {
         case ($new_username != null) && ($new_pass != null):
             $secure_pass = password_hash($new_pass, PASSWORD_BCRYPT);
             $consulta = "UPDATE users SET password='$secure_pass',username='$new_username' WHERE id='$bd_id'";
@@ -98,6 +105,18 @@ if (isset($_POST['actualizar'])) {
                 $error = "Se ha producido un error modificando su usario, por favor, contacte con un administrador.";
             }
             break;
+
+    }
+    /*Actualización de datos de Trello*/
+    if ($update_trello) {
+        $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
+        if ($conn->query($consulta) === true) {
+            $info = "Datos modificados correctamente";
+            header("Location:account.php?info=$info");
+            exit();
+        } else {
+            $error = "Se ha producido un error tratando de modificar sus datos, por favor, contacte con un administrador.";
+        }
 
     }
     $conn->close();
@@ -167,42 +186,48 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
         <!--Info App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="../index.php">
-            <button type="button" data-title='Inicio' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-                <i  class="fas fa-home fa-lg"></i>
+            <button type="button" data-title='Inicio' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-home fa-lg"></i>
             </button>
         </a>
         <!--Report App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="report.php">
-            <button type="button" data-title='Reportes' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-            <i class="fas fa-file-alt fa-lg"></i>
+            <button type="button" data-title='Reportes' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-file-alt fa-lg"></i>
             </button>
         </a>
         <!--Informacion de cuenta-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="account.php">
-            <button type="button" data-title='Cuenta' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-            <i class="fas fa-user-circle fa-lg"></i>
+            <button type="button" data-title='Cuenta' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-user-circle fa-lg"></i>
             </button>
         </a>
         <!--Reconocmiento-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="reconocimientos.php">
-            <button type="button" data-title='Reconocimientos' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-            <i class="fas fa-chess-rook fa-lg"></i>
+            <button type="button" data-title='Reconocimientos' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-chess-rook fa-lg"></i>
             </button>
         </a>
         <!--FAQs-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="faq.php">
-            <button type="button" data-title='FAQ' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
-            <i class="fas fa-question-circle fa-lg"></i>
+            <button type="button" data-title='FAQ' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+                <i class="fas fa-question-circle fa-lg"></i>
             </button>
         </a>
         <!--VideoTutoriales-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="tutorial.php">
-            <button type="button" data-title='VideoTutoriales' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='VideoTutoriales' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fab fa-youtube fa-lg"></i>
             </button>
         </a>
@@ -291,6 +316,7 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                     <?php
                 }
                 ?>
+                <!--  Datos Trello Report-->
                 <section class="py-40 bg-gray-100  bg-opacity-50 h-screen">
                     <div class="mx-auto container max-w-2xl md:w-3/4 shadow-md">
                         <!-- Icono y nombre-->
@@ -404,6 +430,67 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                             </div>
 
                             <hr/>
+                            <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
+                                <h2 class="md:w-1/3 max-w-sm mx-auto">Cuenta</h2>
+                                <!--Email-->
+                                <div class="md:w-2/3 max-w-sm mx-auto">
+                                    <label class="text-sm text-gray-400">Email</label>
+                                    <div class="w-full inline-flex border">
+                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
+                                            <svg
+                                                    fill="none"
+                                                    class="w-6 text-gray-400 mx-auto"
+                                                    viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                            >
+                                                <path
+                                                        stroke-linecap="round"
+                                                        stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                                                />
+                                            </svg>
+                                        </div>
+                                        <input
+                                                type="email"
+                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                placeholder="<?= $email ?>"
+                                                disabled
+                                        />
+                                    </div>
+
+                                    <form action="account.php" method="post">
+                                        <!--Username-->
+
+                                        <label class="text-sm mt-5 text-gray-400">Username</label>
+                                        <div class="w-full inline-flex border">
+                                            <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50">
+                                                <svg
+                                                        fill="none"
+                                                        class="w-6 text-gray-400 mx-auto"
+                                                        viewBox="0 0 24 24"
+                                                        stroke="currentColor"
+                                                >
+                                                    <path
+                                                            stroke-linecap="round"
+                                                            stroke-linejoin="round"
+                                                            stroke-width="2"
+                                                            d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                                                    />
+                                                </svg>
+                                            </div>
+                                            <input
+                                                    name="new_username"
+                                                    type="text"
+                                                    class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                    placeholder="<?= $username ?>"
+                                            />
+                                        </div>
+
+                                </div>
+                            </div>
+
+                            <hr/>
                             <!--ELiminar cuenta-->
                             <div class="w-full p-4 text-right text-gray-500 ">
                                 <form id="delete_form">
@@ -431,7 +518,79 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                         </div>
                     </div>
                 </section>
+                <!-- Datos cuenta Trello-->
+                <section class="py-40 bg-gray-100 bg-opacity-50 h-screen">
+                    <div class="mx-auto container max-w-2xl md:w-2/4 shadow-md">
+                        <!-- Título-->
+                        <div class="bg-white space-y-6 p-4 border-t-2 bg-opacity-5 border-indigo-400 rounded-t">
+                            <div class="max-w-sm mx-auto md:w-full md:mx-0">
+                                <div class="inline-flex items-center space-x-4">
+                                    <span style="color: #818CF8;"> <i class="fab fa-trello fa-5x"></i></i></span>
+                                    <h1 class="uppercase text-gray-600 font-black">Datos de Trello</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Cuenta-->
+                        <div class="bg-white space-y-6 p-4 border-t-2 bg-opacity-5 border-indigo-400">
+                            <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
+                                <h2 class="md:w-1/3 max-w-sm mx-auto">Información de Trello</h2>
+                                <!--Name trello-->
+                                <div class="md:w-2/3 max-w-sm mx-auto">
+                                    <label class="text-sm text-gray-400">Username Trello</label>
+                                    <div class="w-full inline-flex border">
+                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
+                                            <i class="fas fa-portrait fa-lg"></i>
+                                        </div>
+                                        <input
+                                                type="username_trello"
+                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                placeholder="<?= $user_trello ?? null ?>"
+                                        />
+                                    </div>
+                                    <!--API Key-->
+                                    <label class="text-sm mt-5 text-gray-400">API Key</label>
+                                    <div class="w-full inline-flex border">
+                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
+                                            <i class="fas fa-key fa-lg"></i>
+                                        </div>
+                                        <input
+                                                name="api_key"
+                                                type="text"
+                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                placeholder="<?= $api_key ?? null ?>"
+                                        />
+                                    </div>
+                                    <!--TOKEN-->
+                                    <label class="text-sm mt-5 text-gray-400">Token</label>
+                                    <div class="w-full inline-flex border">
+                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
+                                            <i class="fab fa-trello fa-lg"></i>
+                                        </div>
+                                        <input
+                                                name="token"
+                                                type="text"
+                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                placeholder="<?= $token ?? null ?>"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr/>
+                            <!--Actualizar datos-->
+                            <div class="w-full p-4 text-right text-gray-500 mb-4">
+                                <form id="update_trello">
+                                    <!-- Boton actualizar-->
+                                    <div class="md:w-3/12 text-center md:pl-6 md:float-right ">
+                                        <input name="actualizar_trello" value="Actualizar" type="submit"
+                                               class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
+                                        </input>
+                                    </div>
+                                </form>
+                            </div>
 
+                        </div>
+                    </div>
+                </section>
 
             </div>
         </div>
