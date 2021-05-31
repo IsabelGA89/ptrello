@@ -6,7 +6,7 @@ $characterMap = 'àáãâçêéíîóõôúÀÁÃÂÇÊÉÍÎÓÕÔÚ';
 function delete_session_data()
 {
     if (isset($_SESSION['access_data'])) {
-        session_destroy();
+       unset($_SESSION['access_data']);
     }
 }
 

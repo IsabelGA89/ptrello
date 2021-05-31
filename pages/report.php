@@ -197,11 +197,11 @@ if ($boardId != null) {
 }
 
 // Si se ha seleccionado desloguear
-/*if (isset($_POST['logout'])) {
+if (isset($_POST['logout'])) {
     unset ($_SESSION['user_id']);
-    header('Location: pages/login.php');
+    header('Location: auth/login.php');
     exit;
-}*/
+}
 
 
 ?>
