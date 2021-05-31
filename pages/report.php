@@ -44,6 +44,7 @@ $conn->close();
 $defaultUserName = $arr_info['username_trello'];
 $defaultKey = $arr_info['key_trello'];
 $defaultToken = $arr_info['token_trello'];
+var_dump($defaultUserName);
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 if (isset($_POST['reset'])) {
@@ -195,11 +196,11 @@ if ($boardId != null) {
 }
 
 // Si se ha seleccionado desloguear
-if (isset($_POST['logout'])) {
+/*if (isset($_POST['logout'])) {
     unset ($_SESSION['user_id']);
     header('Location: pages/login.php');
     exit;
-}
+}*/
 
 
 ?>
