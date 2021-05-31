@@ -13,10 +13,37 @@ if ((!$_SESSION['user_id'])) {
     exit;
 }
 
-// Test user acreditations :
-$defaultUserName = "isabelgatfg";
-$defaultKey = '46115a7dcf49746db66a0395e4bd1bee';
-$defaultToken = "b2ce7110f3616705713bd97f12fc948dd51fbbbd32d49572fe618b1c463be4f7";
+// Si el usuario ha guardado sus datos los utilizamos:
+$bd_id = $_SESSION['user_id'];
+//1º consulta datos en bd
+$cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+$cleardb_server = $cleardb_url["host"];
+$cleardb_username = $cleardb_url["user"];
+$cleardb_password = $cleardb_url["pass"];
+$cleardb_db = substr($cleardb_url["path"], 1);
+$active_group = 'default';
+$query_builder = TRUE;
+
+// Connect to DB
+$conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+
+if (mysqli_connect_errno()) {
+    $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
+    exit();
+} else {
+    $msj = "Conexión exitosa con la bd";
+}
+$consulta = "select * from users where id='$bd_id'";
+
+if ($resultado = $conn->query($consulta)) {
+    $arr_info = $resultado->fetch_array();
+    $resultado->close();
+}
+$conn->close();
+
+$defaultUserName = $arr_info['username_trello'];
+$defaultKey = $arr_info['key_trello'];
+$defaultToken = $arr_info['token_trello'];
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 if (isset($_POST['reset'])) {
