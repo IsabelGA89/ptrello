@@ -44,7 +44,7 @@ $conn->close();
 $defaultUserName = $arr_info['username_trello'];
 $defaultKey = $arr_info['key_trello'];
 $defaultToken = $arr_info['token_trello'];
-var_dump($defaultUserName);
+
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 if (isset($_POST['reset'])) {
@@ -71,6 +71,11 @@ $key = $_SESSION['access_data']['key'] ?? $defaultKey;
 $token = $_SESSION['access_data']['token'] ?? $defaultToken;
 $user = $_SESSION['access_data']['user'] ?? $defaultUserName;
 $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
+
+var_dump($key);
+var_dump($token);
+var_dump($user);
+var_dump($key);
 
 //Consulta a los tableros:
 $trello = new trello_api($key, $token);
