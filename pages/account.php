@@ -113,6 +113,7 @@ if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
     }
     /*Actualización de datos de Trello*/
     if ($update_trello) {
+        var_dump("updateamos trello");
         $secure_api = password_hash($api_key,PASSWORD_BCRYPT);
         $secure_token = password_hash($token,PASSWORD_BCRYPT);
         $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
@@ -480,6 +481,7 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                             <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
                                 <h2 class="md:w-1/3 max-w-sm mx-auto">Información de Trello</h2>
                                 <!--Name trello-->
+                                <form id="update_trello">
                                 <div class="md:w-2/3 max-w-sm mx-auto">
                                     <label class="text-sm text-gray-400">Username Trello</label>
                                     <div class="w-full inline-flex border">
@@ -523,7 +525,6 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                             <hr/>
                             <!--Actualizar datos-->
                             <div class="w-full p-4 text-right text-gray-500 mb-4">
-                                <form id="update_trello">
                                     <!-- Boton actualizar-->
                                     <div class="md:w-3/12 text-center md:pl-6 md:float-right ">
                                         <input name="actualizar_trello" value="Actualizar" type="submit"
