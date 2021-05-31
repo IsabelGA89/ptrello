@@ -325,27 +325,31 @@ if ($boardId != null) {
                             <br>
                             <div class="container">
                                 <form class="form-inline" action="report.php" method="post">
+                                    <!--Usuario-->
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="nombre">Usuario </label>
                                         <input class="form-control" name="user" type="text"
-                                               placeholder=" <?= $user ?? null ?>" value=" <?= $user ?? null ?> "
+                                               placeholder=" <?= $user ?? null ?>" value=" <?= $user ?? null ?> " />
                                         <!--required-->
                                     </div>
+                                    <!--Key-->
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="key">Key </label>
                                         <input class="form-control" type="password" name="key"
-                                               placeholder="<?= $key ?? null ?>" value=" <?= $key ?? null ?> "
+                                               placeholder="<?= $key ?? null ?>" value=" <?= $key ?? null ?> "/>
                                         <!--required-->
                                     </div>
+                                    <!--Token-->
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="token">Token </label>
                                         <input class="form-control" type="password" name="token"
-                                               placeholder="<?= $token ?? null ?>" value=" <?= $token ?? null ?> "
+                                               placeholder="<?= $token ?? null ?>" value=" <?= $token ?? null ?> "/>
                                         <!--required-->
                                     </div>
                                     <br/>
+                                  <!--  Botones Login y Submit-->
                                     <div class="form-group" id="login_buttons">
-                                        <input class="btn btn-primary btn-lg" type="submit" name="login" value="Login">
+                                        <input class="btn btn-primary btn-lg" type="submit" name="login" value="Login" />
                                         <input class="btn btn-danger btn-lg" type="submit" name="reset"
                                                value="Reiniciar Conexion"
                                             <?php if (!$_SESSION['access_data']) {
@@ -416,10 +420,3 @@ if ($boardId != null) {
 </script>
 
 </body>
-<!-- Footer -->
-<!--<footer class="page-footer font-small">
-    <div class="footer-copyright text-center py-3">© 2021 Copyright
-        Isabel González Anzano
-    </div>
-</footer>-->
-<!-- Footer -->
