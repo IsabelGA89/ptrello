@@ -52,13 +52,9 @@ $token = $arr_info['token_trello'];
 ////// FIN  BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Acciones
 //UPDATE
-if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
+if (isset($_POST['actualizar'])) {
     $new_username = $_POST['new_username'] ?? null;
     $new_pass = $_POST['new_pass'] ?? null;
-
-    $user_trello = $_POST['username_trello'] ?? null;
-    $api_key = $_POST['api_key'] ?? null;
-    $token = $_POST['token'] ?? null;
 
     //Conexión Bd
     $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -75,10 +71,9 @@ if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
     } else {
         $msj = "Conexión exitosa con la bd";
     }
-    $update_trello = $_POST['actualizar_trello'] ?? false;
-    $update_treport = $_POST['actualizar'] ?? false;
+
     /* Actualización de datos de Trello Report*/
-    switch ($update_treport) {
+    switch (true) {
         case ($new_username != null) && ($new_pass != null):
             $secure_pass = password_hash($new_pass, PASSWORD_BCRYPT);
             $consulta = "UPDATE users SET password='$secure_pass',username='$new_username' WHERE id='$bd_id'";
@@ -112,20 +107,40 @@ if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
             break;
 
     }
-    /*Actualización de datos de Trello*/
-    if ($update_trello) {
-        var_dump("updateamos trello");
-        $secure_api = password_hash($api_key, PASSWORD_BCRYPT);
-        $secure_token = password_hash($token, PASSWORD_BCRYPT);
-        $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
-        if ($conn->query($consulta) === true) {
-            $info = "Datos modificados correctamente";
-            header("Location:account.php?info=$info");
-            exit();
-        } else {
-            $error = "Se ha producido un error tratando de modificar sus datos, por favor, contacte con un administrador.";
-        }
 
+    $conn->close();
+}
+if(isset($_POST['actualizar_trello'])){
+    var_dump($_POST);
+    var_dump("updateamos trello");
+    $user_trello = $_POST['username_trello'] ?? null;
+    $api_key = $_POST['api_key'] ?? null;
+    $token = $_POST['token'] ?? null;
+    //Conexión Bd
+    $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+    $cleardb_server = $cleardb_url["host"];
+    $cleardb_username = $cleardb_url["user"];
+    $cleardb_password = $cleardb_url["pass"];
+    $cleardb_db = substr($cleardb_url["path"], 1);
+    $active_group = 'default';
+    $query_builder = TRUE;
+    $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
+    if (mysqli_connect_errno()) {
+        $msj = ("Falló la conexión con la base de datos: %s\n" . mysqli_connect_error());
+        exit();
+    } else {
+        $msj = "Conexión exitosa con la bd";
+    }
+
+    $secure_api = password_hash($api_key, PASSWORD_BCRYPT);
+    $secure_token = password_hash($token, PASSWORD_BCRYPT);
+    $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
+    if ($conn->query($consulta) === true) {
+        $info = "Datos modificados correctamente";
+        header("Location:account.php?info=$info");
+        exit();
+    } else {
+        $error = "Se ha producido un error tratando de modificar sus datos, por favor, contacte con un administrador.";
     }
     $conn->close();
 }
