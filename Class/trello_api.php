@@ -54,8 +54,9 @@ class trello_api{
 
 
 function board_request($trello,$data){
+
+    $data = $trello->request('GET', ("member/me/boards"));
     var_dump($data);
-   /* $data = $trello->request('GET', ("member/me/boards"));*/
     $array_nombres_tableros = array();
     $array_id_tableros = array();
     foreach ($data as $tablero) {
