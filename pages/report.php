@@ -6,14 +6,14 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/trello_api.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 
 session_start();
-
+//Autenticación
 if ((!$_SESSION['user_id'])) {
     $login = "auth/login.php";
     header("Location: $login");
     exit;
 }
 
-// Si el usuario ha guardado sus datos los utilizamos:
+// BD_____________________________________________________________________________________________
 $bd_id = $_SESSION['user_id'];
 //1º consulta datos en bd
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -40,13 +40,15 @@ if ($resultado = $conn->query($consulta)) {
     $resultado->close();
 }
 $conn->close();
-
+//fin BD__________________________________________________________________________________________________
+//Parámetros por defecto
 $defaultUserName = $arr_info['username_trello'];
 $defaultKey = $arr_info['key_trello'];
 $defaultToken = $arr_info['token_trello'];
+$defaultBoardBasic = "";
 
-
-$defaultBoardId = $_POST['boardId'] ?? null;
+$defaultBoardId = $_POST['boardId'] ?? $defaultBoardBasic;
+//RUTAS
 if (isset($_POST['reset'])) {
     delete_session_data();
     $user = "";
@@ -77,6 +79,7 @@ $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 $trello = new trello_api($key, $token);
 $data = $trello->request('GET', ("member/me/boards"));
 $arr_tableros = board_request($trello, $data);
+var_dump($arr_tableros);
 
 //Consulta a las cards del tablero:
 if ($boardId != null) {
@@ -197,11 +200,11 @@ if ($boardId != null) {
 }
 
 // Si se ha seleccionado desloguear
-if (isset($_POST['logout'])) {
+/*if (isset($_POST['logout'])) {
     unset ($_SESSION['user_id']);
     header('Location: auth/login.php');
     exit;
-}
+}*/
 
 
 ?>
