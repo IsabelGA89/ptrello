@@ -87,7 +87,6 @@ $arr_tableros = board_request($trello, $user_id_from_trello_api);
 if ($boardId != null) {
 //Comprobación de los filtros:
     $are_filters = check_filters();
-
     if ($are_filters == false) {
         $_SESSION['boardId'] = $boardId;
         $arr_cards[] = array();
@@ -191,7 +190,6 @@ if ($boardId != null) {
         download_PDF($arr_cards);
     }
 
-
     /*    if (isset($_POST['submit']) && $_POST['submit'] == "Test PDF") {
             //Guardamos la info en sesion
             $arr_serialized = serialize($arr_cards);
@@ -200,8 +198,6 @@ if ($boardId != null) {
             exit;
         }*/
 }
-
-
 
 
 ?>
@@ -387,7 +383,7 @@ if ($boardId != null) {
                                 echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
                                 echo "</div>";
                             } else {
-                                echo "data está vacío";
+                                echo "data está vacío, Compruebe que se haya logeado correctamente, por favor.";
                             }
                             ?>
 
