@@ -13,6 +13,7 @@ if (isset($_GET['info'])) {
     $info = $_GET['info'];
 }
 
+
 ////// BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //0.5º obtenemos el id del user
 $bd_id = $_SESSION['user_id'];
@@ -47,7 +48,7 @@ $username = $arr_info['username'];
 
 $user_trello = $arr_info['username_trello'];
 $api_key = $arr_info['key_trello'];
-$token   = $arr_info['token_trello'];
+$token = $arr_info['token_trello'];
 ////// FIN  BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Acciones
 //UPDATE
@@ -114,8 +115,8 @@ if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
     /*Actualización de datos de Trello*/
     if ($update_trello) {
         var_dump("updateamos trello");
-        $secure_api = password_hash($api_key,PASSWORD_BCRYPT);
-        $secure_token = password_hash($token,PASSWORD_BCRYPT);
+        $secure_api = password_hash($api_key, PASSWORD_BCRYPT);
+        $secure_token = password_hash($token, PASSWORD_BCRYPT);
         $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
         if ($conn->query($consulta) === true) {
             $info = "Datos modificados correctamente";
@@ -481,59 +482,59 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                             <div class="md:inline-flex space-y-4 md:space-y-0 w-full p-4 text-gray-500 items-center">
                                 <h2 class="md:w-1/3 max-w-sm mx-auto">Información de Trello</h2>
                                 <!--Name trello-->
-                                <form id="update_trello">
-                                <div class="md:w-2/3 max-w-sm mx-auto">
-                                    <label class="text-sm text-gray-400">Username Trello</label>
-                                    <div class="w-full inline-flex border">
-                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
-                                            <i class="fas fa-portrait fa-lg"></i>
+                                <form id="update_trello" action="account.php" method="post">
+                                    <div class="md:w-2/3 max-w-sm mx-auto">
+                                        <label class="text-sm text-gray-400">Username Trello</label>
+                                        <div class="w-full inline-flex border">
+                                            <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
+                                                <i class="fas fa-portrait fa-lg"></i>
+                                            </div>
+                                            <input
+                                                    type="username_trello"
+                                                    class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                    placeholder="<?= $user_trello ?? null ?>"
+                                            />
                                         </div>
-                                        <input
-                                                type="username_trello"
-                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                                placeholder="<?= $user_trello ?? null ?>"
-                                        />
-                                    </div>
-                                    <!--API Key-->
-                                    <label class="text-sm mt-5 text-gray-400">API Key</label>
-                                    <div class="w-full inline-flex border">
-                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
-                                            <i class="fas fa-key fa-lg"></i>
+                                        <!--API Key-->
+                                        <label class="text-sm mt-5 text-gray-400">API Key</label>
+                                        <div class="w-full inline-flex border">
+                                            <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
+                                                <i class="fas fa-key fa-lg"></i>
+                                            </div>
+                                            <input
+                                                    name="api_key"
+                                                    type="text"
+                                                    class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                    placeholder="<?= $api_key ?? null ?>"
+                                            />
                                         </div>
-                                        <input
-                                                name="api_key"
-                                                type="text"
-                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                                placeholder="<?= $api_key ?? null ?>"
-                                        />
-                                    </div>
-                                    <!--TOKEN-->
-                                    <label class="text-sm mt-5 text-gray-400">Token</label>
-                                    <div class="w-full inline-flex border">
-                                        <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
-                                            <i class="fab fa-trello fa-lg"></i>
+                                        <!--TOKEN-->
+                                        <label class="text-sm mt-5 text-gray-400">Token</label>
+                                        <div class="w-full inline-flex border">
+                                            <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
+                                                <i class="fab fa-trello fa-lg"></i>
+                                            </div>
+                                            <input
+                                                    name="token"
+                                                    type="text"
+                                                    class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
+                                                    placeholder="<?= $token ?? null ?>"
+                                            />
                                         </div>
-                                        <input
-                                                name="token"
-                                                type="text"
-                                                class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
-                                                placeholder="<?= $token ?? null ?>"
-                                        />
                                     </div>
-                                </div>
                             </div>
                             <hr/>
                             <!--Actualizar datos-->
                             <div class="w-full p-4 text-right text-gray-500 mb-4">
-                                    <!-- Boton actualizar-->
-                                    <div class="md:w-3/12 text-center md:pl-6 md:float-right ">
-                                        <input name="actualizar_trello" value="Actualizar" type="submit"
-                                               class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
-                                        </input>
-                                    </div>
-                                </form>
-                            </div>
+                                <!-- Boton actualizar-->
+                                <div class="md:w-3/12 text-center md:pl-6 md:float-right ">
+                                    <input name="actualizar_trello" value="Actualizar" type="submit"
+                                           class="text-white w-full mx-auto max-w-sm rounded-md text-center bg-indigo-400 py-2 px-4 inline-flex items-center focus:outline-none md:float-right">
+                                    </input>
+                                </div>
 
+                            </div>
+                            </form>
                         </div>
                     </div>
                 </section>
