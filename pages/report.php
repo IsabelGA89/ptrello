@@ -8,7 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 session_start();
 
 if ((!$_SESSION['user_id'])) {
-    $login = "./pages/auth/login.php";
+    $login = "auth/login.php";
     header("Location: $login");
     exit;
 }
@@ -72,10 +72,6 @@ $token = $_SESSION['access_data']['token'] ?? $defaultToken;
 $user = $_SESSION['access_data']['user'] ?? $defaultUserName;
 $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 
-var_dump($key);
-var_dump($token);
-var_dump($user);
-var_dump($key);
 
 //Consulta a los tableros:
 $trello = new trello_api($key, $token);
@@ -332,7 +328,7 @@ if ($boardId != null) {
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="nombre">Usuario </label>
                                         <input class="form-control" name="user" type="text"
-                                               placeholder=" <?= $user ?? null ?>"
+                                               placeholder=" <?= $user ?? null ?> value=" <?= $user ?? null ?> "
                                         <!--required-->
                                     </div>
                                     <div class="form-group mx-sm-3 mb-2 ">
