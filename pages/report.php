@@ -78,10 +78,11 @@ $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 
 //Consulta a los tableros:
 $trello = new trello_api($key, $token);
-$data = $trello->request('GET', ("member/me/boards"));
-var_dump($data);
+$user_id_from_trello_api = $trello->request('GET', ("member/me/boards"));
 
-$arr_tableros = board_request($trello, $data);
+var_dump($trello);
+
+$arr_tableros = board_request($trello, $user_id_from_trello_api);
 
 
 
@@ -364,7 +365,7 @@ if ($boardId != null) {
                         </div>
                         <div class="jumbotron" id="application">
                             <?php
-                            if ($data != null || $data != "") {
+                            if ($user_id_from_trello_api != null || $user_id_from_trello_api != "") {
                                 if (isset($arr_cards) && $arr_cards != "") {
                                     echo "<h2>Previsualización</h2>";
                                     echo "<br/>";
