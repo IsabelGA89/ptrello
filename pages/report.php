@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/trello_api.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 
 session_start();
-imprime_sesiones();
+
 //Autenticación
 if ((!$_SESSION['user_id'])) {
     $login = "auth/login.php";
@@ -79,9 +79,6 @@ $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 //Consulta a los tableros:
 $trello = new trello_api($key, $token);
 $user_id_from_trello_api = $trello->request('GET', ("member/me/boards"));
-
-var_dump($trello);
-
 $arr_tableros = board_request($trello, $user_id_from_trello_api);
 
 
@@ -223,7 +220,7 @@ if ($boardId != null) {
     <link rel="stylesheet" href="../css/style.css">
     <title>Consultas a tableros de Trello</title>
     <!--Favicon-->
-    <link rel="icon" type="image/png" sizes="32x32" href="img/icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png">
     <!--ICONOS FONT AWESOME-->
     <script src="https://kit.fontawesome.com/b4f679ca0a.js" crossorigin="anonymous"></script>
     <!--Tooltips-->
