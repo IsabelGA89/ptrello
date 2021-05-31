@@ -111,8 +111,6 @@ if (isset($_POST['actualizar'])) {
     $conn->close();
 }
 if(isset($_POST['actualizar_trello'])){
-    var_dump($_POST);
-    var_dump("updateamos trello");
     $user_trello = $_POST['username_trello'] ?? null;
     $api_key = $_POST['api_key'] ?? null;
     $token = $_POST['token'] ?? null;
@@ -504,8 +502,8 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
                                             <div class="pt-2 w-1/12 bg-gray-100 bg-opacity-50 ml-2">
                                                 <i class="fas fa-portrait fa-lg"></i>
                                             </div>
-                                            <input
-                                                    type="username_trello"
+                                            <input  name="username_trello"
+                                                    type="text"
                                                     class="w-11/12 focus:outline-none focus:text-gray-600 p-2"
                                                     placeholder="<?= $user_trello ?? null ?>"
                                             />
