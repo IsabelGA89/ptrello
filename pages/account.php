@@ -44,6 +44,10 @@ $conn->close();
 //2º Obtenemos la info de la cuenta
 $email = $arr_info['email'];
 $username = $arr_info['username'];
+
+$user_trello = $arr_info['username_trello'];
+$api_key = $arr_info['key_trello'];
+$token   = $arr_info['token_trello'];
 ////// FIN  BD /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //Acciones
 //UPDATE
@@ -109,7 +113,9 @@ if (isset($_POST['actualizar']) || isset($_POST['actualizar_trello'])) {
     }
     /*Actualización de datos de Trello*/
     if ($update_trello) {
-        $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$api_key',token_trello='$token' WHERE id='$bd_id'";
+        $secure_api = password_hash($api_key,PASSWORD_BCRYPT);
+        $secure_token = password_hash($token,PASSWORD_BCRYPT);
+        $consulta = "UPDATE users SET username_trello='$user_trello',key_trello='$secure_api',token_trello='$secure_token' WHERE id='$bd_id'";
         if ($conn->query($consulta) === true) {
             $info = "Datos modificados correctamente";
             header("Location:account.php?info=$info");

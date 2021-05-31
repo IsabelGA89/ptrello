@@ -114,6 +114,7 @@
         <div class="flex-grow p-6 overflow-auto bg-gray-800 ">
             <div class="bg-cover bg-center border rounded-t-lg shadow-lg mb-20"
                  style="background-image: url(https://images.unsplash.com/photo-1572817519612-d8fadd929b00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80)">
+                <div><p>Aquí puedes guardar y modificar los datos de cuenta.</p></div>
                 <!--Datos cuenta Trello Report-->
                 <section class="py-40 bg-gray-100 bg-opacity-50 h-screen">
                     <div class="mx-auto container max-w-2xl md:w-2/4 shadow-md">
