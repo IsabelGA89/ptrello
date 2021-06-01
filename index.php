@@ -16,7 +16,7 @@ if ((!$_SESSION['user_id'])) {
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -42,7 +42,7 @@ if ((!$_SESSION['user_id'])) {
 <body>
 <div class="flex w-screen h-screen text-gray-400 bg-gray-900">
     <!--Navbar-->
-    <div class="flex flex-col items-center  border-r border-gray-800 text-gray-500">
+    <div class="flex flex-col items-center w-16 pb-4 overflow-auto border-r border-gray-800 text-gray-500">
         <!--Info App-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-800"
            href="index.php">
