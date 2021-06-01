@@ -37,7 +37,7 @@
         </h1>
         <!--Quien soy-->
         <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded">
-                    <form action="pages/quiensoy.php" method="post"
+                    <form action="quiensoy.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <span style="color: white"><i class="fas fa-female fa-lg"></i></span>
                     <input type="submit" name="quiensoy" value="Sobre mí"
@@ -46,7 +46,7 @@
                 </span>
         <!--Contacto-->
         <span class="flex items-center justify-center h-10 px-4  text-sm font-medium rounded">
-                    <form action="pages/contact.php" method="post"
+                    <form action="contact.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                         <span style="color: white"> <i class="fas fa-envelope fa-lg"></i></span>
                     <input type="submit" name="quiensoy" value="Cuentame cosas"
@@ -55,7 +55,7 @@
                 </span>
         <!--LogOut-->
         <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium rounded">
-                    <form action="pages/auth/login.php" method="post"
+                    <form action="auth/login.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <span style="color: white"> <i class="fas fa-sign-out-alt fa-lg"></i></span>
                     <input type="submit" name="logout" value="Log out"

@@ -88,33 +88,36 @@ if ((!$_SESSION['user_id'])) {
 
     <div class="flex flex-col flex-grow">
         <!--Header-->
-        <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
-            <h1 class="text-3xl font-medium">
+        <div class="flex items-center flex-shrink-0 h-16 px-8 border-b ">
+            <h1 class="text-lg font-medium">
                 <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello
                 </h1>
-                <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="quiensoy.php" method="post" <!--target="_blank"-->
+                <!--Quien soy-->
+                <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded">
+                    <form action="quiensoy.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
-                    <i class="fas fa-female fa-lg"></i>
+                    <span style="color: white"><i class="fas fa-female fa-lg"></i></span>
                     <input type="submit" name="quiensoy" value="Sobre mí"
-                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
-                </form>
+                           class="flex btn items-center justify-center text-white-50  h-10 px-4 ml-auto text-sm font-medium rounded"/>
+                    </form>
                 </span>
-                <span class="flex items-center justify-center h-10 px-4  text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="contact.php" method="post" <!--target="_blank"-->
+                <!--Contacto-->
+                <span class="flex items-center justify-center h-10 px-4  text-sm font-medium rounded">
+                    <form action="contact.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
-                        <i class="fas fa-envelope fa-lg"></i>
+                        <span style="color: white"> <i class="fas fa-envelope fa-lg"></i></span>
                     <input type="submit" name="quiensoy" value="Cuentame cosas"
-                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                           class="flex btn items-center justify-center text-white-50 h-10 px-4 ml-auto text-sm font-medium rounded "/>
                 </form>
                 </span>
-                <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium rounded hover:bg-gray-800">
+                <!--LogOut-->
+                <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium rounded">
                     <form action="auth/login.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
-                    <i class="fas fa-sign-out-alt fa-lg"></i>
+                    <span style="color: white"> <i class="fas fa-sign-out-alt fa-lg"></i></span>
                     <input type="submit" name="logout" value="Log out"
-                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                           class="flex btn items-center justify-center text-white-50  h-10 px-4 ml-auto text-sm font-medium rounded"/>
                 </form>
                 </span>
         </div>
