@@ -94,7 +94,7 @@ if ((!$_SESSION['user_id'])) {
                     Consultas a tableros de Trello
                 </h1>
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="quiensoy.php" method="post" target="_blank"
+                    <form action="quiensoy.php" method="post" <!--target="_blank"-->
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Sobre mí"
@@ -102,7 +102,7 @@ if ((!$_SESSION['user_id'])) {
                 </form>
                 </span>
                 <span class="flex items-center justify-center h-10 px-4  text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="contact.php" method="post" target="_blank"
+                    <form action="contact.php" method="post" <!--target="_blank"-->
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                         <i class="fas fa-envelope fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Cuentame cosas"

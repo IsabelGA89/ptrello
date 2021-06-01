@@ -16,7 +16,7 @@ if ((!$_SESSION['user_id'])) {
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -86,7 +86,8 @@ if ((!$_SESSION['user_id'])) {
         <!--VideoTutoriales-->
         <a class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4  rounded hover:bg-gray-800"
            href="pages/tutorial.php">
-            <button type="button" data-title='VideoTutoriales' data-placement="right" class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
+            <button type="button" data-title='VideoTutoriales' data-placement="right"
+                    class=" text-gray-200 rounded hover:bg-blue-500 px-4 py-2 focus:outline-none">
                 <i class="fab fa-youtube fa-lg"></i>
             </button>
         </a>
@@ -99,22 +100,25 @@ if ((!$_SESSION['user_id'])) {
                 <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello
                 </h1>
+                <!--Quien soy-->
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="pages/quiensoy.php" method="post" target="_blank"
+                    <form action="pages/quiensoy.php" method="post" <!--target="_blank"-->
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Sobre mí"
                            class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
-                </form>
+                    </form>
                 </span>
+                <!--Contacto-->
                 <span class="flex items-center justify-center h-10 px-4  text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="pages/contact.php" method="post" target="_blank"
+                    <form action="pages/contact.php" method="post" <!--target="_blank"-->
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                         <i class="fas fa-envelope fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Cuentame cosas"
                            class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
                 </form>
                 </span>
+                <!--LogOut-->
                 <span class="flex items-center justify-center h-10 px-4 ml-2 text-sm font-medium rounded hover:bg-gray-800">
                     <form action="pages/auth/login.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
