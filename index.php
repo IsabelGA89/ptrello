@@ -95,7 +95,7 @@ if ((!$_SESSION['user_id'])) {
 
     <div class="flex flex-col flex-grow">
         <!--Header-->
-        <div class="flex items-center flex-shrink-0 h-16 px-8 border-b border-gray-800">
+        <div class="flex items-center flex-shrink-0 h-16 px-8 border-b">
             <h1 class="text-lg font-medium">
                 <h1 style="text-align: center;"><i class="fab fa-trello text-primary"></i>
                     Consultas a tableros de Trello
@@ -106,7 +106,7 @@ if ((!$_SESSION['user_id'])) {
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Sobre mí"
-                           class="flex btn items-center justify-center text-white-400  h-10 px-4 ml-auto text-sm font-medium rounded"/>
+                           class="flex btn items-center justify-center text-white-800  h-10 px-4 ml-auto text-sm font-medium rounded"/>
                     </form>
                 </span>
                 <!--Contacto-->
@@ -115,7 +115,7 @@ if ((!$_SESSION['user_id'])) {
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                         <i class="fas fa-envelope fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Cuentame cosas"
-                           class="flex btn items-center justify-center text-white-400  h-10 px-4 ml-auto text-sm font-medium rounded "/>
+                           class="flex btn items-center justify-center text-white-800  h-10 px-4 ml-auto text-sm font-medium rounded "/>
                 </form>
                 </span>
                 <!--LogOut-->
@@ -124,7 +124,7 @@ if ((!$_SESSION['user_id'])) {
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-sign-out-alt fa-lg"></i>
                     <input type="submit" name="logout" value="Log out"
-                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded"/>
                 </form>
                 </span>
         </div>
