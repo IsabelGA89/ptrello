@@ -14,8 +14,7 @@ FPDF  https://huguidugui.wordpress.com/2013/11/20/fpdf-tablas-y-reportes-introdu
 
 
 //Crear la bd
- create database proyecto;
-  use proyecto;
+
 
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
