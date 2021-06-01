@@ -285,7 +285,7 @@ if ($boardId != null) {
                     Consultas a tableros de Trello
                 </h1>
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="quiensoy.php" method="post" 
+                    <form action="quiensoy.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Sobre mí"
