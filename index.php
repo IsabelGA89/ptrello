@@ -102,20 +102,20 @@ if ((!$_SESSION['user_id'])) {
                 </h1>
                 <!--Quien soy-->
                 <span class="flex items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="pages/quiensoy.php" method="post" <!--target="_blank"-->
+                    <form action="pages/quiensoy.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                     <i class="fas fa-female fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Sobre mí"
-                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                           class="flex btn items-center justify-center text-white-400  h-10 px-4 ml-auto text-sm font-medium rounded"/>
                     </form>
                 </span>
                 <!--Contacto-->
                 <span class="flex items-center justify-center h-10 px-4  text-sm font-medium rounded hover:bg-gray-800">
-                    <form action="pages/contact.php" method="post" <!--target="_blank"-->
+                    <form action="pages/contact.php" method="post"
                           class="flex btn items-center justify-center h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400">
                         <i class="fas fa-envelope fa-lg"></i>
                     <input type="submit" name="quiensoy" value="Cuentame cosas"
-                           class="flex btn items-center justify-center text-gray-400  h-10 px-4 ml-auto text-sm font-medium rounded hover:bg-gray-400"/>
+                           class="flex btn items-center justify-center text-white-400  h-10 px-4 ml-auto text-sm font-medium rounded "/>
                 </form>
                 </span>
                 <!--LogOut-->
