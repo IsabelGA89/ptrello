@@ -11,7 +11,7 @@ if ((!$_SESSION['user_id'])) {
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -137,6 +137,7 @@ if ((!$_SESSION['user_id'])) {
                         <h2 class="font-bold text-3xl mb-12">Cristina González -  Beta tester</h2>
                         <h2 class="font-bold text-3xl mb-12">Diego Rández - QA, Beta tester</h2>
                         <h2 class="font-bold text-3xl mb-12">Coronel Pingüino - QA, Beta tester</h2>
+                        <h2 class="font-bold text-3xl mb-12">Pilar Llamas - QA senior, Beta tester</h2>
                         <div>
                         </div>
                         <p>Si quieres colaborar, puedes ayudarnos contestando a <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSctQrpeHpU48KaJYJjBLWg7VgeD0L4iO-eTiLb5EkRkU6AN_w/viewform">esta encuesta</a>, no te llevará mas de un minuto .</p>

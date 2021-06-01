@@ -63,7 +63,7 @@ function board_request($trello,$data){
         array_push($array_nombres_tableros, $tablero->name);
         array_push($array_id_tableros, $tablero->id);
     }
-   
+
 
     $arr_tableros = array_combine($array_nombres_tableros, $array_id_tableros);
     return $arr_tableros;

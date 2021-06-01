@@ -11,7 +11,7 @@ if ((!$_SESSION['user_id'])) {
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -19,7 +19,7 @@ if ((!$_SESSION['user_id'])) {
     <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
     <!--Personal css-->
     <link rel="stylesheet" href="../css/style.css">
-    <title>Cuenta</title>
+    <title>Contacta con nosotros</title>
     <!--Favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png">
     <!--ICONOS FONT AWESOME-->
@@ -125,8 +125,8 @@ if ((!$_SESSION['user_id'])) {
                 <div class="container mx-auto">
                     <div class="max-w-md mx-auto my-10 bg-white p-5 rounded-md shadow-sm">
                         <div class="text-center">
-                            <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">¿Tienes más
-                                preguntas?</h1>
+                            <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">¿Tienes alguna
+                                pregunta?</h1>
                             <p class="text-gray-400 dark:text-gray-400">Contacta con nosotros</p>
                         </div>
                         <div class="m-7">

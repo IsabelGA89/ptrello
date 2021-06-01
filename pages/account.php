@@ -172,7 +172,7 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <meta name="viewport"
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
@@ -180,7 +180,7 @@ if (isset($_GET['delete']) && ($_GET['delete'] == "true")) {
     <link href="https://unpkg.com/tailwindcss@2.0.1/dist/tailwind.min.css" rel="stylesheet">
     <!--Personal css-->
     <link rel="stylesheet" href="../css/style.css">
-    <title>Cuenta</title>
+    <title>Cuenta de usuario</title>
     <!--Favicon-->
     <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png">
     <!--ICONOS FONT AWESOME-->
