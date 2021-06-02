@@ -6,7 +6,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/trello_api.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/Class/PDF.php";
 
 session_start();
-var_dump($_SESSION);
+/*var_dump($_SESSION);*/
 
 //Autenticación
 if ((!$_SESSION['user_id'])) {
