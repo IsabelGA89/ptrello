@@ -42,6 +42,8 @@ if ($resultado = $conn->query($consulta)) {
 }
 $conn->close();
 //fin BD__________________________________________________________________________________________________
+$isFirstTimeWecame = true;
+
 
 //Parámetros por defecto
 $defaultUserName = $arr_info['username_trello'];
@@ -56,9 +58,12 @@ if (isset($_POST['reset'])) {
     $user = "";
     $token = "";
     $key = "";
+
+    $isFirstTimeWecame = true;
 }
 //Obtenemos las variables del formulario o usamos los valores por defecto;
 if (isset($_POST['login'])) {
+    $isFirstTimeWecame = false;
     $_SESSION['access_data']['key'] = $_POST['key'];
     $_SESSION['access_data']['token'] = $_POST['token'];
     $_SESSION['access_data']['user'] = $_POST['user'];
@@ -85,6 +90,7 @@ $arr_tableros = board_request($trello, $user_id_from_trello_api);
 
 //Consulta a las cards del tablero:
 if ($boardId != null) {
+
 //Comprobación de los filtros:
     $are_filters = check_filters();
     if ($are_filters == false) {
@@ -325,7 +331,14 @@ if ($boardId != null) {
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="nombre">Usuario </label>
                                         <input class="form-control" name="user" type="text"
-                                               placeholder=" <?= $user ?? null ?>"   value="<?= isset($user)?htmlspecialchars($user):'' ?>" />
+                                               placeholder=" <?= $user ?? null ?>"   value="<?php
+                                        if($isFirstTimeWecame==true){
+                                            echo $user;
+                                        }else{
+                                            echo "";
+                                        }
+
+                                        ?>" />
                                         <!--required-->
                                     </div>
                                     <!--Key-->
