@@ -47,7 +47,7 @@ $conn->close();
 $defaultUserName = $arr_info['username_trello'];
 $defaultKey = $arr_info['key_trello'];
 $defaultToken = $arr_info['token_trello'];
-$defaultBoardBasic = getFirstBoardId($defaultKey,$defaultToken) ?? "";
+$defaultBoardBasic = getFirstBoardId($defaultKey,$defaultToken);
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 //RUTAS
