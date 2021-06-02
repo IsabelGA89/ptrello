@@ -345,14 +345,28 @@ if ($boardId != null) {
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="key">Key </label>
                                         <input class="form-control" type="password" name="key"
-                                               placeholder="<?= $key ?? null ?>"  value="<?= isset($key)?htmlspecialchars($key):'' ?>" />
+                                               placeholder="<?= $key ?? null ?>"  value="<?php
+                                        if($isFirstTimeWecame==true){
+                                            echo $key;
+                                        }else{
+                                            echo "";
+                                        }
+
+                                        ?>" />
                                         <!--required-->
                                     </div>
                                     <!--Token-->
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="token">Token </label>
                                         <input class="form-control" type="password" name="token"
-                                               placeholder="<?= $token ?? null ?>" value="<?= isset($token)?htmlspecialchars($token):'' ?>"
+                                               placeholder="<?= $token ?? null ?>" value="<?php
+                                        if($isFirstTimeWecame==true){
+                                            echo $token;
+                                        }else{
+                                            echo "";
+                                        }
+
+                                        ?>"
                                         />
                                         <!--required-->
                                     </div>
