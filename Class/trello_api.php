@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class trello_api
+ */
 class trello_api{
     private $key;
     private $token;
@@ -53,7 +56,13 @@ class trello_api{
 }
 
 
-function board_request($trello,$data){
+/**
+ * Devuelve todos los tableros de un usuario
+ * @param $trello
+ * @param $data
+ * @return array
+ */
+function board_request($trello, $data){
 
     /*$data = $trello->request('GET', ("member/me/boards"));*/
 
@@ -64,12 +73,24 @@ function board_request($trello,$data){
         array_push($array_id_tableros, $tablero->id);
     }
 
-
     $arr_tableros = array_combine($array_nombres_tableros, $array_id_tableros);
     return $arr_tableros;
 }
 
+/**
+ *
+ * @param $key
+ * @param $token
+ */
+function getFirstBoardId($key, $token){
+    $trello = new trello_api($key, $token);
+    $user_id_from_trello_api = $trello->request('GET', ("member/me/boards"));
+    $arr_tableros = board_request($trello, $user_id_from_trello_api);
 
+    $first_board_id = array_values($arr_tableros)[0];
+
+    return $first_board_id;
+}
 
 
 ?>

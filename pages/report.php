@@ -42,11 +42,12 @@ if ($resultado = $conn->query($consulta)) {
 }
 $conn->close();
 //fin BD__________________________________________________________________________________________________
+
 //Parámetros por defecto
 $defaultUserName = $arr_info['username_trello'];
 $defaultKey = $arr_info['key_trello'];
 $defaultToken = $arr_info['token_trello'];
-$defaultBoardBasic = "";
+$defaultBoardBasic = getFirstBoardId($defaultKey,$defaultToken) ?? "";
 
 $defaultBoardId = $_POST['boardId'] ?? null;
 //RUTAS
