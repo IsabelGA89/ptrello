@@ -49,7 +49,7 @@ $defaultKey = $arr_info['key_trello'];
 $defaultToken = $arr_info['token_trello'];
 $defaultBoardId = getFirstBoardId($defaultKey,$defaultToken);
 
-$defaultBoardId = $_POST['boardId'] ?? null;
+//$defaultBoardId = $_POST['boardId'] ?? null;
 //RUTAS
 if (isset($_POST['reset'])) {
     delete_session_data();
@@ -81,7 +81,6 @@ $boardId = $_SESSION['boardId'] ?? $defaultBoardId;
 $trello = new trello_api($key, $token);
 $user_id_from_trello_api = $trello->request('GET', ("member/me/boards"));
 $arr_tableros = board_request($trello, $user_id_from_trello_api);
-
 
 
 //Consulta a las cards del tablero:
