@@ -332,14 +332,14 @@ if ($boardId != null) {
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="key">Key </label>
                                         <input class="form-control" type="password" name="key"
-                                               placeholder="<?= $key ?? null ?>" />
+                                               placeholder="<?= $key ?? null ?>"  value="<?= isset($key)?htmlspecialchars($key):'' ?>" />
                                         <!--required-->
                                     </div>
                                     <!--Token-->
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="token">Token </label>
                                         <input class="form-control" type="password" name="token"
-                                               placeholder="<?= $token ?? null ?>"/>
+                                               placeholder="<?= $token ?? null ?>    value="<?= isset($token)?htmlspecialchars($token):'' ?>" "/>
                                         <!--required-->
                                     </div>
                                     <br/>
