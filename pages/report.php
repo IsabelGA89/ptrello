@@ -42,7 +42,7 @@ if ($resultado = $conn->query($consulta)) {
 }
 $conn->close();
 //fin BD__________________________________________________________________________________________________
-$isFirstTimeWecame = true;
+$isFirstTimeWecame = $_SESSION['access_data'] ? false : true;
 
 
 //Parámetros por defecto
@@ -58,12 +58,9 @@ if (isset($_POST['reset'])) {
     $user = "";
     $token = "";
     $key = "";
-
-    $isFirstTimeWecame = true;
 }
 //Obtenemos las variables del formulario o usamos los valores por defecto;
-if (isset($_POST['login'])) {
-    $isFirstTimeWecame = false;
+if (isset($_POST['login']) &&  $_POST['login']!= "") {
     $_SESSION['access_data']['key'] = $_POST['key'];
     $_SESSION['access_data']['token'] = $_POST['token'];
     $_SESSION['access_data']['user'] = $_POST['user'];
