@@ -162,7 +162,7 @@ if ($info != "") {
             <form method="post" action="login.php" name="signin-form" class="sm:w-2/3 w-full px-4 lg:px-0 mx-auto">
                 <div class="pb-2 pt-4">
                     <input type="text" name="username" pattern="[a-zA-Z0-9]+" required placeholder="Username"
-                           class="block w-full p-4 text-lg rounded-sm bg-black">
+                           class="block w-full p-4 text-lg rounded-sm bg-black" autofocus>
                 </div>
                 <div class="pb-2 pt-4">
                     <input class="block w-full p-4 text-lg rounded-sm bg-black" type="password" name="password"
