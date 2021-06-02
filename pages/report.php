@@ -339,7 +339,8 @@ if ($boardId != null) {
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="token">Token </label>
                                         <input class="form-control" type="password" name="token"
-                                               placeholder="<?= $token ?? null ?> value="<?= isset($token)?htmlspecialchars($token):'' ?>" />
+                                               placeholder="<?= $token ?? null ?>" value="<?= isset($token)?htmlspecialchars($token):'' ?>"
+                                        />
                                         <!--required-->
                                     </div>
                                     <br/>
