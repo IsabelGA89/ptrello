@@ -89,7 +89,7 @@ function getFirstBoardId($key, $token){
 
     $first_board_id = array_values($arr_tableros)[0];
 
-    return $first_board_id ?? "";
+    return $first_board_id;
 }
 
 
