@@ -334,10 +334,7 @@ if ($boardId != null) {
                                                placeholder=" <?= $user ?? null ?>"   value="<?php
                                         if($isFirstTimeWecame==true){
                                             echo $user;
-                                        }else{
-                                            echo "";
                                         }
-
                                         ?>" />
                                         <!--required-->
                                     </div>
@@ -348,8 +345,6 @@ if ($boardId != null) {
                                                placeholder="<?= $key ?? null ?>"  value="<?php
                                         if($isFirstTimeWecame==true){
                                             echo $key;
-                                        }else{
-                                            echo "";
                                         }
 
                                         ?>" />
@@ -362,8 +357,6 @@ if ($boardId != null) {
                                                placeholder="<?= $token ?? null ?>" value="<?php
                                         if($isFirstTimeWecame==true){
                                             echo $token;
-                                        }else{
-                                            echo "";
                                         }
 
                                         ?>"
