@@ -78,7 +78,7 @@ function board_request($trello, $data){
 }
 
 /**
- *
+ *Devuelve el primer tablero del usuario.
  * @param $key
  * @param $token
  */

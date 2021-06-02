@@ -329,35 +329,21 @@ if ($boardId != null) {
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="nombre">Usuario </label>
                                         <input class="form-control" name="user" type="text"
-                                               placeholder=" <?= $user ?? null ?>"   value="<?php
-                                        if($isFirstTimeWecame==true){
-                                            echo $user;
-                                        }
-                                        ?>" />
+                                               placeholder=" <?= $user ?? null ?>"  />
                                         <!--required-->
                                     </div>
                                     <!--Key-->
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="key">Key </label>
                                         <input class="form-control" type="password" name="key"
-                                               placeholder="<?= $key ?? null ?>"  value="<?php
-                                        if($isFirstTimeWecame==true){
-                                            echo $key;
-                                        }
-
-                                        ?>" />
+                                               placeholder="<?= $key ?? null ?>"  />
                                         <!--required-->
                                     </div>
                                     <!--Token-->
                                     <div class="form-group mx-sm-3 mb-2 ">
                                         <label for="token">Token </label>
                                         <input class="form-control" type="password" name="token"
-                                               placeholder="<?= $token ?? null ?>" value="<?php
-                                        if($isFirstTimeWecame==true){
-                                            echo $token;
-                                        }
-
-                                        ?>"
+                                               placeholder="<?= $token ?? null ?>"
                                         />
                                         <!--required-->
                                     </div>
