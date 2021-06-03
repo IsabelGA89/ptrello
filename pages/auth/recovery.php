@@ -164,7 +164,7 @@ if($_POST['actualizar']){
                 <label class="block text-gray-700 text-sm font-semibold mb-2" for="email">
                     Email
                 </label>
-                <input
+                <input autofocus
                         class="text-sm appearance-none rounded w-full py-2 px-3 text-gray-700 bg-gray-200 leading-tight focus:outline-none focus:shadow-outline h-10"
                         name="email"
                         type="text"

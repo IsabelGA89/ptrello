@@ -132,8 +132,13 @@ if ((!$_SESSION['user_id'])) {
                                 <div class="text-3xl">Sección <span class="font-medium">FAQ</span></div>
                                 <div class="my-2">¿Cómo funciona esta aplicación?</div>
                                 <div class="mb-2">¿Para qué sirve?</div>
-                                <div class="text-xs text-gray-600">Revisa la sección para dar respuesta a tus dudas.
+                                <div class="text-xs text-gray-600">Revisa la sección para dar respuesta a tus dudas.</div>
+                                <div class="text-xs text-gray-600">
+                                    <a href="../user_manual.pdf">
+                                        Puedes descargar el manual de usuario desde aquí.
+                                    </a>
                                 </div>
+
                             </div>
                             <div class="md:w-2/3">
                                 <div class="p-4">
