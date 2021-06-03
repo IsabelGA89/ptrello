@@ -388,7 +388,8 @@ if ($boardId != null) {
                                 echo render_form_select_board($arr_tableros, $boardId, $arr_cards);
                                 echo "</div>";
                             } else {
-                                echo "No hay datos o no se ha logueado correctamente,por favor, intoduzca sus datos de acceso de Trello.";
+                                echo "No hay datos o no se ha logueado correctamente.
+                                    Por favor, intoduzca sus datos de acceso de Trello.";
                             }
                             ?>
 
