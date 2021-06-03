@@ -17,7 +17,8 @@ if ((!$_SESSION['user_id'])) {
     <meta name="description" content="Resumen del creador">
     <meta name="keywords" content="Presentacion">
     <meta name="author" content="Isabel Gonzalez Anzano">
-
+    <!--Favicon-->
+    <link rel="icon" type="image/png" sizes="32x32" href="../img/icon.png">
     <link rel="stylesheet" href="https://unpkg.com/tailwindcss/dist/tailwind.min.css">
 
 
