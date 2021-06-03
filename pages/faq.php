@@ -133,8 +133,8 @@ if ((!$_SESSION['user_id'])) {
                                 <div class="my-2">¿Cómo funciona esta aplicación?</div>
                                 <div class="mb-2">¿Para qué sirve?</div>
                                 <div class="text-xs text-gray-600">Revisa la sección para dar respuesta a tus dudas.</div>
-                                <div class="text-xs text-gray-600">
-                                    <a href="../user_manual.pdf">
+                                <div class="text-ml text-gray-600 pt-2">
+                                    <a class="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" target="_blank" href="../user_manual.pdf">
                                         Puedes descargar el manual de usuario desde aquí.
                                     </a>
                                 </div>
